@@ -1,5 +1,13 @@
+package com.socialnetwork.vywatch.Model;
+
 import java.io.Serializable;
 import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.Table;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @Table(name="Users")
 @EntityListeners(AuditingEntityListener.class)
@@ -155,37 +163,7 @@ public class Users implements Serializable {
         return this;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Users)) {
-            return false;
-        }
-        Users users = (Users) o;
-        return idUser == users.idUser && Objects.equals(lastname, users.lastname) && Objects.equals(firstname, users.firstname) && Objects.equals(datenaissance, users.datenaissance) && Objects.equals(email, users.email) && Objects.equals(password, users.password) && firstconnection == users.firstconnection && sexe == users.sexe && admin == users.admin;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(idUser, lastname, firstname, datenaissance, email, password, firstconnection, sexe, admin);
-    }
-
-    @Override
-    public String toString() {
-        return "{" +
-            " idUser='" + getIdUser() + "'" +
-            ", lastname='" + getLastname() + "'" +
-            ", firstname='" + getFirstname() + "'" +
-            ", datenaissance='" + getDatenaissance() + "'" +
-            ", email='" + getEmail() + "'" +
-            ", password='" + getPassword() + "'" +
-            ", firstconnection='" + isFirstconnection() + "'" +
-            ", sexe='" + getSexe() + "'" +
-            ", admin='" + isAdmin() + "'" +
-            "}";
-    }
-
+    
     
 
 

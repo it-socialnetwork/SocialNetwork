@@ -1,5 +1,13 @@
+package com.socialnetwork.vywatch.Model;
+
 import java.io.Serializable;
-import java.sql.Date;
+
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.Table;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @Table(name="Users")
 @EntityListeners(AuditingEntityListener.class)
@@ -41,28 +49,7 @@ public class ListSubject implements Serializable{
         return this;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof ListSubject)) {
-            return false;
-        }
-        ListSubject listSubject = (ListSubject) o;
-        return idListSub == listSubject.idListSub && Objects.equals(nameSubject, listSubject.nameSubject);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(idListSub, nameSubject);
-    }
-
-    @Override
-    public String toString() {
-        return "{" +
-            " idListSub='" + getIdListSub() + "'" +
-            ", nameSubject='" + getNameSubject() + "'" +
-            "}";
-    }
+    
+   
 
 }
