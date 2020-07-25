@@ -1,5 +1,6 @@
 export class User
 {
+    Id : String;
     Sexe : String;
     Lastname : String;
     Firstname : String;
@@ -7,5 +8,5 @@ export class User
     Email : String;
     Password : String;
     Firstconnection : boolean;
-    Admin : boolean;
+    Pseudo : String;
 }
