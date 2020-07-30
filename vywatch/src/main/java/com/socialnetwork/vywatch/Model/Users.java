@@ -12,30 +12,33 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Table(name="Users")
 @EntityListeners(AuditingEntityListener.class)
 public class Users implements Serializable {
+
+
     private int idUser;
     private String lastname;
     private String firstname;
-    private Date datenaissance;
+    private Date dateBirth;
     private String email;
     private String password;
     private boolean firstconnection;
     private char sexe;
-    private boolean admin;
+    private String pseudo;
 
 
     public Users() {
     }
 
-    public Users(int idUser, String lastname, String firstname, Date datenaissance, String email, String password, boolean firstconnection, char sexe, boolean admin) {
+
+    public Users(int idUser, String lastname, String firstname, Date dateBirth, String email, String password, boolean firstconnection, char sexe, String pseudo) {
         this.idUser = idUser;
         this.lastname = lastname;
         this.firstname = firstname;
-        this.datenaissance = datenaissance;
+        this.dateBirth = dateBirth;
         this.email = email;
         this.password = password;
         this.firstconnection = firstconnection;
         this.sexe = sexe;
-        this.admin = admin;
+        this.pseudo = pseudo;
     }
 
     public int getIdUser() {
@@ -62,12 +65,12 @@ public class Users implements Serializable {
         this.firstname = firstname;
     }
 
-    public Date getDatenaissance() {
-        return this.datenaissance;
+    public Date getDateBirth() {
+        return this.dateBirth;
     }
 
-    public void setDatenaissance(Date datenaissance) {
-        this.datenaissance = datenaissance;
+    public void setDateBirth(Date dateBirth) {
+        this.dateBirth = dateBirth;
     }
 
     public String getEmail() {
@@ -106,16 +109,12 @@ public class Users implements Serializable {
         this.sexe = sexe;
     }
 
-    public boolean isAdmin() {
-        return this.admin;
+    public String getPseudo() {
+        return this.pseudo;
     }
 
-    public boolean getAdmin() {
-        return this.admin;
-    }
-
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
     public Users idUser(int idUser) {
@@ -133,8 +132,8 @@ public class Users implements Serializable {
         return this;
     }
 
-    public Users datenaissance(Date datenaissance) {
-        this.datenaissance = datenaissance;
+    public Users dateBirth(Date dateBirth) {
+        this.dateBirth = dateBirth;
         return this;
     }
 
@@ -158,15 +157,10 @@ public class Users implements Serializable {
         return this;
     }
 
-    public Users admin(boolean admin) {
-        this.admin = admin;
+    public Users pseudo(String pseudo) {
+        this.pseudo = pseudo;
         return this;
     }
-
-    
-    
-
-
 
 
 }
