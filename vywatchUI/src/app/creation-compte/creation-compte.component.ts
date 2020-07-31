@@ -7,24 +7,26 @@ import { User } from '../Model/User'
 })
 export class CreationCompteComponent implements OnInit {
   User:User;
+
+  
   DayBirth:String;
   MonthBirth:String;
   YearBirth:String;
 
-  Title : String;
+  Yearnow;
+  DayArray;
+  YearArray;
 
-  
+  Title : String;
 
   //Variable pour afficher ou masquer un éléments pour l'inscription
   SubscribePart : boolean;
   SubscribePart1 : boolean;
   SubscribePart2 : boolean;
   
-  Yearnow;
-  DayArray; 
-  YearArray;
-
-  Gender:String;
+  //Variable spécifiant si le sexe est différent de Homme ou Femme
+  //Cette varaible s'initialise à true lors d'un click sur l'option "Autre"
+  AnGender:boolean;
 
   constructor() { }
   
@@ -44,6 +46,16 @@ export class CreationCompteComponent implements OnInit {
     this.Title="CRÉER UN COMPTE";
 
     this.SubscribePart=true;
+  }
+  
+  ClassicGender() : void{
+    this.AnGender=false;
+  }
+
+  AnotherGender() : void
+  {
+    this.AnGender=true;
+    this.User.Sexe="";
   }
 
   NextPartSubscribe(NextPart):void
