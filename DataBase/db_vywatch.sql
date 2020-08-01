@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 15 juil. 2020 à 14:16
+-- Généré le :  sam. 01 août 2020 à 17:13
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -43,17 +43,25 @@ CREATE TABLE IF NOT EXISTS `listsubject` (
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `idUser_Users` int(11) NOT NULL AUTO_INCREMENT,
-  `lastname_Users` varchar(255) DEFAULT NULL,
-  `firstname_Users` varchar(255) DEFAULT NULL,
-  `datenaissance_Users` varchar(255) DEFAULT NULL,
-  `email_Users` varchar(255) DEFAULT NULL,
-  `password_Users` varchar(255) DEFAULT NULL,
-  `firstconnection_Users` tinyint(1) DEFAULT NULL,
-  `sexe_Users` char(1) DEFAULT NULL,
-  `admin_Users` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`idUser_Users`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+  `lastname` varchar(255) DEFAULT NULL,
+  `firstname` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `firstconnection` tinyint(1) DEFAULT NULL,
+  `pseudo` varchar(255) DEFAULT NULL,
+  `date_birth` date DEFAULT NULL,
+  `sexe` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id_user`, `lastname`, `firstname`, `email`, `password`, `firstconnection`, `pseudo`, `date_birth`, `sexe`) VALUES
+(1, 'TEST', 'Nicolas', 'test@gmail.com', 'test', 1, 'tete', NULL, 'Man'),
+(2, 'tt', 'gg', 'gg@yy.com', 'test', 1, 'licorne24', '2011-05-04', 'Licorne');
 
 -- --------------------------------------------------------
 
@@ -78,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `usersubject` (
 --
 ALTER TABLE `usersubject`
   ADD CONSTRAINT `FK_userSubject_idListSub_listSubject` FOREIGN KEY (`idListSub_listSubject`) REFERENCES `listsubject` (`idListSub_listSubject`),
-  ADD CONSTRAINT `FK_userSubject_idUser_Users` FOREIGN KEY (`idUser_Users`) REFERENCES `users` (`idUser_Users`);
+  ADD CONSTRAINT `FK_userSubject_idUser_Users` FOREIGN KEY (`idUser_Users`) REFERENCES `users` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -11,6 +12,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Table(name="userSubject")
 @EntityListeners(AuditingEntityListener.class)
 public class UserSubject implements Serializable {
+
+    @Id
     private int idListSub;
     private int idUser;
 

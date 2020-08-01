@@ -5,6 +5,7 @@ import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -13,7 +14,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class Users implements Serializable {
 
-
+    @Id
     private int idUser;
     private String lastname;
     private String firstname;
@@ -29,14 +30,12 @@ public class Users implements Serializable {
     }
 
 
-    public Users(int idUser, String lastname, String firstname, Date dateBirth, String email, String password, boolean firstconnection, String sexe, String pseudo) {
-        this.idUser = idUser;
+    public Users( String lastname, String firstname, Date dateBirth, String email, String password, String sexe, String pseudo) {
         this.lastname = lastname;
         this.firstname = firstname;
         this.dateBirth = dateBirth;
         this.email = email;
         this.password = password;
-        this.firstconnection = firstconnection;
         this.sexe = sexe;
         this.pseudo = pseudo;
     }
