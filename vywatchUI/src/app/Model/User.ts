@@ -1,10 +1,10 @@
 export class User
 {
-    Sexe : String;
-    Lastname : String;
-    Firstname : String;
-    DateBirth : String;
-    Email : String;
-    Password : String;
-    Pseudo : String;
+    sexe : String;
+    lastname : String;
+    firstname : String;
+    dateBirth : String;
+    email : String;
+    password : String;
+    pseudo : String;
 }

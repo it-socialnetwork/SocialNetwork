@@ -21,7 +21,7 @@ public class Users implements Serializable {
     private String email;
     private String password;
     private boolean firstconnection;
-    private char sexe;
+    private String sexe;
     private String pseudo;
 
 
@@ -29,7 +29,7 @@ public class Users implements Serializable {
     }
 
 
-    public Users(int idUser, String lastname, String firstname, Date dateBirth, String email, String password, boolean firstconnection, char sexe, String pseudo) {
+    public Users(int idUser, String lastname, String firstname, Date dateBirth, String email, String password, boolean firstconnection, String sexe, String pseudo) {
         this.idUser = idUser;
         this.lastname = lastname;
         this.firstname = firstname;
@@ -101,11 +101,11 @@ public class Users implements Serializable {
         this.firstconnection = firstconnection;
     }
 
-    public char getSexe() {
+    public String getSexe() {
         return this.sexe;
     }
 
-    public void setSexe(char sexe) {
+    public void setSexe(String sexe) {
         this.sexe = sexe;
     }
 
@@ -152,7 +152,7 @@ public class Users implements Serializable {
         return this;
     }
 
-    public Users sexe(char sexe) {
+    public Users sexe(String sexe) {
         this.sexe = sexe;
         return this;
     }

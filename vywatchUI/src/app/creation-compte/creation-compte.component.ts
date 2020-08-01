@@ -68,7 +68,7 @@ export class CreationCompteComponent implements OnInit {
   AnotherGender() : void
   {
     this.AnGender=true;
-    this.User.Sexe="";
+    this.User.sexe="";
   }
 
   NextPartSubscribe(NextPart):void
@@ -110,7 +110,7 @@ export class CreationCompteComponent implements OnInit {
     {
       this.DayBirth="0"+this.DayBirth;
     }
-    this.User.DateBirth=this.YearBirth+"-"+this.MonthBirth+"-"+this.DayBirth;
+    this.User.dateBirth=this.YearBirth+"-"+this.MonthBirth+"-"+this.DayBirth;
     console.log(this.User)
     return this.http.post("http://localhost:8080/users/createUsers", this.User, httpOptions).subscribe(() => {
       console.log('Enregistrement terminé !');
