@@ -112,7 +112,7 @@ export class CreationCompteComponent implements OnInit {
     }
     this.User.DateBirth=this.YearBirth+"-"+this.MonthBirth+"-"+this.DayBirth;
     console.log(this.User)
-    return this.http.post("http://localhost:8080/user/saveuser", this.User, httpOptions).subscribe(() => {
+    return this.http.post("http://localhost:8080/users/createUsers", this.User, httpOptions).subscribe(() => {
       console.log('Enregistrement terminé !');
     },
     (error) => {
