@@ -7,3 +7,11 @@
     right: 0px;
     height: 70px;
 }
+
+button{
+    border: 1px solid #6A38FF;
+    background-color: #FFF;
+    color: #6A38FF;
+    
+    font-size: 1.3em;
+}

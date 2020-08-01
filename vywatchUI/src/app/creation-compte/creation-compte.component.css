@@ -4,6 +4,9 @@ h2
     margin-top: 50px;
     font-size: 1.5em;
 }
+p{
+    margin-top: 50px;
+}
 
 input
 {
@@ -25,7 +28,6 @@ input[type="submit"]
 
 input[type="submit"]:hover
 {
-    border: 1px solid #6a38ffe1;
     background-color: #6a38ffe1;
 }
 
