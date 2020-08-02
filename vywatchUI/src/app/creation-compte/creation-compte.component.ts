@@ -22,10 +22,12 @@ export class CreationCompteComponent implements OnInit {
   //Le titre est amené à changer en fonction des différentes partie
   Title : String;
 
-  User :User;
+  User :User; //on crée l'objet de l'instance de la classe User
+  UserService :UserService; //on crée l'objet de l'instance de la classe UserService
+
   //Cette Varaible permet de réaliser un formulaire
   SubscribeForm: FormGroup;
-  SubscribeFormGender: FormGroup;
+  
 
   //Variable pour afficher ou masquer un éléments pour l'inscription
   SubscribePart: boolean;
@@ -39,18 +41,21 @@ export class CreationCompteComponent implements OnInit {
   DayArray;
   YearArray;
   
+  
   //Variable spécifiant si le sexe est différent de Homme ou Femme
   //Cette variable s'initialise à true lors d'un click sur l'option "Autre"
   AnGender:boolean;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(readonly http:HttpClient, private formBuilder: FormBuilder) { }
   
   ngOnInit(): void {
     this.Title="CRÉER UN COMPTE";
     this.SubscribePart=true;
     this.initFormSubscribe();
 
-    this.User=new User();
+    this.User=new User(); //on crée l'instance de la classe User
+    this.UserService=new UserService(this.http);
+
     //on crée une instance de la classe date puis on récupère l'année actuelle
     //qui permettra d'afficher les année dans le tag spécifié
     var datenow = new Date();
@@ -72,11 +77,6 @@ export class CreationCompteComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
     }
     );
-
-    this.SubscribeFormGender = this.formBuilder.group({
-      sexe:'',
-    }
-    );
     
   }
 
@@ -87,6 +87,7 @@ export class CreationCompteComponent implements OnInit {
   AnotherGender() : void
   {
     this.AnGender=true;
+    this.User.sexe="";
   }
 
   NextPartSubscribe(NextPart):void
@@ -99,16 +100,25 @@ export class CreationCompteComponent implements OnInit {
         this.SubscribePart=false;
         this.SubscribePart1=true;
         const formValue = this.SubscribeForm.value;
-        this.test=formValue['firstName'];
-        
+        this.User.firstname=formValue['firstName'];
+        this.User.lastname=formValue['lastName'];
+        this.User.email=formValue['email'];
+        this.User.password=formValue['password'];
+        if(formValue['dayBirth']>="0" && formValue['dayBirth']<="9")
+        {
+          formValue['dayBirth']="0"+formValue['dayBirth'];
+        }
+        this.User.dateBirth=formValue['yearBirth']+"-"+formValue['monthBirth']+"-"+formValue['dayBirth'];
       }
     }
     if(NextPart==2)
     {
       this.SubscribePart1=false;
       this.SubscribePart2=true;
-      const formValue1 = this.SubscribeFormGender.value;
-      this.test1=formValue1['sexe'];
+    }
+    if(NextPart==3)
+    {
+      this.UserService.addUser(this.User);
     }
   }
 
@@ -129,7 +139,19 @@ export class CreationCompteComponent implements OnInit {
 
   Subscribe()
   {
+    this.addUser()
+  }
+
+  addUser () {
     
+    console.log(this.User)
+    return this.http.post("http://localhost:8080/users/createUsers", this.User, httpOptions).subscribe(() => {
+      console.log('Enregistrement terminé !');
+    },
+    (error) => {
+      console.log('Erreur ! : ' + error);
+    }
+    ) ;
   }
 
 }

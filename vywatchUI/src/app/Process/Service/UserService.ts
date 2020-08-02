@@ -8,7 +8,8 @@ const httpOptions = {
     })
 };
 export class UserService{
-    http : HttpClient;
+    
+    constructor(private readonly http : HttpClient){}
     addUser (user : User) {
         console.log(user)
         return this.http.post("http://localhost:8080/users/createUsers", user, httpOptions).subscribe(() => {

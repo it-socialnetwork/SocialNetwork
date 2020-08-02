@@ -61,41 +61,57 @@
     </form>
 
 
-    <form [formGroup]="SubscribeFormGender" (ngSubmit)="NextPartSubscribe(2)"  id="subscribe" class="container text-center">
-      <div  *ngIf="SubscribePart1==true" >
-        <div class="row">
-          <div class="col-lg">
-            <label for="Man">Homme</label>
-            <input type="radio" name="gender" id="Man"  value="Man" (click)="ClassicGender()" formControlName="sexe">
-          </div>
-          <div class="col-lg">
-            <label for="Woman">Femme</label>
-            <input type="radio" name="gender" id="Woman" value="Woman" (click)="ClassicGender()" formControlName="sexe">
-          </div>
-          <div class="col-lg">
-            <label for="Another">Autre</label>
-            <input type="radio" name="gender" id="Another" value=""  (click)="AnotherGender()" >
-          </div>
+    <div *ngIf="SubscribePart1==true" id="subscribe" class="container text-center">
+      <div class="row">
+        <div class="col-lg">
+          <label for="Man">Homme</label>
+          <input type="radio" name="gender" id="Man"  value="Man" (click)="ClassicGender()" [(ngModel)]="User.sexe" >
         </div>
-        <div *ngIf="AnGender==true" class="row text-center">
-            <div  class="col-lg">
-              <input type="text"  class="form-control" placeholder="Choisir votre genre" formControlName="sexe">
-            </div>
+        <div class="col-lg">
+          <label for="Woman">Femme</label>
+          <input type="radio" name="gender" id="Woman" value="Woman" (click)="ClassicGender()" [(ngModel)]="User.sexe">
         </div>
-        <div class="row text-center">
-          <div class="col-lg">
-            <input type="submit" (click)="LastPartSubscribe(1)" class="btn" value="Précédent">
-          </div>
-          <div class="col-lg">
-            <input type="submit"  class="btn" value="Suivant">
-          </div>
+        <div class="col-lg">
+          <label for="Another">Autre</label>
+          <input type="radio" name="gender" id="Another" value=""  (click)="AnotherGender()" >
         </div>
       </div>
-      {{test}}
-    </form>
-
-    <div  *ngIf="SubscribePart2==true" >
-      {{test1}}
+      <div *ngIf="AnGender==true" class="row text-center">
+          <div  class="col-lg">
+            <input type="text"  class="form-control" placeholder="Choisir votre genre" [(ngModel)]="User.sexe">
+          </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-lg">
+          <input type="submit" (click)="LastPartSubscribe(1)" class="btn" value="Précédent">
+        </div>
+        <div class="col-lg">
+          <input type="submit" (click)="NextPartSubscribe(2)" class="btn" value="Suivant">
+        </div>
+      </div>
     </div>
+
+
+  <div *ngIf="SubscribePart2==true" id="subscribe" class="container text-center">
+   
+    <div class="row text-center">
+        <div  class="col-lg">
+          <input type="text"  class="form-control" placeholder="Choisir un nom d'utilisateur" [(ngModel)]="User.pseudo">
+        </div>
+    </div>
+    <div class="row text-center">
+      <div  class="col-lg">
+        <p>CE NOM SERA VISIBLE PAR TOUT LE MONDE</p>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-lg">
+        <input type="submit" (click)="LastPartSubscribe(2)" class="btn" value="Précédent">
+      </div>
+      <div class="col-lg">
+        <input type="submit" (click)="NextPartSubscribe(3)" class="btn" value="Suivant">
+      </div>
+    </div>
+  </div>
     
 </div>
