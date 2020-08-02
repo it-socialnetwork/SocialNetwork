@@ -22,15 +22,18 @@ export class CreationCompteComponent implements OnInit {
   //Le titre est amené à changer en fonction des différentes partie
   Title : String;
 
+  User :User;
   //Cette Varaible permet de réaliser un formulaire
   SubscribeForm: FormGroup;
-  SubscribeForm1: FormGroup;
+  SubscribeFormGender: FormGroup;
 
   //Variable pour afficher ou masquer un éléments pour l'inscription
   SubscribePart: boolean;
   SubscribePart1: boolean;
   SubscribePart2: boolean;
   
+  test;
+  test1;
   //Variable pour la date de naissance
   Yearnow;
   DayArray;
@@ -47,6 +50,7 @@ export class CreationCompteComponent implements OnInit {
     this.SubscribePart=true;
     this.initFormSubscribe();
 
+    this.User=new User();
     //on crée une instance de la classe date puis on récupère l'année actuelle
     //qui permettra d'afficher les année dans le tag spécifié
     var datenow = new Date();
@@ -65,15 +69,15 @@ export class CreationCompteComponent implements OnInit {
       monthBirth: [null, Validators.required],
       yearBirth: [null, Validators.required],
       email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
     }
     );
 
-    this.SubscribeForm1 = this.formBuilder.group({
-      sexe: ['', Validators.required]
+    this.SubscribeFormGender = this.formBuilder.group({
+      sexe:'',
     }
     );
-
+    
   }
 
   ClassicGender() : void{
@@ -94,12 +98,17 @@ export class CreationCompteComponent implements OnInit {
         this.Title="Encore quelques détails sur vous";
         this.SubscribePart=false;
         this.SubscribePart1=true;
+        const formValue = this.SubscribeForm.value;
+        this.test=formValue['firstName'];
+        
       }
     }
     if(NextPart==2)
     {
       this.SubscribePart1=false;
       this.SubscribePart2=true;
+      const formValue1 = this.SubscribeFormGender.value;
+      this.test1=formValue1['sexe'];
     }
   }
 
@@ -116,6 +125,11 @@ export class CreationCompteComponent implements OnInit {
       this.SubscribePart1=true;
       this.SubscribePart2=false;
     }
+  }
+
+  Subscribe()
+  {
+    
   }
 
 }
