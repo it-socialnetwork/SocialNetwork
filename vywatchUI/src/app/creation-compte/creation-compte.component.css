@@ -24,7 +24,10 @@ input[type="submit"]
     font-size: 1.3em;
 }
 
-
+input[type="submit"]:disabled
+{
+    background-color: #6a38ffe1;
+}
 
 input[type="submit"]:hover
 {

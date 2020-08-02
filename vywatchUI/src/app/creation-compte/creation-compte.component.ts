@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../Model/User';
+import { User } from '../Process/Model/User';
+import { UserService } from '../Process/Service/UserService';
 import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError } from "rxjs/operators";
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -17,32 +19,34 @@ const httpOptions = {
   styleUrls: ['./creation-compte.component.css']
 })
 export class CreationCompteComponent implements OnInit {
-  User:User;
+  //Le titre est amené à changer en fonction des différentes partie
+  Title : String;
 
+  //Cette Varaible permet de réaliser un formulaire
+  SubscribeForm: FormGroup;
+  SubscribeForm1: FormGroup;
+
+  //Variable pour afficher ou masquer un éléments pour l'inscription
+  SubscribePart: boolean;
+  SubscribePart1: boolean;
+  SubscribePart2: boolean;
   
-  DayBirth:String;
-  MonthBirth:String;
-  YearBirth:String;
-
+  //Variable pour la date de naissance
   Yearnow;
   DayArray;
   YearArray;
-
-  Title : String;
-
-  //Variable pour afficher ou masquer un éléments pour l'inscription
-  SubscribePart : boolean;
-  SubscribePart1 : boolean;
-  SubscribePart2 : boolean;
-  SubscribePart3 : boolean;
-
+  
   //Variable spécifiant si le sexe est différent de Homme ou Femme
   //Cette variable s'initialise à true lors d'un click sur l'option "Autre"
   AnGender:boolean;
 
-  constructor(private readonly http:HttpClient) { }
+  constructor(private formBuilder: FormBuilder) { }
   
   ngOnInit(): void {
+    this.Title="CRÉER UN COMPTE";
+    this.SubscribePart=true;
+    this.initFormSubscribe();
+
     //on crée une instance de la classe date puis on récupère l'année actuelle
     //qui permettra d'afficher les année dans le tag spécifié
     var datenow = new Date();
@@ -51,16 +55,27 @@ export class CreationCompteComponent implements OnInit {
     //on crée des tableau pour les tags de la date de naissance
     this.DayArray = new Array(31); 
     this.YearArray=new Array(101);
-
-    //On crée l'instance de la classe User qui permettra de créer un utilisateur
-    this.User = new User();
-
-    this.Title="CRÉER UN COMPTE";
-
-    this.SubscribePart=true;
-    
   }
   
+  initFormSubscribe() {
+    this.SubscribeForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      dayBirth: [null, Validators.required],
+      monthBirth: [null, Validators.required],
+      yearBirth: [null, Validators.required],
+      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    }
+    );
+
+    this.SubscribeForm1 = this.formBuilder.group({
+      sexe: ['', Validators.required]
+    }
+    );
+
+  }
+
   ClassicGender() : void{
     this.AnGender=false;
   }
@@ -68,16 +83,18 @@ export class CreationCompteComponent implements OnInit {
   AnotherGender() : void
   {
     this.AnGender=true;
-    this.User.sexe="";
   }
 
   NextPartSubscribe(NextPart):void
   {
     if(NextPart==1)
     {
-      this.Title="Encore quelques détails sur vous";
-      this.SubscribePart=false;
-      this.SubscribePart1=true;
+      if(this.SubscribeForm.valid)
+      {
+        this.Title="Encore quelques détails sur vous";
+        this.SubscribePart=false;
+        this.SubscribePart1=true;
+      }
     }
     if(NextPart==2)
     {
@@ -99,26 +116,6 @@ export class CreationCompteComponent implements OnInit {
       this.SubscribePart1=true;
       this.SubscribePart2=false;
     }
-  }
-
-
-  //--------------------------------------------------------
-  //Requete HTTP
-  //--------------------------------------------------------
-  addUser () {
-    if(this.DayBirth>="0" && this.DayBirth<="9")
-    {
-      this.DayBirth="0"+this.DayBirth;
-    }
-    this.User.dateBirth=this.YearBirth+"-"+this.MonthBirth+"-"+this.DayBirth;
-    console.log(this.User)
-    return this.http.post("http://localhost:8080/users/createUsers", this.User, httpOptions).subscribe(() => {
-      console.log('Enregistrement terminé !');
-    },
-    (error) => {
-      console.log('Erreur ! : ' + error);
-    }
-    ) ;
   }
 
 }
