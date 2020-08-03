@@ -93,7 +93,11 @@
 
 
   <div *ngIf="SubscribePart2==true" id="subscribe" class="container text-center">
-   
+    <div class="row text-center">
+      <div  class="col-lg">
+        <h6>CHOISIR UN PSEUDO</h6>
+      </div>
+    </div>
     <div class="row text-center">
         <div  class="col-lg">
           <input type="text"  class="form-control" placeholder="Choisir un nom d'utilisateur" [(ngModel)]="User.pseudo">
@@ -113,5 +117,4 @@
       </div>
     </div>
   </div>
-    
 </div>

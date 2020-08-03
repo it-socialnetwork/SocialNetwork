@@ -33,6 +33,7 @@ export class CreationCompteComponent implements OnInit {
   SubscribePart: boolean;
   SubscribePart1: boolean;
   SubscribePart2: boolean;
+  SubscribePart3: boolean;
   
   
 
@@ -129,7 +130,14 @@ export class CreationCompteComponent implements OnInit {
       this.SubscribePart1=false;
       this.SubscribePart2=true;
     }
+
     if(NextPart==3)
+    {
+      this.SubscribePart2=false;
+      this.SubscribePart3=true;
+    }
+    
+    if(NextPart==4)
     {
       this.UserService.addUser(this.User);
     }
@@ -157,7 +165,7 @@ export class CreationCompteComponent implements OnInit {
     formValue['dayBirth'];
     formValue['monthBirth'];
 
-    var y: number = +formValue['yearBirth'];
+    
     if(this.Yearnow-formValue['yearBirth']>=17)
     {
       if(formValue['monthBirth']==2 && (formValue['dayBirth']==30 || formValue['dayBirth']==31))

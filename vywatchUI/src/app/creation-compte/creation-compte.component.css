@@ -47,6 +47,11 @@ input[type="radio"]
     margin-top: 80px;
 }
 
+#title
+{
+    margin-bottom: 50px;
+}
+
 #subscribe
 {
     padding-left: 250px;
