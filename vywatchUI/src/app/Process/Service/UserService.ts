@@ -20,6 +20,5 @@ export class UserService{
           console.log('Erreur ! : ' + error);
         }
         ) ;
-
     }
 }

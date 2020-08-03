@@ -34,14 +34,16 @@ export class CreationCompteComponent implements OnInit {
   SubscribePart1: boolean;
   SubscribePart2: boolean;
   
-  test;
-  test1;
+  
 
   //Variable pour la date de naissance
   Yearnow;
+  Daynow;
+  Monthnow;
   DayArray;
   YearArray;
   
+  yearnumber: number;
   
   //Variable spécifiant si le sexe est différent de Homme ou Femme
   //Cette variable s'initialise à true lors d'un click sur l'option "Autre"
@@ -61,6 +63,8 @@ export class CreationCompteComponent implements OnInit {
     //qui permettra d'afficher les année dans le tag spécifié
     var datenow = new Date();
     this.Yearnow=datenow.getFullYear();
+    this.Monthnow=datenow.getMonth();
+    this.Daynow=datenow.getDate();
 
     //on crée des tableau pour les tags de la date de naissance
     this.DayArray = new Array(31); 
@@ -97,19 +101,27 @@ export class CreationCompteComponent implements OnInit {
     {
       if(this.SubscribeForm.valid)
       {
-        this.Title="Encore quelques détails sur vous";
-        this.SubscribePart=false;
-        this.SubscribePart1=true;
         const formValue = this.SubscribeForm.value;
         this.User.firstname=formValue['firstName'];
         this.User.lastname=formValue['lastName'];
         this.User.email=formValue['email'];
         this.User.password=formValue['password'];
-        if(formValue['dayBirth']>="0" && formValue['dayBirth']<="9")
+        
+        if(this.ValideBirthday()==true)
         {
-          formValue['dayBirth']="0"+formValue['dayBirth'];
+          if(formValue['dayBirth']>="0" && formValue['dayBirth']<="9")
+          {
+            formValue['dayBirth']="0"+formValue['dayBirth'];
+          }
+          if(formValue['monthBirth']>="0" && formValue['monthBirth']<="9")
+          {
+            formValue['monthBirth']="0"+formValue['monthBirth'];
+          }
+          this.User.dateBirth=formValue['yearBirth']+"-"+formValue['monthBirth']+"-"+formValue['dayBirth'];
+          this.Title="Encore quelques détails sur vous";
+          this.SubscribePart=false;
+          this.SubscribePart1=true;
         }
-        this.User.dateBirth=formValue['yearBirth']+"-"+formValue['monthBirth']+"-"+formValue['dayBirth'];
       }
     }
     if(NextPart==2)
@@ -138,7 +150,61 @@ export class CreationCompteComponent implements OnInit {
     }
   }
 
+  ValideBirthday(): Boolean
+  {
+    const formValue = this.SubscribeForm.value;
+    formValue['yearBirth'];
+    formValue['dayBirth'];
+    formValue['monthBirth'];
 
+    var y: number = +formValue['yearBirth'];
+    if(this.Yearnow-formValue['yearBirth']>=17)
+    {
+      if(formValue['monthBirth']==2 && (formValue['dayBirth']==30 || formValue['dayBirth']==31))
+      {
+        return false;
+      }
+      else
+      {
+        if(formValue['monthBirth']==2 && formValue['dayBirth']==29)
+        {
+            if(formValue['yearBirth']%4==0)
+            {
+                if(formValue['yearBirth']%100==0)
+                {
+                  return true;
+                }
+                else
+                {
+                  if(formValue['yearBirth']%400==0)
+                  {
+                    return false;
+                  }
+                  else
+                  {
+                    return true;
+                  }
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return true;
+        }
+        
+      }
+      
+    }
+    else
+    {
+      return false;
+    }
+    
+  }
   
 
 }
