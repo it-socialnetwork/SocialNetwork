@@ -36,6 +36,7 @@ export class CreationCompteComponent implements OnInit {
   
   test;
   test1;
+
   //Variable pour la date de naissance
   Yearnow;
   DayArray;
@@ -54,7 +55,7 @@ export class CreationCompteComponent implements OnInit {
     this.initFormSubscribe();
 
     this.User=new User(); //on crée l'instance de la classe User
-    this.UserService=new UserService(this.http);
+    this.UserService=new UserService(this.http); //on crée l'instance de la classe User
 
     //on crée une instance de la classe date puis on récupère l'année actuelle
     //qui permettra d'afficher les année dans le tag spécifié
@@ -137,21 +138,7 @@ export class CreationCompteComponent implements OnInit {
     }
   }
 
-  Subscribe()
-  {
-    this.addUser()
-  }
 
-  addUser () {
-    
-    console.log(this.User)
-    return this.http.post("http://localhost:8080/users/createUsers", this.User, httpOptions).subscribe(() => {
-      console.log('Enregistrement terminé !');
-    },
-    (error) => {
-      console.log('Erreur ! : ' + error);
-    }
-    ) ;
-  }
+  
 
 }

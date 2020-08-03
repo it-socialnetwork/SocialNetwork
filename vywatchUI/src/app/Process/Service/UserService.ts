@@ -1,5 +1,6 @@
 import{User} from '../Model/User'
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -19,5 +20,6 @@ export class UserService{
           console.log('Erreur ! : ' + error);
         }
         ) ;
+
     }
 }
