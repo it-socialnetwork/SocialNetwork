@@ -10,6 +10,7 @@ import { CountSubscribeComponent } from './count-subscribe/count-subscribe.compo
 import { ActualityComponent } from './actuality/actuality.component';
 import { TendanceComponent } from './tendance/tendance.component';
 import { SubjectUserChoiceComponent } from './subject-user-choice/subject-user-choice.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SubjectUserChoiceComponent } from './subject-user-choice/subject-user-c
     ActualityComponent,
     TendanceComponent,
     CountSubscribeComponent,
-    SubjectUserChoiceComponent
+    SubjectUserChoiceComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
