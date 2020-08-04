@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageloginComponent } from './pagelogin/pagelogin.component';
 import { HeaderComponent } from './header/header.component';
-import { CreationCompteComponent } from './creation-compte/creation-compte.component';
+import { CountSubscribeComponent } from './count-subscribe/count-subscribe.component';
 import { ActualityComponent } from './actuality/actuality.component';
 import { TendanceComponent } from './tendance/tendance.component';
 
@@ -15,10 +15,9 @@ import { TendanceComponent } from './tendance/tendance.component';
     AppComponent,
     PageloginComponent,
     HeaderComponent,
-    CreationCompteComponent,
     ActualityComponent,
-    TendanceComponent
-    
+    TendanceComponent,
+    CountSubscribeComponent
   ],
   imports: [
     BrowserModule,
