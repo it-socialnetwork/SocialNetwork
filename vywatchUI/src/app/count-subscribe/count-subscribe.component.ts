@@ -5,6 +5,7 @@ import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError } from "rxjs/operators";
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -49,8 +50,9 @@ export class CountSubscribeComponent implements OnInit {
   //Variable spécifiant si le sexe est différent de Homme ou Femme
   //Cette variable s'initialise à true lors d'un click sur l'option "Autre"
   AnGender:boolean;
+  
 
-  constructor(readonly http:HttpClient, private formBuilder: FormBuilder) { }
+  constructor(readonly http:HttpClient, private formBuilder: FormBuilder, private _router: Router) { }
   
   ngOnInit(): void {
     this.Title="CRÉER UN COMPTE";
@@ -96,6 +98,8 @@ export class CountSubscribeComponent implements OnInit {
     this.User.sexe="";
   }
 
+  //Cette fonction va permettre de switcher entre les différentes partie de l'inscription 
+  //chaque étape valide les champs renseignés
   NextPartSubscribe(NextPart):void
   {
     if(NextPart==1)
@@ -133,13 +137,11 @@ export class CountSubscribeComponent implements OnInit {
 
     if(NextPart==3)
     {
-      this.SubscribePart2=false;
-      this.SubscribePart3=true;
-    }
-    
-    if(NextPart==4)
-    {
-      this.UserService.addUser(this.User);
+      if(this.User.pseudo!="")
+      {
+        this.SubscribePart2=false;
+        this.SubscribePart3=true;
+      }
     }
   }
 
@@ -158,6 +160,14 @@ export class CountSubscribeComponent implements OnInit {
     }
   }
 
+  //Crée l'utilisateur et envoie l'utilisateur vers la page des choix de sujet
+  CreatUser()
+  {
+    this.UserService.addUser(this.User);
+    this._router.navigate(['signup/preference/', this.User.pseudo], {queryParams: {}});
+  }
+
+  //Cette fonction valide la date de naissance
   ValideBirthday(): Boolean
   {
     const formValue = this.SubscribeForm.value;

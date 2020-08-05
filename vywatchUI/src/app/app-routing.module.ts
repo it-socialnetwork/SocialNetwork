@@ -8,7 +8,7 @@ import {MainComponent} from './main/main.component'
 const routes: Routes = [
   { path:'', component: MainComponent },
   { path:'signup', component: CountSubscribeComponent},
-  { path:'signup/choicepreference', component: CountSubscribeComponent},
+  { path:'signup/preference/:pseudo', component: SubjectUserChoiceComponent},
 ];
 
 @NgModule({
