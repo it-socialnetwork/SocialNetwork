@@ -38,11 +38,11 @@ CREATE TABLE IF NOT EXISTS `listsubject` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Structure de la table `user`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `lastname` varchar(255) DEFAULT NULL,
   `firstname` varchar(255) DEFAULT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id_user`, `lastname`, `firstname`, `email`, `password`, `firstconnection`, `pseudo`, `date_birth`, `sexe`) VALUES
+INSERT INTO `user` (`id_user`, `lastname`, `firstname`, `email`, `password`, `firstconnection`, `pseudo`, `date_birth`, `sexe`) VALUES
 (1, 'TEST', 'Nicolas', 'test@gmail.com', 'test', 1, 'tete', NULL, 'Man'),
 (2, 'tt', 'gg', 'gg@yy.com', 'test', 1, 'licorne24', '2011-05-04', 'Licorne');
 
@@ -72,9 +72,9 @@ INSERT INTO `users` (`id_user`, `lastname`, `firstname`, `email`, `password`, `f
 DROP TABLE IF EXISTS `usersubject`;
 CREATE TABLE IF NOT EXISTS `usersubject` (
   `idListSub_listSubject` int(11) NOT NULL AUTO_INCREMENT,
-  `idUser_Users` int(11) NOT NULL,
-  PRIMARY KEY (`idListSub_listSubject`,`idUser_Users`),
-  KEY `FK_userSubject_idUser_Users` (`idUser_Users`)
+  `idUser_User` int(11) NOT NULL,
+  PRIMARY KEY (`idListSub_listSubject`,`idUser_User`),
+  KEY `FK_userSubject_idUser_User` (`idUser_User`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `usersubject` (
 --
 ALTER TABLE `usersubject`
   ADD CONSTRAINT `FK_userSubject_idListSub_listSubject` FOREIGN KEY (`idListSub_listSubject`) REFERENCES `listsubject` (`idListSub_listSubject`),
-  ADD CONSTRAINT `FK_userSubject_idUser_Users` FOREIGN KEY (`idUser_Users`) REFERENCES `users` (`id_user`);
+  ADD CONSTRAINT `FK_userSubject_idUser_User` FOREIGN KEY (`idUser_User`) REFERENCES `user` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

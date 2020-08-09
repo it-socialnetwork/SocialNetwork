@@ -13,7 +13,7 @@ export class UserService{
     constructor(private readonly http : HttpClient){}
     addUser (user : User) {
         console.log(user)
-        return this.http.post("http://localhost:8080/users/createUsers", user, httpOptions).subscribe(() => {
+        return this.http.post("http://localhost:8080/vywatch/api/user/creatuser", user, httpOptions).subscribe(() => {
           console.log('Enregistrement terminé !');
         },
         (error) => {

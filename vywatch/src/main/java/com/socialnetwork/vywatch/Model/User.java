@@ -10,9 +10,9 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
-@Table(name="Users")
+@Table(name="User")
 @EntityListeners(AuditingEntityListener.class)
-public class Users implements Serializable {
+public class User implements Serializable {
 
     @Id
     private int idUser;
@@ -26,11 +26,11 @@ public class Users implements Serializable {
     private String pseudo;
 
 
-    public Users() {
+    public User() {
     }
 
 
-    public Users( String lastname, String firstname, Date dateBirth, String email, String password, String sexe, String pseudo) {
+    public User( String lastname, String firstname, Date dateBirth, String email, String password, String sexe, String pseudo) {
         this.lastname = lastname;
         this.firstname = firstname;
         this.dateBirth = dateBirth;
@@ -116,47 +116,47 @@ public class Users implements Serializable {
         this.pseudo = pseudo;
     }
 
-    public Users idUser(int idUser) {
+    public User idUser(int idUser) {
         this.idUser = idUser;
         return this;
     }
 
-    public Users lastname(String lastname) {
+    public User lastname(String lastname) {
         this.lastname = lastname;
         return this;
     }
 
-    public Users firstname(String firstname) {
+    public User firstname(String firstname) {
         this.firstname = firstname;
         return this;
     }
 
-    public Users dateBirth(Date dateBirth) {
+    public User dateBirth(Date dateBirth) {
         this.dateBirth = dateBirth;
         return this;
     }
 
-    public Users email(String email) {
+    public User email(String email) {
         this.email = email;
         return this;
     }
 
-    public Users password(String password) {
+    public User password(String password) {
         this.password = password;
         return this;
     }
 
-    public Users firstconnection(boolean firstconnection) {
+    public User firstconnection(boolean firstconnection) {
         this.firstconnection = firstconnection;
         return this;
     }
 
-    public Users sexe(String sexe) {
+    public User sexe(String sexe) {
         this.sexe = sexe;
         return this;
     }
 
-    public Users pseudo(String pseudo) {
+    public User pseudo(String pseudo) {
         this.pseudo = pseudo;
         return this;
     }
