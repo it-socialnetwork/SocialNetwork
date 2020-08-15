@@ -1,6 +1,6 @@
 package com.socialnetwork.vywatch.Model;
 
-import java.io.Serializable;
+
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -11,7 +11,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @Table(name="userSubject")
 @EntityListeners(AuditingEntityListener.class)
-public class UserSubject implements Serializable {
+public class UserSubject {
 
     @Id
     private int idListSub;

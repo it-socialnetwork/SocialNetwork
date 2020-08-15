@@ -1,6 +1,6 @@
 package com.socialnetwork.vywatch.Model;
 
-import java.io.Serializable;
+
 import java.sql.Date;
 
 import javax.persistence.Entity;
@@ -12,10 +12,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @Table(name="User")
 @EntityListeners(AuditingEntityListener.class)
-public class User implements Serializable {
+public class User {
 
+    
     @Id
-    private int idUser;
+    private String pseudo;
     private String lastname;
     private String firstname;
     private Date dateBirth;
@@ -23,7 +24,7 @@ public class User implements Serializable {
     private String password;
     private boolean firstconnection;
     private String sexe;
-    private String pseudo;
+    
 
 
     public User() {
@@ -40,13 +41,13 @@ public class User implements Serializable {
         this.pseudo = pseudo;
     }
 
-    public int getIdUser() {
+    /*public int getIdUser() {
         return this.idUser;
     }
 
     public void setIdUser(int idUser) {
         this.idUser = idUser;
-    }
+    }*/
 
     public String getLastname() {
         return this.lastname;
@@ -116,10 +117,10 @@ public class User implements Serializable {
         this.pseudo = pseudo;
     }
 
-    public User idUser(int idUser) {
+    /*public User idUser(int idUser) {
         this.idUser = idUser;
         return this;
-    }
+    }*/
 
     public User lastname(String lastname) {
         this.lastname = lastname;
