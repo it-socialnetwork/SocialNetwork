@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("vywatch/api/user")
-@CrossOrigin(origins="*", allowedHeaders="http://localhost:4200/")
+@CrossOrigin(origins="*", allowedHeaders="*")
 public class UserController {
     @Autowired
     private UserRepository UserRepository;
