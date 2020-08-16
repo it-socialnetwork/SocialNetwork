@@ -21,11 +21,12 @@ public class UserController {
     @Autowired
     private UserRepository UserRepository;
 
-    @Autowired
+    
     private BCryptPasswordEncoder passwordEncoder;
    
     @PostMapping(value="/creatuser")
     public ResponseEntity<User> CreateUsers(@RequestBody User user){
+        passwordEncoder=new BCryptPasswordEncoder();
         String PWD=user.getPassword();
         String encryptPWD=passwordEncoder.encode(PWD);
         user.setPassword(encryptPWD);
