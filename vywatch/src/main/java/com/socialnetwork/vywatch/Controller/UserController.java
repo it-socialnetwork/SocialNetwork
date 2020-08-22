@@ -6,7 +6,7 @@ import com.socialnetwork.vywatch.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,14 +22,12 @@ public class UserController {
     private UserRepository UserRepository;
 
     
-    private BCryptPasswordEncoder passwordEncoder;
+   
    
     @PostMapping(value="/creatuser")
     public ResponseEntity<User> CreateUsers(@RequestBody User user){
-        passwordEncoder=new BCryptPasswordEncoder();
-        String PWD=user.getPassword();
-        String encryptPWD=passwordEncoder.encode(PWD);
-        user.setPassword(encryptPWD);
+        
+        
         user.setFirstconnection(true);
         UserRepository.save(user);
         return new ResponseEntity<User>(HttpStatus.OK ); 
