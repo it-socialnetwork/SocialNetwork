@@ -10,13 +10,13 @@ public class JwtRequest implements Serializable {
     {
     }
     public JwtRequest(String pseudo, String password) {
-        this.setUsername(pseudo);
+        this.setPseudo(pseudo);
         this.setPassword(password);
     }
-    public String getUsername() {
+    public String getPseudo() {
     return this.pseudo;
     }
-    public void setUsername(String pseudo) {
+    public void setPseudo(String pseudo) {
     this.pseudo = pseudo;
     }
     public String getPassword() {
