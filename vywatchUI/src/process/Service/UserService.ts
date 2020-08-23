@@ -9,7 +9,7 @@ const httpOptions = {
     })
 };
 export class UserService{
-    
+  user:User
     constructor(private readonly http : HttpClient){}
     addUser (user : User) {
         console.log(user)
@@ -20,5 +20,19 @@ export class UserService{
           console.log('Erreur ! : ' + error);
         }
         ) ;
+    }
+
+    signInUser (username:String, password:String){
+          this.user = new User()
+        this.user.pseudo = username
+        this.user.password = password
+        // console.log(this.user)
+        return this.http.post("http://localhost:8080/vywatch/api/authenticate", this.user, {responseType : 'text' as 'json'});
+    }
+
+    public welcome(token){
+      let tokenStr = 'Bearer ' + token;
+      const headers = new HttpHeaders().set("Authorization", tokenStr);
+      return this.http.get("http://localhost:8080/vywatch/api/user/getalluser",{headers, responseType : 'text' as 'json'});
     }
 }

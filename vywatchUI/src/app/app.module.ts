@@ -11,6 +11,7 @@ import { ActualityComponent } from './actuality/actuality.component';
 import { TendanceComponent } from './tendance/tendance.component';
 import { SubjectUserChoiceComponent } from './subject-user-choice/subject-user-choice.component';
 import { MainComponent } from './main/main.component';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MainComponent } from './main/main.component';
     TendanceComponent,
     CountSubscribeComponent,
     SubjectUserChoiceComponent,
-    MainComponent
+    MainComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
