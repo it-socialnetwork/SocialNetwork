@@ -1,14 +1,14 @@
 package com.socialnetwork.vywatch.Controller;
 
-import java.util.Objects;
+
 
 import com.socialnetwork.vywatch.Model.JwtRequest;
-import com.socialnetwork.vywatch.Model.JwtResponse;
+
 import com.socialnetwork.vywatch.Service.JwtUserDetailsService;
 import com.socialnetwork.vywatch.util.JwtTokenUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
