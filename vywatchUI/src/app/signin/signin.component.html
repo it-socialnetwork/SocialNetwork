@@ -1,6 +1,19 @@
-<form (ngSubmit)="onSubmit(f)" #f="ngForm">
-    <input type="text" class="input" ngModel name="login">
-    <input type="text"  class="input" ngModel name="password">
-<button class="btn btn-primary" type="submit">Connexion</button>
+<div id="signin" class="container">
+    <div id="title" class="text-center">
+        <img src="..\assets\logo.png" alt="" width="135" height="135" class="center-block"/>  
+        <h1>Connectez-vous</h1>
+    </div>
 
-</form>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm" id="Connection" class="container text-center">
+       
+        <div class="row text-center">
+            <input type="text" class="form-control" ngModel name="login" placeholder="Pseudo" required>
+        </div>
+        <div class="row text-center">
+            <input type="text"  class="form-control" ngModel name="password" placeholder="Mot de passe" required>
+        </div>
+        <div class="row text-center">
+            <button class="btn form-control" type="submit">Connexion</button>
+        </div>
+    </form>
+</div>
