@@ -14,42 +14,24 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class UserSubject {
 
     @Id
-    private int idListSub;
-    private int idUser;
+    private int idListSub_listSubject;
+    private int idUser_User;
 
-    public UserSubject() {
+    public int getIdListSub_listSubject() {
+        return idListSub_listSubject;
     }
 
-    public UserSubject(int idListSub, int idUser) {
-        this.idListSub = idListSub;
-        this.idUser = idUser;
+    public void setIdListSub_listSubject(int idListSub_listSubject) {
+        this.idListSub_listSubject = idListSub_listSubject;
     }
 
-    public int getIdListSub() {
-        return this.idListSub;
+    public int getIdUser_User() {
+        return idUser_User;
     }
 
-    public void setIdListSub(int idListSub) {
-        this.idListSub = idListSub;
+    public void setIdUser_User(int idUser_User) {
+        this.idUser_User = idUser_User;
     }
 
-    public int getIdUser() {
-        return this.idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
-
-    public UserSubject idListSub(int idListSub) {
-        this.idListSub = idListSub;
-        return this;
-    }
-
-    public UserSubject idUser(int idUser) {
-        this.idUser = idUser;
-        return this;
-    }
-
-
+ 
 }

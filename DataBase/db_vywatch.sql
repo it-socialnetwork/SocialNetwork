@@ -32,6 +32,7 @@ DROP TABLE IF EXISTS `listsubject`;
 CREATE TABLE IF NOT EXISTS `listsubject` (
   `idListSub_listSubject` int(11) NOT NULL AUTO_INCREMENT,
   `nameSubject_listSubject` varchar(255) DEFAULT NULL,
+  `imageSubject_listSubject` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idListSub_listSubject`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

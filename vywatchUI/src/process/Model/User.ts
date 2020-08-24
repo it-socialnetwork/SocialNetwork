@@ -7,7 +7,7 @@ export class User
     email : String;
     password : String;
     pseudo : String;
-         
+    
     public User( lastname:String, firstname : String, dateBirth : String, email : String, password : String)
     {
         this.email=email;

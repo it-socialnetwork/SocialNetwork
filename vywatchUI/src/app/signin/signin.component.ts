@@ -30,10 +30,7 @@ export class SigninComponent implements OnInit {
     resp.subscribe(data=>console.log("Token " +data))
   }
   
-  public displayUsers(token){
-    let response = this.Us.welcome(token);
-    response.subscribe(data=>this.response=data);
-  }
+
 
 
 }

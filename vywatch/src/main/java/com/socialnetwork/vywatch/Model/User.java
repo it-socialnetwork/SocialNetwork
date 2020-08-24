@@ -16,6 +16,7 @@ public class User {
 
     
     @Id
+    private int id_user;
     private String pseudo;
     private String lastname;
     private String firstname;
@@ -160,6 +161,14 @@ public class User {
     public User pseudo(String pseudo) {
         this.pseudo = pseudo;
         return this;
+    }
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
 

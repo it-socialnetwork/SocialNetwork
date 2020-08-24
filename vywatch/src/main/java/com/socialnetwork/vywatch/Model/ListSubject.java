@@ -14,44 +14,40 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class ListSubject {
     @Id
-    private int idListSub;
-    private String nameSubject;
+    private int idListSub_listSubject;
+    private String nameSubject_listSubject;
+    private String imageSubject_listSubject;
 
-    public ListSubject() {
+    public int getIdListSub_listSubject() {
+        return idListSub_listSubject;
     }
 
-    public ListSubject(int idListSub, String nameSubject) {
-        this.idListSub = idListSub;
-        this.nameSubject = nameSubject;
+    public void setIdListSub_listSubject(int idListSub_listSubject) {
+        this.idListSub_listSubject = idListSub_listSubject;
     }
 
-    public int getIdListSub() {
-        return this.idListSub;
+    public String getNameSubject_listSubject() {
+        return nameSubject_listSubject;
     }
 
-    public void setIdListSub(int idListSub) {
-        this.idListSub = idListSub;
+    public void setNameSubject_listSubject(String nameSubject_listSubject) {
+        this.nameSubject_listSubject = nameSubject_listSubject;
     }
 
-    public String getNameSubject() {
-        return this.nameSubject;
+    public String getImageSubject_listSubject() {
+        return imageSubject_listSubject;
     }
 
-    public void setNameSubject(String nameSubject) {
-        this.nameSubject = nameSubject;
+    public void setImageSubject_listSubject(String imageSubject_listSubject) {
+        this.imageSubject_listSubject = imageSubject_listSubject;
     }
 
-    public ListSubject idListSub(int idListSub) {
-        this.idListSub = idListSub;
-        return this;
+    public ListSubject(int idListSub_listSubject, String nameSubject_listSubject, String imageSubject_listSubject) {
+        this.idListSub_listSubject = idListSub_listSubject;
+        this.nameSubject_listSubject = nameSubject_listSubject;
+        this.imageSubject_listSubject = imageSubject_listSubject;
     }
 
-    public ListSubject nameSubject(String nameSubject) {
-        this.nameSubject = nameSubject;
-        return this;
-    }
-
+    public ListSubject(){}
     
-   
-
 }

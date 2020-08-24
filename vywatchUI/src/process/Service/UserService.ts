@@ -30,9 +30,4 @@ export class UserService{
         return this.http.post("http://localhost:8080/vywatch/api/authenticate", this.user, {responseType : 'text' as 'json'});
     }
 
-    public welcome(token){
-      let tokenStr = 'Bearer ' + token;
-      const headers = new HttpHeaders().set("Authorization", tokenStr);
-      return this.http.get("http://localhost:8080/vywatch/api/user/getalluser",{headers, responseType : 'text' as 'json'});
-    }
 }

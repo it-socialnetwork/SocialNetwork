@@ -164,7 +164,17 @@ export class CountSubscribeComponent implements OnInit {
   CreatUser()
   {
     this.UserService.addUser(this.User);
-    this._router.navigate(['signup/preference/', this.User.pseudo], {queryParams: {}});
+    let token = this.UserService.signInUser(this.User.pseudo, this.User.password)
+     console.log(token)
+    //localStorage.setItem('token', token);
+     // var str: string = String(this.User.pseudo);
+      //localStorage.setItem('pseudo', str);
+     
+      this._router.navigate(['signup/preference/', this.User.pseudo], {queryParams: {}});
+      
+
+   
+    
   }
 
   //Cette fonction valide la date de naissance
