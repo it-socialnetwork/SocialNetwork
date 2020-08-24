@@ -3,7 +3,7 @@ import { User } from '../../process/Model/User';
 import { UserService } from '../../process/Service/UserService';
 import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map, catchError } from "rxjs/operators";
+import { map, catchError, delay } from "rxjs/operators";
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 
@@ -160,17 +160,24 @@ export class CountSubscribeComponent implements OnInit {
     }
   }
 
-  //Crée l'utilisateur et envoie l'utilisateur vers la page des choix de sujet
-  CreatUser()
+ 
+  private delay(ms: number)
+  {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  
+  async CreatUser()
   {
     this.UserService.addUser(this.User);
-    let token = this.UserService.signInUser(this.User.pseudo, this.User.password)
-     console.log(token)
-    //localStorage.setItem('token', token);
+    let messageSuccess = true;
+    console.log("Before sleep: " + new Date().toString());
+    await this.delay(3000);
+    console.log("After sleep:  " + new Date().toString());
+    this.UserService.signInUser(this.User.pseudo, this.User.password)
      // var str: string = String(this.User.pseudo);
       //localStorage.setItem('pseudo', str);
      
-      this._router.navigate(['signup/preference/', this.User.pseudo], {queryParams: {}});
+      //this._router.navigate(['signup/preference/', this.User.pseudo], {queryParams: {}});
       
 
    

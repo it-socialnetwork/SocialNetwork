@@ -25,9 +25,7 @@ export class SigninComponent implements OnInit {
    
     this.pseudo = form.value["login"]
     this.password = form.value["password"]
-    
-    let resp =  this.Us.signInUser(this.pseudo, this.password);
-    resp.subscribe(data=>console.log("Token " +data))
+    this.Us.signInUser(this.pseudo, this.password)
   }
   
 

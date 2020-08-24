@@ -26,8 +26,14 @@ export class UserService{
           this.user = new User()
         this.user.pseudo = username
         this.user.password = password
-        // console.log(this.user)
-        return this.http.post("http://localhost:8080/vywatch/api/authenticate", this.user, {responseType : 'text' as 'json'});
+        return this.http.post("http://localhost:8080/vywatch/api/authenticate", this.user, {responseType : 'text' as 'json'}).subscribe(res => {
+          console.log(res);
+          localStorage.setItem('token', String(res));
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+        );
     }
 
 }
