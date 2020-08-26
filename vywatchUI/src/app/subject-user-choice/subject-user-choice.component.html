@@ -2,5 +2,8 @@
     <div id="title" class="text-center">
         <img src="..\assets\logo.png" alt="" width="135" height="135" class="center-block"/>  
         <h2>{{Title}}</h2>
+        <tr *ngFor="let subject of subjects">
+            {{subject.Namesub}}
+        </tr>
     </div>
 </div>

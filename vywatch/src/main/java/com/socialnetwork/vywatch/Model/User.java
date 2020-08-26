@@ -10,13 +10,13 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
-@Table(name="User")
+@Table(name="user")
 @EntityListeners(AuditingEntityListener.class)
 public class User {
 
     
     @Id
-    private int id_user;
+    private int id;
     private String pseudo;
     private String lastname;
     private String firstname;
@@ -25,33 +25,25 @@ public class User {
     private String password;
     private boolean firstconnection;
     private String sexe;
-    
 
-
-    public User() {
+    public int getId() {
+        return id;
     }
 
+    public void setId(int id_user) {
+        this.id = id_user;
+    }
 
-    public User( String lastname, String firstname, Date dateBirth, String email, String password, String sexe, String pseudo) {
-        this.lastname = lastname;
-        this.firstname = firstname;
-        this.dateBirth = dateBirth;
-        this.email = email;
-        this.password = password;
-        this.sexe = sexe;
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    public void setPseudo(String pseudo) {
         this.pseudo = pseudo;
     }
 
-    /*public int getIdUser() {
-        return this.idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }*/
-
     public String getLastname() {
-        return this.lastname;
+        return lastname;
     }
 
     public void setLastname(String lastname) {
@@ -59,7 +51,7 @@ public class User {
     }
 
     public String getFirstname() {
-        return this.firstname;
+        return firstname;
     }
 
     public void setFirstname(String firstname) {
@@ -67,7 +59,7 @@ public class User {
     }
 
     public Date getDateBirth() {
-        return this.dateBirth;
+        return dateBirth;
     }
 
     public void setDateBirth(Date dateBirth) {
@@ -75,7 +67,7 @@ public class User {
     }
 
     public String getEmail() {
-        return this.email;
+        return email;
     }
 
     public void setEmail(String email) {
@@ -83,7 +75,7 @@ public class User {
     }
 
     public String getPassword() {
-        return this.password;
+        return password;
     }
 
     public void setPassword(String password) {
@@ -91,11 +83,7 @@ public class User {
     }
 
     public boolean isFirstconnection() {
-        return this.firstconnection;
-    }
-
-    public boolean getFirstconnection() {
-        return this.firstconnection;
+        return firstconnection;
     }
 
     public void setFirstconnection(boolean firstconnection) {
@@ -103,73 +91,13 @@ public class User {
     }
 
     public String getSexe() {
-        return this.sexe;
+        return sexe;
     }
 
     public void setSexe(String sexe) {
         this.sexe = sexe;
     }
 
-    public String getPseudo() {
-        return this.pseudo;
-    }
-
-    public void setPseudo(String pseudo) {
-        this.pseudo = pseudo;
-    }
-
-    /*public User idUser(int idUser) {
-        this.idUser = idUser;
-        return this;
-    }*/
-
-    public User lastname(String lastname) {
-        this.lastname = lastname;
-        return this;
-    }
-
-    public User firstname(String firstname) {
-        this.firstname = firstname;
-        return this;
-    }
-
-    public User dateBirth(Date dateBirth) {
-        this.dateBirth = dateBirth;
-        return this;
-    }
-
-    public User email(String email) {
-        this.email = email;
-        return this;
-    }
-
-    public User password(String password) {
-        this.password = password;
-        return this;
-    }
-
-    public User firstconnection(boolean firstconnection) {
-        this.firstconnection = firstconnection;
-        return this;
-    }
-
-    public User sexe(String sexe) {
-        this.sexe = sexe;
-        return this;
-    }
-
-    public User pseudo(String pseudo) {
-        this.pseudo = pseudo;
-        return this;
-    }
-
-    public int getId_user() {
-        return id_user;
-    }
-
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
-    }
-
-
+    
+    
 }

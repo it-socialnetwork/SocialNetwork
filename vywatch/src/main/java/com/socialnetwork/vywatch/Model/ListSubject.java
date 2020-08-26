@@ -1,8 +1,4 @@
 package com.socialnetwork.vywatch.Model;
-
-
-
-
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.Id;
@@ -14,40 +10,36 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class ListSubject {
     @Id
-    private int idListSub_listSubject;
-    private String nameSubject_listSubject;
-    private String imageSubject_listSubject;
+    private int Idlist ;
+    private String Namesub;
+    private String Imagesub;
 
-    public int getIdListSub_listSubject() {
-        return idListSub_listSubject;
+    public int getIdlist() {
+        return Idlist;
     }
 
-    public void setIdListSub_listSubject(int idListSub_listSubject) {
-        this.idListSub_listSubject = idListSub_listSubject;
+    public void setIdlist(int idlist) {
+        Idlist = idlist;
     }
 
-    public String getNameSubject_listSubject() {
-        return nameSubject_listSubject;
+    public String getNamesub() {
+        return Namesub;
     }
 
-    public void setNameSubject_listSubject(String nameSubject_listSubject) {
-        this.nameSubject_listSubject = nameSubject_listSubject;
+    public void setNamesub(String namesub) {
+        Namesub = namesub;
     }
 
-    public String getImageSubject_listSubject() {
-        return imageSubject_listSubject;
+    public String getImagesub() {
+        return Imagesub;
     }
 
-    public void setImageSubject_listSubject(String imageSubject_listSubject) {
-        this.imageSubject_listSubject = imageSubject_listSubject;
+    public void setImagesub(String imagesub) {
+        Imagesub = imagesub;
     }
 
-    public ListSubject(int idListSub_listSubject, String nameSubject_listSubject, String imageSubject_listSubject) {
-        this.idListSub_listSubject = idListSub_listSubject;
-        this.nameSubject_listSubject = nameSubject_listSubject;
-        this.imageSubject_listSubject = imageSubject_listSubject;
-    }
 
-    public ListSubject(){}
     
+    
+
 }

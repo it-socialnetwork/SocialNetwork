@@ -1,7 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {Subject} from '../../process/Model/Subject'
+import {ListSubject} from '../../process/Model/Subject'
 import { ListSubjectService } from 'src/process/Service/ListSubjectService';
+import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
+
+import { FormBuilder } from '@angular/forms';
+
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    
+  })
+};
+
 @Component({
   selector: 'app-subject-user-choice',
   templateUrl: './subject-user-choice.component.html',
@@ -9,27 +21,25 @@ import { ListSubjectService } from 'src/process/Service/ListSubjectService';
 })
 export class SubjectUserChoiceComponent implements OnInit {
 
-
-  Subject : Subject;
+  Subject : ListSubject;
   subjects
   sub: any;
-
   Title : String;
+  listSubject:ListSubjectService
+  constructor(
+    
+    readonly http:HttpClient, private formBuilder: FormBuilder, private _router: Router) 
+  { }
 
-  constructor(private route: ActivatedRoute, private router:Router, private listSubject:ListSubjectService) { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+     this.listSubject = new ListSubjectService(this.http) 
     this.Title="CHOISIR VOS PRÉFÉRENCES";
-    this.Subject=new Subject();
-    this.sub = this.route.params.subscribe(params => {
-      this.Subject.userPseudo = params['pseudo']; 
-      
-   });
-   this.listSubject.displaySubject().subscribe(
-    Response => {
-    this.subjects = Response
-    console.log(Response + "waouw")
-    })
+    console.log("....")
+    this.listSubject.displaySubject().subscribe(
+      Response => {
+      this.subjects = Response
+      console.log(Response + "waouw")
+      })
   }
 
 }

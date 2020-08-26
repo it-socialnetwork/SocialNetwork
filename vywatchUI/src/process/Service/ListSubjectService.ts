@@ -1,7 +1,7 @@
 import{User} from '../Model/User'
 import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { HttpClientModule } from '@angular/common/http';
 const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
@@ -11,12 +11,13 @@ const httpOptions = {
 export class ListSubjectService{
    token:String = localStorage.getItem('token');
    pseudo:String = localStorage.getItem('pseudo')
-    constructor(private readonly http : HttpClient){}
+    constructor(private http : HttpClient){}
 
     displaySubject(){
-      let tokenStr = ""+this.token;
-      const headers = new HttpHeaders().set("Authorization", tokenStr);
-      console.log(this.token)
-      return this.http.get(`http://localhost:8080/vywatch/api/listSubject/allSubject/${this.pseudo}`,{headers, responseType : 'text' as 'json'});
+      let tokenStr = 'Bearer ' + this.token
+      const headers = new HttpHeaders().set("Authorization",tokenStr);
+      console.log("List subject service on affiche le token qu'on renvoit pour l'autorisation")
+      console.log(tokenStr)
+      return this.http.get("http://localhost:8080/vywatch/api/listSubject/allSubject",{headers, responseType : 'text' as 'json'})
     }
 }

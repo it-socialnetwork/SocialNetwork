@@ -1,5 +1,7 @@
 package com.socialnetwork.vywatch.Controller;
 
+import java.util.List;
+
 import com.socialnetwork.vywatch.Model.User;
 import com.socialnetwork.vywatch.Repository.UserRepository;
 
@@ -36,11 +38,11 @@ public class UserController {
     }
 
     @GetMapping(value="/getalluser")
-    public Iterable<User> GetAllUsers(){
-        Iterable<User> users=UserRepository.findAll();
+    public List<User> GetAllUsers(){
+        List<User> users=UserRepository.findAll();
         return users;
     }
-    
-    
+
+
 
 }

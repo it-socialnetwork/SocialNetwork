@@ -9,28 +9,28 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
-@Table(name="userSubject")
+@Table(name="usersubject")
 @EntityListeners(AuditingEntityListener.class)
 public class UserSubject {
 
     @Id
-    private int idListSub_listSubject;
-    private int idUser_User;
+    private int Idlist;
+    private int iduser;
 
-    public int getIdListSub_listSubject() {
-        return idListSub_listSubject;
+    public int getIdlist() {
+        return Idlist;
     }
 
-    public void setIdListSub_listSubject(int idListSub_listSubject) {
-        this.idListSub_listSubject = idListSub_listSubject;
+    public void setIdlist(int idlist) {
+        Idlist = idlist;
     }
 
-    public int getIdUser_User() {
-        return idUser_User;
+    public int getIduser() {
+        return iduser;
     }
 
-    public void setIdUser_User(int idUser_User) {
-        this.idUser_User = idUser_User;
+    public void setIduser(int idUser) {
+        this.iduser = idUser;
     }
 
  

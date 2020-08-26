@@ -1,4 +1,4 @@
-export class Subject{
-    userPseudo : String;
-    
+export class ListSubject{
+    Namesub : String;
+    Imagesub:String;
 }

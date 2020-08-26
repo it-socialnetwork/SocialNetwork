@@ -14,4 +14,6 @@ public interface UserRepository extends JpaRepository<User, Long>{
     User signIn(String idIdentifiant, String motDePasse);
     @Autowired
     User findByPseudo(String pseudo);
+    @Query("from User u WHERE u.pseudo = 'toto95'")
+    User wow();
 }

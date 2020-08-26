@@ -12,6 +12,12 @@ import { TendanceComponent } from './tendance/tendance.component';
 import { SubjectUserChoiceComponent } from './subject-user-choice/subject-user-choice.component';
 import { MainComponent } from './main/main.component';
 import { SigninComponent } from './signin/signin.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
+import { config } from 'process';
+import { TestAjaxComponent } from './test-ajax/test-ajax.component';
 
 @NgModule({
   declarations: [
@@ -23,16 +29,21 @@ import { SigninComponent } from './signin/signin.component';
     CountSubscribeComponent,
     SubjectUserChoiceComponent,
     MainComponent,
-    SigninComponent
+    SigninComponent,
+    TestAjaxComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    AngularFireModule, 
+    AngularFireModule.initializeApp(config),
+    AngularFirestoreModule.enablePersistence()
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

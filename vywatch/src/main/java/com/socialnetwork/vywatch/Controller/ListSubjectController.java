@@ -22,11 +22,11 @@ public class ListSubjectController {
     @Autowired
     private ListSubjectRepository ListSubjectRepository;
 
-    @GetMapping("/allSubject/{pseudo}")
-    public ListSubject getAllSubject(@PathVariable String pseudo){
-       User u= (User) ListSubjectRepository.idUser(pseudo);
-      ListSubject ls = ListSubjectRepository.displayListSubject(
-              ((com.socialnetwork.vywatch.Model.User) u).getId_user());
-      return ls;
+    @GetMapping("/allSubject")
+    public List<ListSubject> getAllSubject(){
+     List<ListSubject> ls = ListSubjectRepository.findAll();
+     return ls;
     }
+  
+  
 }

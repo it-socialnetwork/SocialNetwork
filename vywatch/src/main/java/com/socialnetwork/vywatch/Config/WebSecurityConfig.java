@@ -17,6 +17,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -50,7 +52,8 @@ return super.authenticationManagerBean();
     // We don't need CSRF for this example
     httpSecurity.csrf().disable()
     // dont authenticate this particular request
-    .authorizeRequests().antMatchers("/vywatch/api/authenticate").permitAll().antMatchers("/vywatch/api/user/creatuser").permitAll().
+    .authorizeRequests().antMatchers("/vywatch/api/authenticate").permitAll().antMatchers("/vywatch/api/user/creatuser")
+    .permitAll().antMatchers("/vywatch/api/user/getalluser").permitAll().
     // all other requests need to be authenticated
     anyRequest().authenticated().and().
     // make sure we use stateless session; session won't be used to
@@ -60,4 +63,7 @@ return super.authenticationManagerBean();
     // Add a filter to validate the tokens with every request
     httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
+    
+
+  
 }

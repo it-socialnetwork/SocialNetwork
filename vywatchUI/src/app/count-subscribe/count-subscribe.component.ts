@@ -35,7 +35,7 @@ export class CountSubscribeComponent implements OnInit {
   SubscribePart1: boolean;
   SubscribePart2: boolean;
   SubscribePart3: boolean;
-  
+  token:String
   
 
   //Variable pour la date de naissance
@@ -168,16 +168,17 @@ export class CountSubscribeComponent implements OnInit {
   
   async CreatUser()
   {
+    this.token = new String
     this.UserService.addUser(this.User);
     let messageSuccess = true;
     console.log("Before sleep: " + new Date().toString());
-    await this.delay(3000);
+    await this.delay(5000);
     console.log("After sleep:  " + new Date().toString());
-    this.UserService.signInUser(this.User.pseudo, this.User.password)
      // var str: string = String(this.User.pseudo);
-      //localStorage.setItem('pseudo', str);
-     
-      //this._router.navigate(['signup/preference/', this.User.pseudo], {queryParams: {}});
+     localStorage.setItem('pseudo', String(this.User.pseudo));
+    this.UserService.signInUser(this.User.pseudo, this.User.password)
+    await this.delay(2000);
+    this._router.navigate(['preference/', this.User.pseudo], {queryParams: {}});
       
 
    

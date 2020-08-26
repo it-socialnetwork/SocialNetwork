@@ -5,11 +5,13 @@ import {CountSubscribeComponent} from './count-subscribe/count-subscribe.compone
 import {SubjectUserChoiceComponent} from './subject-user-choice/subject-user-choice.component'
 import {MainComponent} from './main/main.component'
 import {SigninComponent} from './signin/signin.component'
+import { TestAjaxComponent } from './test-ajax/test-ajax.component';
 const routes: Routes = [
   { path:'', component: MainComponent },
   { path:'signup', component: CountSubscribeComponent},
-  { path:'signup/preference/:pseudo', component: SubjectUserChoiceComponent},
-  {path:'signin', component: SigninComponent}
+  { path:'preference/:pseudo', component: SubjectUserChoiceComponent},
+  {path:'signin', component: SigninComponent},
+  {path:'test', component: TestAjaxComponent},
 ];
 
 @NgModule({
