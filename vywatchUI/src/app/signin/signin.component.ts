@@ -20,12 +20,20 @@ export class SigninComponent implements OnInit {
 
   ngOnInit(): void {
      this.Us = new UserService(this.http)
+    
   }
   onSubmit(form : NgForm) {
    
     this.pseudo = form.value["login"]
     this.password = form.value["password"]
     this.Us.signInUser(this.pseudo, this.password)
+    this.Us.displaySubject().subscribe(
+      Response => {
+        console.log(Response)
+        console.log("DisplaySubject dans sign in component")
+      return Response
+      
+      })
   }
   
 

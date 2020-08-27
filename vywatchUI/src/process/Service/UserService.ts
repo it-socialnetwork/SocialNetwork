@@ -9,8 +9,15 @@ const httpOptions = {
     })
 };
 export class UserService{
+
   user:User
     constructor(private readonly http : HttpClient){}
+
+    displaySubject() {
+      return this.http.get("http://localhost:8080/vywatch/api/user/getalluser",httpOptions)
+    }
+
+
     addUser (user : User) {
         console.log(user)
         return this.http.post("http://localhost:8080/vywatch/api/user/creatuser", user, httpOptions).subscribe(() => {
@@ -36,5 +43,6 @@ export class UserService{
         }
         );
     }
+
 
 }

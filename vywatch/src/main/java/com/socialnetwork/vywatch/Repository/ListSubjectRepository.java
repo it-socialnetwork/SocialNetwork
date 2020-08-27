@@ -11,4 +11,8 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface ListSubjectRepository extends JpaRepository<ListSubject, Long> {
 
+    @Query("from ListSubject")
+    List<ListSubject> find();
+        
+    
 }

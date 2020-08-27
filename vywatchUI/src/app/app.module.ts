@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 import { config } from 'process';
 import { TestAjaxComponent } from './test-ajax/test-ajax.component';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,11 @@ import { TestAjaxComponent } from './test-ajax/test-ajax.component';
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule.enablePersistence()
   ],
-  providers: [AngularFirestore],
+  providers: [AngularFirestore, {
+      provide : HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi : true}],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
