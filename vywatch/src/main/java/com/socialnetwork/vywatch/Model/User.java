@@ -16,8 +16,8 @@ public class User {
 
     
     @Id
-    private int id;
     private String pseudo;
+    private int id;
     private String lastname;
     private String firstname;
     private Date dateBirth;
