@@ -19,7 +19,7 @@ import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestor
 import { config } from 'process';
 import { TestAjaxComponent } from './test-ajax/test-ajax.component';
 import { TokenInterceptorService } from './token-interceptor.service';
-
+import { MDBBootstrapModule} from 'angular-bootstrap-md'
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +42,8 @@ import { TokenInterceptorService } from './token-interceptor.service';
     ReactiveFormsModule,
     AngularFireModule, 
     AngularFireModule.initializeApp(config),
-    AngularFirestoreModule.enablePersistence()
+    AngularFirestoreModule.enablePersistence(),
+    MDBBootstrapModule.forRoot()
   ],
   providers: [AngularFirestore, {
       provide : HTTP_INTERCEPTORS,

@@ -1,8 +1,8 @@
-h2
+h4
 {
     color: #6A38FF;
     margin-top: 50px;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 p{
     margin-top: 50px;
@@ -61,4 +61,17 @@ input[type="radio"]
 #birthdayform
 {
     margin-top: 25px;
+}
+
+
+#carouselSubject
+{
+    width: 800px;
+    height: 400px;
+}
+
+video
+{
+    width: 800px;
+    height: 400px;
 }

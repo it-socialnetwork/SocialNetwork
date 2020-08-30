@@ -1,9 +1,40 @@
 <div id="subject" class="container">
     <div id="title" class="text-center">
         <img src="..\assets\logo.png" alt="" width="135" height="135" class="center-block"/>  
-        <h2>{{Title}}</h2>
+        <h4>{{Title}}</h4>
         <tr *ngFor="let Subject of Subjects">
             <h1>{{Subject.namesub}}</h1>
         </tr>
     </div>
+
+    <div id="carouselSubject" class="carousel slide" data-ride="carousel" data-interval="false">
+        
+            <div class="carousel-inner" >
+                <div class="carousel-item active" *ngFor="let Subject of Subjects">
+                  <div class="view">
+                      <video class="video-fluid" autoplay loop>
+                        <source src="..\assets\Video\Politique.mp4" type="video/mp4" />
+                      </video>
+                      <div class="mask rgba-indigo-light waves-light" mdbWavesEffect></div>
+                    </div>
+                
+                    <div class="carousel-caption">
+                      <div class="animated fadeInDown delay-50s">
+                        <h3 class="h3-responsive">{{Subject.namesub}}</h3>
+                        
+                      </div>
+                    </div>
+            </div>
+        
+        
+          
+        <a class="carousel-control-prev" href="#carouselSubject" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselSubject" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
 </div>
