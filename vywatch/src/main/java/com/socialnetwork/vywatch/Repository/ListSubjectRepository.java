@@ -13,6 +13,8 @@ public interface ListSubjectRepository extends JpaRepository<ListSubject, Long> 
 
     @Query("from ListSubject")
     List<ListSubject> find();
-        
+      
+    @Query(value= "SELECT idlist FROM ListSubject WHERE Namesub = ?1", nativeQuery = true)
+    int findidlist(String namesub);
     
 }

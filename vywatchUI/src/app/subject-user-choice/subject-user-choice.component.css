@@ -63,4 +63,21 @@ input[type="radio"]
     margin-top: 25px;
 }
 
+#carousel
+{
+    width: 500px;
+    height: 150px;
+}
 
+.carousel-item
+{
+    
+}
+button{
+    background-color:red;
+    border: none;
+    border-radius:50px;
+    text-decoration : none;
+    width:140px;
+    height:30px;
+}

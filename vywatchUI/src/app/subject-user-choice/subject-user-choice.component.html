@@ -1,13 +1,24 @@
 <div id="subject" class="container">
     <div id="title" class="text-center">
-        <img src="..\assets\logo.png" alt="" width="135" height="135" class="center-block"/>  
-        
+        <h5>Choissisez vos sujets</h5>
     </div>
 
-<mdb-carousel [animation]="'slide'" >
+<mdb-carousel id="carousel" [animation]="'slide'" >
   <mdb-carousel-item *ngFor="let Subject of Subjects">
     <video   id="video" class="video-fluid" loop>
       <source  src="{{Subject.imagesub}}" type="video/mp4" />
     </video>
-  </mdb-carousel-item>e
+    <div class="carousel-caption">
+        <h3 class="h3-responsive">{{Subject.namesub}}</h3>
+        <button  (click)="AddSubjects(Subject.namesub)">+</button>
+    </div>
+   
+  </mdb-carousel-item>
 </mdb-carousel>
+
+<ul *ngFor="let sujet of ListChoiceSubjects">
+  
+  <li>{{sujet}} <button (click)="RemoveSubject(sujet)">-</button></li>
+</ul>
+
+<button (click)="Send()">SUIVANT</button>
