@@ -1,4 +1,4 @@
 export class ListSubject{
-    Namesub : String;
-    Imagesub:String;
+    namesub : String;
+    imagesub:String;
 }

@@ -36,6 +36,8 @@ export class SubjectUserChoiceComponent implements OnInit {
   { }
 
   ngOnInit() {
+    // Show loading animation.
+  
      this.userService = new UserService(this.http) 
      this.listSubjectService = new ListSubjectService(this.http)
     this.Title="CHOISIR VOS PRÉFÉRENCES";
@@ -46,6 +48,8 @@ export class SubjectUserChoiceComponent implements OnInit {
         this.Subjects = Response
       
       })
+
+      
   }
 
 }

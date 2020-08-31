@@ -20,6 +20,7 @@ import { config } from 'process';
 import { TestAjaxComponent } from './test-ajax/test-ajax.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { MDBBootstrapModule} from 'angular-bootstrap-md'
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { MDBBootstrapModule} from 'angular-bootstrap-md'
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -43,7 +45,7 @@ import { MDBBootstrapModule} from 'angular-bootstrap-md'
     AngularFireModule, 
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule.enablePersistence(),
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
   ],
   providers: [AngularFirestore, {
       provide : HTTP_INTERCEPTORS,

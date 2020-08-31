@@ -1,22 +1,18 @@
 <div id="subject" class="container">
     <div id="title" class="text-center">
         <img src="..\assets\logo.png" alt="" width="135" height="135" class="center-block"/>  
-        <h4>{{Title}}</h4>
-        <tr *ngFor="let Subject of Subjects">
-            <td>{{Subject.namesub}}</td>
-        </tr>
+        
     </div>
 
     <mdb-carousel id="carouselExampleControls" class="carousel slide carousel-fade" [animation]="'fade'" [isControls]="false" >
       <ng-container *ngFor="let Subject of Subjects">
-          <mdb-carousel-item class="d-block w-100">
-            <video class="video-fluid" autoplay loop>
-              <source src="..\assets\Video\Politique.mp4" type="video/mp4" />
+          <mdb-carousel-item class="d-block w-100 ">
+  
+            <video   id="video" class="video-fluid" loop>
+              <source  src="{{Subject.imagesub}}" type="video/mp4" />
+              <p>{{Subject.namesub}}</p>
             </video>
-            <div class="carousel-caption">
-              <div class="animated fadeInDown delay-50s">
-                <h3 class="h3-responsive">{{Subject.namesub}}</h3>
-            </div></div>
+           
           </mdb-carousel-item>
       </ng-container>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -30,3 +26,4 @@
     </mdb-carousel>
 
 </div>
+
