@@ -4,6 +4,11 @@ h4
     margin-top: 50px;
     font-size: 1.2em;
 }
+
+h6{
+    color: #6A38FF;
+    font-size: 1em;
+}
 p{
     margin-top: 50px;
 }
@@ -42,21 +47,14 @@ input[type="radio"]
 }
 
 
-#subject
-{
-    margin-top: 50px;
-}
+
 
 #title
 {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
-#subscribe
-{
-    padding-left: 250px;
-    padding-right: 250px;
-}
+
 
 #birthdayform
 {
@@ -65,19 +63,84 @@ input[type="radio"]
 
 #carousel
 {
-    width: 500px;
-    height: 150px;
+    width: 1000px;
+    margin-top: 100px;
+    margin-left: 20px;
 }
 
-.carousel-item
+.plus
 {
+    font-size: 3.5em;
+}
+.buttonadd{
+    width:85px;
+	height:85px;
+	background:#fafafa;
+	font:bold 13px Arial;
+	border-radius:50%;
+    color:#555;
+    margin-bottom: 150px;
+    margin-top: 20px;
+}
+
+.description
+{
+    margin-top: -50px;
+}
+
+.buttonadd:hover{
+    width:85px;
+	height:85px;
+	background:#6A38FF;
+	font:bold 13px Arial;
+	border-radius:50%;
+	color:#fafafa;
+}
+
+#bodysub
+{
+    display: flex;
+   
+}
+
+#listsub
+{
+    margin-left: 300px;
+    margin-top: 100px;
+}
+
+.buttonminus{
+	width:50px;
+    height:50px;
+    border-radius:50%;
+    border-color: #6A38FF;
+}
+
+.moin
+{
+    font-size: 1.5em;
+    color: #6A38FF;
+}
+
+td {
     
+    padding: 20px;
+  }
+
+
+.iconsub
+{
+    color: #6A38FF;
+    font-size: 1.5em;
 }
-button{
-    background-color:red;
-    border: none;
-    border-radius:50px;
-    text-decoration : none;
-    width:140px;
-    height:30px;
+
+.buttonsend
+{
+    background-color: #6A38FF;
+    margin-left: 42%;
+    color: #fafafa;
+    margin-top: 50px;
+    width: 150px;
 }
+
+

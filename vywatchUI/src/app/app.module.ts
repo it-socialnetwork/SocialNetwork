@@ -21,6 +21,7 @@ import { TestAjaxComponent } from './test-ajax/test-ajax.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { MDBBootstrapModule} from 'angular-bootstrap-md'
 import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,7 @@ import { CommonModule } from '@angular/common';
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule.enablePersistence(),
     MDBBootstrapModule.forRoot(),
+    FontAwesomeModule,
   ],
   providers: [AngularFirestore, {
       provide : HTTP_INTERCEPTORS,

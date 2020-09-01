@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import {ListSubject} from '../../process/Model/Subject'
-
 import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
-
 import { FormBuilder } from '@angular/forms';
 import { UserService } from '../../process/Service/UserService';
 import { User } from 'src/process/Model/User';
 import { ListSubjectService } from 'src/process/Service/ListSubjectService';
 import { ListUserSubject } from '../../process/Model/ListUserSubject';
 import {UserSubjectService} from '../../process/Service/UserSubjectService';
+
+import{faPlus} from '@fortawesome/free-solid-svg-icons'
+import{faHandshake} from '@fortawesome/free-solid-svg-icons'
+import{faPrayingHands} from '@fortawesome/free-solid-svg-icons'
+import{faAtom} from '@fortawesome/free-solid-svg-icons'
+import{faMonument} from '@fortawesome/free-solid-svg-icons'
+import{faMinus} from '@fortawesome/free-solid-svg-icons'
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -38,8 +44,15 @@ export class SubjectUserChoiceComponent implements OnInit {
   //public ListChoiceSubjects: string[][] = []
   constructor(
     
-    readonly http:HttpClient, private formBuilder: FormBuilder, private _router: Router) 
-  { }
+    readonly http:HttpClient, private formBuilder: FormBuilder, private _router: Router) { }
+
+
+  faPlus=faPlus;
+  faAtom=faAtom;
+  faPrayingHands=faPrayingHands;
+  faHandshake=faHandshake;
+  faMonument=faMonument;
+  faMinus=faMinus;
 
   ngOnInit() {
     // Show loading animation.
