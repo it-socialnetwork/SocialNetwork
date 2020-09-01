@@ -73,13 +73,18 @@ export class SubjectUserChoiceComponent implements OnInit {
     }
   }
 
-  Send()
+  private delay(ms: number)
+  {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  async Send()
   {
     
-
+    
     for(var namesub in this.ListChoiceSubjects)
     {
-      
+      await this.delay(2000);
       this.ListUserSubject = new ListUserSubject()
       this.ListUserSubject.pseudouser=localStorage.getItem("pseudo");
       this.ListUserSubject.namesubject=this.ListChoiceSubjects[namesub];

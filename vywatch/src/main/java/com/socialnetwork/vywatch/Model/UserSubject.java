@@ -14,6 +14,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class UserSubject {
 
     @Id
+    private int idusersub;
     private int Idlist;
     private int iduser;
 
@@ -31,6 +32,14 @@ public class UserSubject {
 
     public void setIduser(int idUser) {
         this.iduser = idUser;
+    }
+
+    public int getIdusersub() {
+        return idusersub;
+    }
+
+    public void setIdusersub(int idusersub) {
+        this.idusersub = idusersub;
     }
 
  

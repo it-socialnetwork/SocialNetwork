@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 29 août 2020 à 15:00
+-- Généré le :  mar. 01 sep. 2020 à 09:07
 -- Version du serveur :  5.7.28
 -- Version de PHP :  7.4.0
 
@@ -34,15 +34,17 @@ CREATE TABLE IF NOT EXISTS `listsubject` (
   `NameSub` varchar(50) NOT NULL,
   `ImageSub` varchar(250) NOT NULL,
   PRIMARY KEY (`idlist`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `listsubject`
 --
 
 INSERT INTO `listsubject` (`idlist`, `NameSub`, `ImageSub`) VALUES
-(1, 'Politique', 'ezezezf'),
-(2, 'Religion', 'gehtrtrhtrh');
+(1, 'Politique', '../assets/Video/Politique.mp4'),
+(2, 'Science', '../assets/Video/Science.mp4'),
+(3, 'Histoire', '../assets/Video/Histoire.mp4'),
+(4, 'Religion', '../assets/Video/Religion.mp4');
 
 -- --------------------------------------------------------
 
@@ -79,21 +81,19 @@ CREATE TABLE IF NOT EXISTS `user` (
   `date_Birth` date NOT NULL,
   `sexe` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id`, `lastname`, `firstname`, `email`, `password`, `firstconnection`, `pseudo`, `date_Birth`, `sexe`) VALUES
-(1, 'trhrthtrh', 'htrhrth', 'trhtrht@hthth.hj', '$2a$10$3BgDGFDtKJHTYTO4UsKlDugVULtVx64T9u1ydbQRG0yqsxcvWsaQO', 1, 'regergreg', '2000-09-08', 'Man'),
-(2, 'trhrthtrh', 'htrhrth', 'trhtrht@hthth.hj', '$2a$10$vcKi8ksacn4sFWiVPq7rYe62CZuwBt793x/mtC0RWXTBPhmaVNVJm', 1, 'regergreg', '2000-09-08', 'Man'),
-(3, 'thrhtrh', 'thrrth', 'thrhtrtrh@htrhtrh.ghj', '$2a$10$XYk6DzdJ3ChZRI6a8icGFO2VOPum3ioVvBXbGCVbb78.tMGAqglO2', 1, 'hrrerhererehreh', '1987-10-23', 'Man'),
-(4, 'thrrth', 'trhtrh', 'trhtrhtr@rgreg.com', '$2a$10$DrQFNsBtmV8TtZs4xzUnbO3fnMySxrmPjjYsIlkCSNdeRFLn0S.wS', 1, 'regergregergerg', '1969-11-22', 'Man'),
-(5, 'tyjytj', 'jtyjtyj', 'yjytyjyjty@hjrtjt.fgh', '$2a$10$gkclB8iBGNDULDaW.1BR.OTSBpXcNCD2XIq6pSjxz5.DK.LIUmvaW', 1, 'gjggjgjgtr', '1987-10-14', 'Man'),
-(6, 'tyjytj', 'jtyjtyj', 'yjytyjyjty@hjrtjt.fgh', '$2a$10$aoI0e64RYbYC5UqEOEMgxue62HZ/MScsA98Pla9arxNOyaHL2hjeK', 1, 'gjggjgjgtr', '1987-10-14', 'Man'),
-(7, 'jo', 'do', 'test@gmail.com', '$2a$10$V2gMJbGfReXzQ41Qh9y1C.Ezt3UHfJj7Bh6NpeGGmamObt5AMxNlm', 1, 'tete75', '1966-12-06', 'Man'),
-(8, 'ytjytjtyj', 'htyjytjt', 'jytytjty@ththrttrh.com', '$2a$10$y4EINUBbLug0FWB4/rbPBuHJFt2fa/QpPk58IqkEB5tw6KJxzFFCW', 1, 'trhrthrthrthrt', '1976-10-12', 'Man');
+(1, 'nico', 'nico', 'nico@vw.fr', 'testest', 1, 'nico', '2020-09-30', 'Homme'),
+(2, 'khalil', 'khalil', 'khalil@vw.fr', 'testest', 1, 'khalil', '2020-09-30', 'Homme'),
+(3, 'regergerg', 'erergerg', 'regregerg@httr.ghj', '$2a$10$Qb57uTY91/58ZnDt8LdmBeAmkDLkJen46golHrR.Mh1Tr9V3rN3H6', 1, 'thrrtrth45693', '1995-10-22', 'Man'),
+(4, 'rgergergerg', 'egergerger', 'ergergerg@gregr.com', '$2a$10$u9yac7UzD0oKkIJPEriVd.6ypFEynFE6qAjBjrJv/hEmODDBEe/x6', 1, 'trhrthrthrth756', '1986-09-22', 'Man'),
+(5, 'fdbbfdb', 'bfdbfdb', 'fbdbfb@rrgre.hjk', '$2a$10$3Mm.seMR.W6qGO5/ANSGoeaylF2KCN/KNZCU9CD43Bcnki2JSJEq6', 1, 'httrhthrtrthrthrthrthgr', '1990-08-21', 'Man'),
+(6, 'rthtrhrth', 'trhtrhtrh', 'rthtrhrth@trtrhtrh.com', '$2a$10$eYtdAosUzICw2xiFJCqdk.h9P196fIs5vclkrex/pDhMFoi.ld32m', 1, 'rregergregreg4556', '1970-10-23', 'Man');
 
 -- --------------------------------------------------------
 
@@ -105,9 +105,29 @@ DROP TABLE IF EXISTS `usersubject`;
 CREATE TABLE IF NOT EXISTS `usersubject` (
   `iduser` int(11) NOT NULL,
   `idlist` int(11) NOT NULL,
-  PRIMARY KEY (`iduser`,`idlist`),
+  `idusersub` int(11) NOT NULL,
+  PRIMARY KEY (`idusersub`),
+  KEY `userSubject_user_FK` (`iduser`),
   KEY `userSubject_listSubject0_FK` (`idlist`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `usersubject`
+--
+
+INSERT INTO `usersubject` (`iduser`, `idlist`, `idusersub`) VALUES
+(2, 1, 1),
+(1, 1, 2),
+(2, 1, 3),
+(2, 4, 4),
+(1, 3, 5),
+(4, 1, 6),
+(5, 4, 7),
+(5, 1, 8),
+(5, 2, 9),
+(6, 1, 10),
+(6, 2, 11),
+(6, 3, 12);
 
 -- --------------------------------------------------------
 
@@ -117,9 +137,11 @@ CREATE TABLE IF NOT EXISTS `usersubject` (
 
 DROP TABLE IF EXISTS `userteam`;
 CREATE TABLE IF NOT EXISTS `userteam` (
+  `iduserteam` int(11) NOT NULL,
   `iduser` int(11) NOT NULL,
   `idteam` int(11) NOT NULL,
-  PRIMARY KEY (`iduser`,`idteam`),
+  PRIMARY KEY (`iduserteam`),
+  KEY `userteam_user_FK` (`iduser`),
   KEY `userteam_team0_FK` (`idteam`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

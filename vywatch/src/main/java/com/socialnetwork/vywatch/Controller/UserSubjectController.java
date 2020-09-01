@@ -29,9 +29,12 @@ public class UserSubjectController {
 
     @PostMapping(value="/addsubject")
     public ResponseEntity<ListUserSubect> AddSubjectUser(@RequestBody ListUserSubect ListUserSubect){
+        
+        int lastidusersub=UserSubjectRepository.findlastId();
         int iduser=UserRepository.findId(ListUserSubect.getPseudouser());
         int idlist=ListSubjectRepository.findidlist(ListUserSubect.getNamesubject());
         UserSubject userSubject = new UserSubject();
+        userSubject.setIdusersub(lastidusersub+1);
         userSubject.setIdlist(idlist);
         userSubject.setIduser(iduser);
         UserSubjectRepository.save(userSubject);
