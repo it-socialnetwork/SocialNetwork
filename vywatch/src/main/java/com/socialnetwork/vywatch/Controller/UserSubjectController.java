@@ -31,7 +31,7 @@ public class UserSubjectController {
     public ResponseEntity<ListUserSubect> AddSubjectUser(@RequestBody ListUserSubect ListUserSubect){
         
         int lastidusersub=UserSubjectRepository.findlastId();
-        int iduser=UserRepository.findId(ListUserSubect.getPseudouser());
+        int iduser=UserRepository.findIduser(ListUserSubect.getPseudouser());
         int idlist=ListSubjectRepository.findidlist(ListUserSubect.getNamesubject());
         UserSubject userSubject = new UserSubject();
         userSubject.setIdusersub(lastidusersub+1);

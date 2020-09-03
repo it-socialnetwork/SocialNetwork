@@ -17,6 +17,6 @@ public interface UserRepository extends JpaRepository<User, Long>{
     @Query("from User u WHERE u.pseudo = 'toto95'")
     User wow();
 
-    @Query("SELECT id FROM User WHERE pseudo = ?1")
-    int findId(String pseudo);
+    @Query("SELECT iduser FROM User WHERE pseudo = ?1")
+    int findIduser(String pseudo);
 }

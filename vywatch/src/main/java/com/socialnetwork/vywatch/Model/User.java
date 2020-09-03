@@ -17,7 +17,7 @@ public class User {
     
     @Id
     private String pseudo;
-    private int id;
+    private int iduser;
     private String lastname;
     private String firstname;
     private Date dateBirth;
@@ -27,11 +27,11 @@ public class User {
     private String sexe;
 
     public int getId() {
-        return id;
+        return iduser;
     }
 
     public void setId(int id_user) {
-        this.id = id_user;
+        this.iduser = id_user;
     }
 
     public String getPseudo() {

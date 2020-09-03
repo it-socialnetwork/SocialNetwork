@@ -2,7 +2,7 @@ package com.socialnetwork.vywatch.Controller;
 
 import java.util.List;
 
-import com.socialnetwork.vywatch.Model.ListSubject;
+
 import com.socialnetwork.vywatch.Model.User;
 import com.socialnetwork.vywatch.Repository.UserRepository;
 
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.socialnetwork.vywatch.Repository.ListSubjectRepository;
+
 @RestController
 @RequestMapping("vywatch/api/user")
 @CrossOrigin(origins="*", allowedHeaders="*")
@@ -27,8 +27,7 @@ public class UserController {
 
     private PasswordEncoder PasswordEncoder;
    
-    @Autowired
-    private ListSubjectRepository ls;
+    
    
     @PostMapping(value="/creatuser")
     public ResponseEntity<User> CreateUsers(@RequestBody User user){
