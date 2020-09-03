@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
+  selectedFile: File
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0]
+  }
+
+  onUpload() {
+    // upload code goes here
   }
 
 }
