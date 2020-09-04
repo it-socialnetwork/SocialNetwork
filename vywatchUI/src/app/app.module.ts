@@ -22,6 +22,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { MDBBootstrapModule} from 'angular-bootstrap-md'
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PageMemberComponent } from './page-member/page-member.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MainComponent,
     SigninComponent,
     TestAjaxComponent,
+    PageMemberComponent,
 
   ],
   imports: [

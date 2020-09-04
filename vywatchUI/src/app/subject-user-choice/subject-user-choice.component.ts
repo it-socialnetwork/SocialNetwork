@@ -104,7 +104,7 @@ export class SubjectUserChoiceComponent implements OnInit {
       console.log(this.ListUserSubject)
       this.UserSubjectService.addUserSubject(this.ListUserSubject)
     }
-
+    this._router.navigate(['pageMembre/',  localStorage.getItem('pseudo')], {queryParams: {}});
   }
 
 }

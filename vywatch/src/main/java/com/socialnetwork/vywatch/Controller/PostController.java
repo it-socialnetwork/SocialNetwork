@@ -1,5 +1,7 @@
 package com.socialnetwork.vywatch.Controller;
 
+import java.util.List;
+
 import com.socialnetwork.vywatch.Model.Post;
 import com.socialnetwork.vywatch.Repository.PostRepository;
 import com.socialnetwork.vywatch.Repository.UserRepository;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,5 +39,13 @@ public class PostController {
         pr.save(post);
         return new ResponseEntity<Post>(HttpStatus.OK ); 
     }
+
+    @GetMapping(value="/displayAllPost/{pseudo}")
+    public List<Post> displayPost( @PathVariable String pseudo){
+        int idUser = ur.findIduser(pseudo);
+        List<Post> s = pr.findPosts(idUser);
+        return s;
+    }
+
 
 }

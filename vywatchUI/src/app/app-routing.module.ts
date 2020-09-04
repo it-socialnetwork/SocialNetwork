@@ -6,12 +6,14 @@ import {SubjectUserChoiceComponent} from './subject-user-choice/subject-user-cho
 import {MainComponent} from './main/main.component'
 import {SigninComponent} from './signin/signin.component'
 import { TestAjaxComponent } from './test-ajax/test-ajax.component';
+import { PageMemberComponent } from './page-member/page-member.component';
 const routes: Routes = [
   { path:'', component: MainComponent },
   { path:'signup', component: CountSubscribeComponent},
   { path:'preference/:pseudo', component: SubjectUserChoiceComponent},
   {path:'signin', component: SigninComponent},
   {path:'test', component: TestAjaxComponent},
+  {path:'pageMembre/:pseudo', component: PageMemberComponent},
 ];
 
 @NgModule({
