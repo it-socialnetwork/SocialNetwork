@@ -1,49 +1,49 @@
 <div id="subject">
 
-    <div id="bodysub" >
-      <div id="carousel" >
-        <mdb-carousel [animation]="'slide'" >
-          <mdb-carousel-item *ngFor="let Subject of Subjects">
-            <video   id="video" class="video-fluid" loop>
-              <source  src="{{Subject.imagesub}}" type="video/mp4" />
-            </video>
-            <div class="carousel-caption description">
-                <h3 class="h3-responsive">
-                  <fa-icon  *ngIf="Subject.namesub=='Histoire'" [icon]="faMonument"></fa-icon>
-                  <fa-icon  *ngIf="Subject.namesub=='Religion'" [icon]="faPrayingHands"></fa-icon>
-                  <fa-icon  *ngIf="Subject.namesub=='Politique'" [icon]="faHandshake"></fa-icon>
-                  <fa-icon  *ngIf="Subject.namesub=='Science'" [icon]="faAtom"></fa-icon>
-                  {{Subject.namesub}}</h3>
-                <button  class="btn buttonadd" (click)="AddSubjects(Subject.namesub)"><fa-icon class="plus" [icon]="faPlus"></fa-icon></button>
-            </div>
-          
-          </mdb-carousel-item>
-        </mdb-carousel>
-        <button class="btn buttonsend" (click)="Send()">SUIVANT</button>
-      </div>
-
-      <div id="listsub">
-        <div id="title" class="text-center">
-          <img src="..\assets\logo.png" alt="" width="110" height="110" class="center-block"/>  
-          <h4>Liste vos préférences</h4>
-        </div>
-        <table>
-            <tr *ngFor="let sujet of ListChoiceSubjects">
-              <td>
-                 <fa-icon class="iconsub"  *ngIf='sujet=="Histoire"' [icon]="faMonument"></fa-icon>
-                  <fa-icon  class="iconsub" *ngIf="sujet=='Religion'" [icon]="faPrayingHands"></fa-icon>
-                  <fa-icon  class="iconsub" *ngIf="sujet=='Politique'" [icon]="faHandshake"></fa-icon>
-                  <fa-icon  class="iconsub" *ngIf="sujet=='Science'" [icon]="faAtom"></fa-icon>
-              </td>
-              <td><h6>{{sujet}}</h6></td>
-              <td><button class="btn buttonminus" (click)="RemoveSubject(sujet)"><fa-icon class="moin"  [icon]="faMinus"></fa-icon></button></td>
-            </tr>
-           
-        </table>
+  <div id="bodysub" >
+    <div id="carousel" >
+      <mdb-carousel [animation]="'slide'" >
+        <mdb-carousel-item *ngFor="let Subject of Subjects">
+          <video   id="video" class="video-fluid" loop>
+            <source  src="{{Subject.imagesub}}" type="video/mp4" />
+          </video>
+          <div class="carousel-caption description">
+              <h3 class="h3-responsive">
+                <fa-icon  *ngIf="Subject.namesub=='Histoire'" [icon]="faMonument"></fa-icon>
+                <fa-icon  *ngIf="Subject.namesub=='Religion'" [icon]="faPrayingHands"></fa-icon>
+                <fa-icon  *ngIf="Subject.namesub=='Politique'" [icon]="faHandshake"></fa-icon>
+                <fa-icon  *ngIf="Subject.namesub=='Science'" [icon]="faAtom"></fa-icon>
+                {{Subject.namesub}}</h3>
+              <button  class="btn buttonadd" (click)="AddSubjects(Subject.namesub)"><fa-icon class="plus" [icon]="faPlus"></fa-icon></button>
+          </div>
         
+        </mdb-carousel-item>
+      </mdb-carousel>
+      <button class="btn buttonsend" (click)="Send()">SUIVANT</button>
+    </div>
+
+    <div id="listsub">
+      <div id="title" class="text-center">
+        <img src="..\assets\logo.png" alt="" width="110" height="110" class="center-block"/>  
+        <h4>Liste vos préférences</h4>
       </div>
+      <table>
+          <tr *ngFor="let sujet of ListChoiceSubjects">
+            <td>
+               <fa-icon class="iconsub"  *ngIf='sujet=="Histoire"' [icon]="faMonument"></fa-icon>
+                <fa-icon  class="iconsub" *ngIf="sujet=='Religion'" [icon]="faPrayingHands"></fa-icon>
+                <fa-icon  class="iconsub" *ngIf="sujet=='Politique'" [icon]="faHandshake"></fa-icon>
+                <fa-icon  class="iconsub" *ngIf="sujet=='Science'" [icon]="faAtom"></fa-icon>
+            </td>
+            <td><h6>{{sujet}}</h6></td>
+            <td><button class="btn buttonminus" (click)="RemoveSubject(sujet)"><fa-icon class="moin"  [icon]="faMinus"></fa-icon></button></td>
+          </tr>
+         
+      </table>
       
     </div>
     
+  </div>
+  
 
 </div>

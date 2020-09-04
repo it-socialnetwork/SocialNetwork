@@ -1,6 +1,6 @@
 package com.socialnetwork.vywatch.Model;
 
-public class ListUserSubect {
+public class ListUserSubject {
     private String pseudouser;
     private String namesubject;
 
@@ -20,12 +20,12 @@ public class ListUserSubect {
         this.namesubject = namesubject;
     }
 
-    public ListUserSubect(String pseudouser, String namesubject) {
+    public ListUserSubject(String pseudouser, String namesubject) {
         this.pseudouser = pseudouser;
         this.namesubject = namesubject;
     }
 
-    public ListUserSubect() {
+    public ListUserSubject() {
     }
 
     

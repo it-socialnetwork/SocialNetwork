@@ -1,11 +1,12 @@
 package com.socialnetwork.vywatch.Model;
 
-
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -25,7 +26,14 @@ public class User {
     private String password;
     private boolean firstconnection;
     private String sexe;
+    @Lob
+    @Column(name = "pictureprofil", columnDefinition="mediumblob")
+    private byte[] pictureprofil;
+    @Lob
+    @Column(name = "pictureban", columnDefinition="mediumblob")
+    private byte[] pictureban;
 
+    private String description;
     public int getId() {
         return iduser;
     }
@@ -96,6 +104,38 @@ public class User {
 
     public void setSexe(String sexe) {
         this.sexe = sexe;
+    }
+
+    public int getIduser() {
+        return iduser;
+    }
+
+    public void setIduser(int iduser) {
+        this.iduser = iduser;
+    }
+
+    public byte[] getPictureprofil() {
+        return pictureprofil;
+    }
+
+    public void setPictureprofil(byte[] pictureprofil) {
+        this.pictureprofil = pictureprofil;
+    }
+
+    public byte[] getPictureban() {
+        return pictureban;
+    }
+
+    public void setPictureban(byte[] pictureban) {
+        this.pictureban = pictureban;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     

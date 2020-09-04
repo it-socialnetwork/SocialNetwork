@@ -1,9 +1,11 @@
 package com.socialnetwork.vywatch.Controller;
 
-import com.socialnetwork.vywatch.Model.ListUserSubect;
+import com.socialnetwork.vywatch.Model.ListUserSubject;
 import com.socialnetwork.vywatch.Model.UserSubject;
+import com.socialnetwork.vywatch.Model.UserTeam;
 import com.socialnetwork.vywatch.Repository.ListSubjectRepository;
 import com.socialnetwork.vywatch.Repository.UserSubjectRepository;
+import com.socialnetwork.vywatch.Repository.UserTeamRepository;
 import com.socialnetwork.vywatch.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,18 +29,23 @@ public class UserSubjectController {
     @Autowired
     private UserRepository UserRepository;
 
+    @Autowired
+    private UserTeamRepository TeamRepository;
+
     @PostMapping(value="/addsubject")
-    public ResponseEntity<ListUserSubect> AddSubjectUser(@RequestBody ListUserSubect ListUserSubect){
+    public ResponseEntity<ListUserSubject> AddSubjectUser(@RequestBody ListUserSubject ListUserSubect){
         
-        int lastidusersub=UserSubjectRepository.findlastId();
         int iduser=UserRepository.findIduser(ListUserSubect.getPseudouser());
         int idlist=ListSubjectRepository.findidlist(ListUserSubect.getNamesubject());
         UserSubject userSubject = new UserSubject();
-        userSubject.setIdusersub(lastidusersub+1);
+        UserTeam ut =  new UserTeam();
+        ut.setIduser(iduser);
+        ut.setIdteam(idlist+1000);
         userSubject.setIdlist(idlist);
         userSubject.setIduser(iduser);
         UserSubjectRepository.save(userSubject);
-        return new ResponseEntity<ListUserSubect>(HttpStatus.OK ); 
+        TeamRepository.save(ut);
+        return new ResponseEntity<ListUserSubject>(HttpStatus.OK ); 
     }
 
 }
