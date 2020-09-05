@@ -23,6 +23,7 @@ import { MDBBootstrapModule} from 'angular-bootstrap-md'
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PageMemberComponent } from './page-member/page-member.component';
+import { NavigationComponent } from './navigation/navigation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { PageMemberComponent } from './page-member/page-member.component';
     SigninComponent,
     TestAjaxComponent,
     PageMemberComponent,
+    NavigationComponent,
 
   ],
   imports: [
