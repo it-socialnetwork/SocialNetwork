@@ -33,7 +33,6 @@ export class SubjectUserChoiceComponent implements OnInit {
   Subjects ;
   subjects
   sub: any;
-  Title : String;
   userService:UserService
   listSubjectService:ListSubjectService
   ListChoiceSubjects: String[];
@@ -57,11 +56,9 @@ export class SubjectUserChoiceComponent implements OnInit {
   ngOnInit() {
     // Show loading animation.
     this.ListChoiceSubjects=[]
-     this.userService = new UserService(this.http) 
+     this.userService = new UserService(this.http, this._router) 
      this.listSubjectService = new ListSubjectService(this.http)
     this.UserSubjectService = new UserSubjectService(this.http)
-    this.Title="CHOISIR VOS PRÉFÉRENCES";
-    console.log("....")
     this.listSubjectService.displaySubject().subscribe(
       Response => {
         console.log(Response)

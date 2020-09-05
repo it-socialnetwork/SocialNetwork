@@ -60,7 +60,7 @@ export class CountSubscribeComponent implements OnInit {
     this.initFormSubscribe();
 
     this.User=new User(); //on crée l'instance de la classe User
-    this.UserService=new UserService(this.http); //on crée l'instance de la classe User
+    this.UserService=new UserService(this.http, this._router); //on crée l'instance de la classe User
 
     //on crée une instance de la classe date puis on récupère l'année actuelle
     //qui permettra d'afficher les année dans le tag spécifié
@@ -171,18 +171,8 @@ export class CountSubscribeComponent implements OnInit {
     this.token = new String
     this.UserService.addUser(this.User);
     let messageSuccess = true;
-    console.log("Before sleep: " + new Date().toString());
     await this.delay(5000);
-    console.log("After sleep:  " + new Date().toString());
-     // var str: string = String(this.User.pseudo);
-     localStorage.setItem('pseudo', String(this.User.pseudo));
-    this.UserService.signInUser(this.User.pseudo, this.User.password)
-    await this.delay(2000);
-    this._router.navigate(['preference/', this.User.pseudo], {queryParams: {}});
-      
-
-   
-    
+    this.UserService.signInUser(this.User.pseudo, this.User.password, true)
   }
 
   //Cette fonction valide la date de naissance
