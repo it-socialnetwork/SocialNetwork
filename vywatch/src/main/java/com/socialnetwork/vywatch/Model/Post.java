@@ -17,21 +17,21 @@ public class Post {
     
     
     @Id
-    private int idpost ;
+    private int idpost;
+    private String pseudo;
     private String text;
     private Date datepost;
     @Lob
     @Column(name = "picturepost", columnDefinition="mediumblob")
     private byte[] picturepost;
     private int idteam;
-    private int iduser;
-
-    public int getIdpost() {
-        return idpost;
+    
+    public String getPseudo() {
+        return pseudo;
     }
 
-    public void setIdpost(int idpost) {
-        this.idpost = idpost;
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
     public String getText() {
@@ -66,14 +66,16 @@ public class Post {
         this.idteam = idteam;
     }
 
-    public int getIduser() {
-        return iduser;
+    public int getIdpost() {
+        return idpost;
     }
 
-    public void setIduser(int iduser) {
-        this.iduser = iduser;
+    public void setIdpost(int idpost) {
+        this.idpost = idpost;
     }
 
+  
 
+    
     
 }

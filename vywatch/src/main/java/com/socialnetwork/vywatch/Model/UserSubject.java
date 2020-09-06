@@ -14,33 +14,36 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class UserSubject {
 
     @Id
-    private int idusersub;
-    private int Idlist;
-    private int iduser;
+    private int idusersubject;
+    private String namesub;
+    private String pseudo;
 
-    public int getIdlist() {
-        return Idlist;
+    public int getIdusersubject() {
+        return idusersubject;
     }
 
-    public void setIdlist(int idlist) {
-        Idlist = idlist;
+    public void setIdusersubject(int idusersubject) {
+        this.idusersubject = idusersubject;
     }
 
-    public int getIduser() {
-        return iduser;
+    public String getNamesub() {
+        return namesub;
     }
 
-    public void setIduser(int idUser) {
-        this.iduser = idUser;
+    public void setNamesub(String namesub) {
+        this.namesub = namesub;
     }
 
-    public int getIdusersub() {
-        return idusersub;
+    public String getPseudo() {
+        return pseudo;
     }
 
-    public void setIdusersub(int idusersub) {
-        this.idusersub = idusersub;
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
+ 
+    
+    
  
 }

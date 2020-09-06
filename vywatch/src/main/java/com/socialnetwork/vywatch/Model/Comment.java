@@ -23,7 +23,7 @@ public class Comment {
     private byte[] picturecomment;
     private Date datecomment;
     private int idpost;
-    private int iduser;
+    private String pseudo;
 
     public int getIdcomment() {
         return idcomment;
@@ -65,14 +65,14 @@ public class Comment {
         this.idpost = idpost;
     }
 
-    public int getIduser() {
-        return iduser;
+    public String getPseudo() {
+        return pseudo;
     }
 
-    public void setIduser(int iduser) {
-        this.iduser = iduser;
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
-
+   
 
     
 }

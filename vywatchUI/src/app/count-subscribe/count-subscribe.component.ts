@@ -111,7 +111,7 @@ export class CountSubscribeComponent implements OnInit {
         this.User.lastname=formValue['lastName'];
         this.User.email=formValue['email'];
         this.User.password=formValue['password'];
-        
+        this.User.pseudo=formValue['pseudo'];
         if(this.ValideBirthday()==true)
         {
           if(formValue['dayBirth']>=0 && formValue['dayBirth']<=9)

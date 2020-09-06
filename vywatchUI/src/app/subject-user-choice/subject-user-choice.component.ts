@@ -6,15 +6,14 @@ import { FormBuilder } from '@angular/forms';
 import { UserService } from '../../process/Service/UserService';
 import { User } from 'src/process/Model/User';
 import { ListSubjectService } from 'src/process/Service/ListSubjectService';
-import { ListUserSubject } from '../../process/Model/ListUserSubject';
 import {UserSubjectService} from '../../process/Service/UserSubjectService';
-
 import{faPlus} from '@fortawesome/free-solid-svg-icons'
 import{faHandshake} from '@fortawesome/free-solid-svg-icons'
 import{faPrayingHands} from '@fortawesome/free-solid-svg-icons'
 import{faAtom} from '@fortawesome/free-solid-svg-icons'
 import{faMonument} from '@fortawesome/free-solid-svg-icons'
 import{faMinus} from '@fortawesome/free-solid-svg-icons'
+import { UserSubject } from 'src/process/Model/UserSubject';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -36,9 +35,7 @@ export class SubjectUserChoiceComponent implements OnInit {
   userService:UserService
   listSubjectService:ListSubjectService
   ListChoiceSubjects: String[];
-  
-
-  ListUserSubject:ListUserSubject;
+  UserSubject:UserSubject;
   UserSubjectService : UserSubjectService;
   //public ListChoiceSubjects: string[][] = []
   constructor(
@@ -95,11 +92,11 @@ export class SubjectUserChoiceComponent implements OnInit {
     for(var namesub in this.ListChoiceSubjects)
     {
       await this.delay(2000);
-      this.ListUserSubject = new ListUserSubject()
-      this.ListUserSubject.pseudouser=localStorage.getItem("pseudo");
-      this.ListUserSubject.namesubject=this.ListChoiceSubjects[namesub];
-      console.log(this.ListUserSubject)
-      this.UserSubjectService.addUserSubject(this.ListUserSubject)
+      this.UserSubject = new UserSubject()
+      this.UserSubject.pseudo=localStorage.getItem("pseudo");
+      this.UserSubject.namesub=this.ListChoiceSubjects[namesub];
+      console.log(this.UserSubject)
+      this.UserSubjectService.addUserSubject(this.UserSubject)
     }
     this._router.navigate(['pageMembre/',  localStorage.getItem('pseudo')], {queryParams: {}});
   }

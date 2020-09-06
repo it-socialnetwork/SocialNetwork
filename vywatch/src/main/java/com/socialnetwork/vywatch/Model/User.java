@@ -18,7 +18,6 @@ public class User {
     
     @Id
     private String pseudo;
-    private int iduser;
     private String lastname;
     private String firstname;
     private Date dateBirth;
@@ -34,13 +33,6 @@ public class User {
     private byte[] pictureban;
 
     private String description;
-    public int getId() {
-        return iduser;
-    }
-
-    public void setId(int id_user) {
-        this.iduser = id_user;
-    }
 
     public String getPseudo() {
         return pseudo;
@@ -106,14 +98,6 @@ public class User {
         this.sexe = sexe;
     }
 
-    public int getIduser() {
-        return iduser;
-    }
-
-    public void setIduser(int iduser) {
-        this.iduser = iduser;
-    }
-
     public byte[] getPictureprofil() {
         return pictureprofil;
     }
@@ -137,6 +121,7 @@ public class User {
     public void setDescription(String description) {
         this.description = description;
     }
+ 
 
     
     

@@ -14,17 +14,17 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class FriendList {
     
-    private int iduser;
+    private String pseudo;
     private int iduser_friend;
     @Id
     private int idfriendlist;
 
-    public int getIduser() {
-        return iduser;
+    public String getPseudo() {
+        return pseudo;
     }
 
-    public void setIduser(int iduser) {
-        this.iduser = iduser;
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
     public int getIduser_friend() {
@@ -42,6 +42,8 @@ public class FriendList {
     public void setIdfriendlist(int idfriendlist) {
         this.idfriendlist = idfriendlist;
     }
+
+    
 
     
 }

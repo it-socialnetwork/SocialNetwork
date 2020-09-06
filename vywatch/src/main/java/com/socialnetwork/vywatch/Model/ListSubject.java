@@ -10,24 +10,15 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class ListSubject {
     @Id
-    private int Idlist ;
-    private String Namesub;
+    private String namesub;
     private String Imagesub;
 
-    public int getIdlist() {
-        return Idlist;
-    }
-
-    public void setIdlist(int idlist) {
-        Idlist = idlist;
-    }
-
     public String getNamesub() {
-        return Namesub;
+        return namesub;
     }
 
     public void setNamesub(String namesub) {
-        Namesub = namesub;
+        this.namesub = namesub;
     }
 
     public String getImagesub() {
@@ -38,8 +29,5 @@ public class ListSubject {
         Imagesub = imagesub;
     }
 
-
-    
-    
 
 }

@@ -21,8 +21,8 @@ public class Team {
     @Column(name = "image", columnDefinition="mediumblob")
     private byte[] image;
     private String description;
-    private int iduser;
-    private int idlist;
+    private String pseudo;
+    private String namesub;
 
     public int getIdteam() {
         return idteam;
@@ -56,21 +56,23 @@ public class Team {
         this.description = description;
     }
 
-    public int getIduser() {
-        return iduser;
+    public String getPseudo() {
+        return pseudo;
     }
 
-    public void setIduser(int iduser) {
-        this.iduser = iduser;
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
-    public int getIdlist() {
-        return idlist;
+    public String getNamesub() {
+        return namesub;
     }
 
-    public void setIdlist(int idlist) {
-        this.idlist = idlist;
+    public void setNamesub(String namesub) {
+        this.namesub = namesub;
     }
 
     
+
+
 }

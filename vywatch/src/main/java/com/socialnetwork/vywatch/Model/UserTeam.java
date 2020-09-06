@@ -12,17 +12,17 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class UserTeam {
     
-private int iduser;
+private String pseudo;
 private int idteam;
 @Id
 private int iduserteam;
 
-public int getIduser() {
-    return iduser;
+public String getPseudo() {
+    return pseudo;
 }
 
-public void setIduser(int iduser) {
-    this.iduser = iduser;
+public void setPseudo(String pseudo) {
+    this.pseudo = pseudo;
 }
 
 public int getIdteam() {
@@ -40,7 +40,6 @@ public int getIduserteam() {
 public void setIduserteam(int iduserteam) {
     this.iduserteam = iduserteam;
 }
-
 
     
 }

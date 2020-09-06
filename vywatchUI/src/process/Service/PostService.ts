@@ -1,4 +1,4 @@
-import{Post} from '../Model/Post'
+import{PostUser} from '../Model/PostUser'
 import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -10,13 +10,11 @@ const httpOptions = {
 };
 export class PostService{
     
-    post:Post
+    post:PostUser
     constructor(private readonly http : HttpClient){
 
 
     }
-
- 
 
     displayPost(pseudo) {
         return this.http.get(`http://localhost:8080/vywatch/api/post/displayAllPost/${pseudo}` ,httpOptions)

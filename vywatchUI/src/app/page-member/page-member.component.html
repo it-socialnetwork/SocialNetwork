@@ -1,9 +1,14 @@
 <p>page-member works!</p>
 
 <div *ngFor="let post of posts  let i = index;">
+    <p>{{post.pseudo}}</p>
         <h1> {{post.text}}</h1>
-        <button (click)="getId(post.idpost)">Cliquez</button>
+        <button class="" (click)="getId(post.idpost, post.text, post.pseudo)" >Cliquez</button>
 </div>
-        
-   
+<div class="modal-bg">
+    <div class="model">
+
+    </div>
+</div>
+
 

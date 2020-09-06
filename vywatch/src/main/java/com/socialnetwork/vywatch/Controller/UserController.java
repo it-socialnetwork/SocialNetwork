@@ -39,17 +39,4 @@ public class UserController {
         return new ResponseEntity<User>(HttpStatus.OK ); 
     }
 
-    @GetMapping(value="/getalluser")
-    public List<User> GetAllUsers(){
-        List<User> users=UserRepository.findAll();
-        return users;
-    }
-    
-    
- 
-  
-   
-
-
-
 }
