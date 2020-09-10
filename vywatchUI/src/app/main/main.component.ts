@@ -22,6 +22,22 @@ export class MainComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    const header = document.getElementById('header')
+    const title = document.getElementById('titlename')
+    // J'en fait une fonction pour pouvoir l'appeler au chargement de la page car
+    // le scoll n'est pas forcément en haut au chargement.
+    function onWindowScroll(event) {
+      if (window.pageYOffset < 46) {
+        header.classList.remove('scrolled')
+        title.classList.remove('scrolled')
+      } else {
+        header.classList.add('scrolled')
+        title.classList.add('scrolled')
+      }
+}
+
+window.addEventListener('scroll', onWindowScroll)
   }
 
   onFileChanged(event) {

@@ -1,13 +1,41 @@
+h5{
+    
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 25px;
+    
+}
+
+a
+{
+    text-decoration: none;
+    color: #6A38FF;
+}
+
 #header
 {
-    background-color: #121212;
+    background-color: #fff;
     position: fixed;
     top: 0px;
     left: 0px;
     right: 0px;
     padding-top: 10px;
     padding-bottom: 10px;
+    z-index: 3;
 }
+
+
+
+#header.scrolled {
+    position: fixed;
+    
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    background-color: #121212;
+  }
+ 
 
 #headerflex
 {
@@ -20,13 +48,23 @@
     margin-left: 35px;
 }
 
-h1
+#titlename
 {
-    color: rgba(255, 255, 255, 0.801);
+    color: #6A38FF;
     font-size: 2.5em;
     margin-top: 10px;
     margin-left: 5px;
 }
+
+#titlename.scrolled
+{
+    color: rgb(255, 255, 255);
+    font-size: 2.5em;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+
 
 button{
     border: 1px solid #6A38FF;
@@ -36,12 +74,13 @@ button{
     font-size: 1.3em;
     margin-top: 15px;
     margin-right: 50px;
+    border-radius: 30px;
 }
 
 button:hover{
     border: 1px solid #6A38FF;
     background-color: #6A38FF;
-    color: #121212;
+    color: #fff;
     height: 50px;
     font-size: 1.3em;
     margin-top: 15px;
@@ -49,20 +88,31 @@ button:hover{
 }
 
 
+
+#background-animation
+{
+    width: 100%;
+   height: 500px;
+   margin-top: 400px;
+  
+}
+
+
 #background-wrap {
-    bottom: 0;
+    
 	left: 0;
 	position: fixed;
 	right: 0;
 	top: 0;
-	z-index: -1;
+    z-index: 1;
+    
 }
 
 .icon
 {
-    margin-left: 40px;
-    margin-top: 10px;
-    font-size: 6em;
+    margin-left: 35px;
+    margin-top: 40px;
+    font-size: 7em;
     color: #6A38FF;
 }
 
@@ -292,4 +342,18 @@ button:hover{
 	left: 10px;
 	position: absolute;
 	width: 180px;
+}
+
+
+#body
+{
+    
+    background-color: #fff;
+    position: relative;
+    top: 50PX;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-height: 100%;
+    z-index: 2;
 }
