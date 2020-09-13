@@ -7,6 +7,7 @@ import {MainComponent} from './main/main.component'
 import {SigninComponent} from './signin/signin.component'
 import { TestAjaxComponent } from './test-ajax/test-ajax.component';
 import { PageMemberComponent } from './page-member/page-member.component';
+import{ChatComponent} from './chat/chat.component'
 const routes: Routes = [
   { path:'', component: MainComponent },
   { path:'signup', component: CountSubscribeComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'signin', component: SigninComponent},
   {path:'test', component: TestAjaxComponent},
   {path:'pageMembre/:pseudo', component: PageMemberComponent},
+  {path:'chat', component: ChatComponent},
 ];
 
 @NgModule({

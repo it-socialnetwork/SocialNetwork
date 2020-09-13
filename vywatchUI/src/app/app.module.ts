@@ -24,6 +24,8 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PageMemberComponent } from './page-member/page-member.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { ChatComponent } from './chat/chat.component';
+import { ChatService } from './chat.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     TestAjaxComponent,
     PageMemberComponent,
     NavigationComponent,
+    ChatComponent,
 
   ],
   imports: [
@@ -53,7 +56,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     MDBBootstrapModule.forRoot(),
     FontAwesomeModule,
   ],
-  providers: [AngularFirestore, {
+  providers: [ChatService, AngularFirestore, {
       provide : HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi : true}],
