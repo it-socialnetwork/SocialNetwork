@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 06 sep. 2020 à 14:27
--- Version du serveur :  10.4.10-MariaDB
--- Version de PHP :  7.3.12
+-- Généré le :  lun. 14 sep. 2020 à 16:47
+-- Version du serveur :  5.7.28
+-- Version de PHP :  7.4.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -32,7 +32,7 @@ DROP TABLE IF EXISTS `comment`;
 CREATE TABLE IF NOT EXISTS `comment` (
   `idcomment` int(11) NOT NULL AUTO_INCREMENT,
   `textcomment` varchar(250) DEFAULT NULL,
-  `picturecomment` mediumblob DEFAULT NULL,
+  `picturecomment` mediumblob,
   `datecomment` datetime DEFAULT NULL,
   `idpost` int(11) NOT NULL,
   `pseudo` varchar(300) NOT NULL,
@@ -40,6 +40,27 @@ CREATE TABLE IF NOT EXISTS `comment` (
   KEY `idpost` (`idpost`),
   KEY `pseudo` (`pseudo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `conversation`
+--
+
+DROP TABLE IF EXISTS `conversation`;
+CREATE TABLE IF NOT EXISTS `conversation` (
+  `idconversation` int(11) NOT NULL,
+  `datecreatconv` datetime DEFAULT NULL,
+  `datelastmessage` datetime DEFAULT NULL,
+  PRIMARY KEY (`idconversation`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `conversation`
+--
+
+INSERT INTO `conversation` (`idconversation`, `datecreatconv`, `datelastmessage`) VALUES
+(1, '2020-09-14 00:00:00', '2020-09-15 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -84,6 +105,30 @@ INSERT INTO `listsubject` (`namesub`, `Imagesub`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `messageconversation`
+--
+
+DROP TABLE IF EXISTS `messageconversation`;
+CREATE TABLE IF NOT EXISTS `messageconversation` (
+  `idmessconv` int(11) NOT NULL,
+  `message` varchar(200) NOT NULL,
+  `pseudo` varchar(250) NOT NULL,
+  `idconversation` int(11) NOT NULL,
+  PRIMARY KEY (`idmessconv`),
+  KEY `pseudo` (`pseudo`),
+  KEY `idconversation` (`idconversation`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `messageconversation`
+--
+
+INSERT INTO `messageconversation` (`idmessconv`, `message`, `pseudo`, `idconversation`) VALUES
+(1, 'salut', 'pdel', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `post`
 --
 
@@ -92,21 +137,13 @@ CREATE TABLE IF NOT EXISTS `post` (
   `idpost` int(11) NOT NULL AUTO_INCREMENT,
   `text` varchar(250) NOT NULL,
   `datepost` datetime NOT NULL,
-  `picturepost` mediumblob DEFAULT NULL,
+  `picturepost` mediumblob,
   `idteam` int(11) NOT NULL,
   `pseudo` varchar(300) NOT NULL,
   PRIMARY KEY (`idpost`),
   KEY `idteam` (`idteam`),
   KEY `pseudo` (`pseudo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `post`
---
-
-INSERT INTO `post` (`idpost`, `text`, `datepost`, `picturepost`, `idteam`, `pseudo`) VALUES
-(4, 'Test numéro 1 post sur les chats', '2020-09-08 00:00:00', NULL, 1005, 'khalilou'),
-(5, 'Test numéro  post sur les avions', '2020-09-16 00:00:00', NULL, 1006, 'test2020');
 
 -- --------------------------------------------------------
 
@@ -118,7 +155,7 @@ DROP TABLE IF EXISTS `team`;
 CREATE TABLE IF NOT EXISTS `team` (
   `idteam` int(11) NOT NULL AUTO_INCREMENT,
   `nameteam` varchar(50) DEFAULT NULL,
-  `image` mediumblob DEFAULT NULL,
+  `image` mediumblob,
   `description` varchar(300) DEFAULT NULL,
   `pseudo` varchar(300) DEFAULT NULL,
   `namesub` varchar(300) NOT NULL,
@@ -132,10 +169,10 @@ CREATE TABLE IF NOT EXISTS `team` (
 --
 
 INSERT INTO `team` (`idteam`, `nameteam`, `image`, `description`, `pseudo`, `namesub`) VALUES
-(1005, 'Groupe religion neutre', NULL, 'Groupe religion neutre', NULL, 'Religion'),
-(1006, 'Groupe Scientifique neutre', NULL, 'Groupe Scientifique neutre', NULL, 'Science'),
-(1007, 'Groupe Politique neutre', NULL, 'Groupe Politique neutre', NULL, 'Politique'),
-(1008, 'Groupe Religieux neutre', NULL, 'Groupe Religieux neutre', '', 'Religion');
+(1001, 'Groupe Histoire neutre', NULL, 'Groupe Histoire neutre', NULL, 'Histoire'),
+(1002, 'Groupe Scientifique neutre', NULL, 'Groupe Scientifique neutre', NULL, 'Science'),
+(1003, 'Groupe Politique neutre', NULL, 'Groupe Politique neutre', NULL, 'Politique'),
+(1004, 'Groupe Religion neutre', NULL, 'Groupe Religions neutre', NULL, 'Religion');
 
 -- --------------------------------------------------------
 
@@ -153,9 +190,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(250) DEFAULT NULL,
   `firstconnection` tinyint(1) NOT NULL,
   `sexe` varchar(100) DEFAULT NULL,
-  `pictureprofil` mediumblob DEFAULT NULL,
+  `pictureprofil` mediumblob,
   `description` varchar(50) DEFAULT NULL,
-  `pictureban` mediumblob DEFAULT NULL,
+  `pictureban` mediumblob,
   PRIMARY KEY (`pseudo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -164,25 +201,35 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`pseudo`, `lastname`, `firstname`, `date_Birth`, `email`, `password`, `firstconnection`, `sexe`, `pictureprofil`, `description`, `pictureban`) VALUES
-('aaaaaaaaaa', 'zddzdaaaaa', 'zzedzd', '2001-06-19', 'khalil@zz.ff', '$2a$10$ucKSKfijSHLruXdwHS5JAuMgsgDSMGZeAkuDUV8eUfO.cAuQT20Z6', 1, 'Man', NULL, NULL, NULL),
-('aaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaa', 'zzzz', '1996-02-19', 'khalil@zz.ff', '$2a$10$f9kUzqrHXjs/eEN/0iccc.98u1Y7CJKfBqRU.2qVMhJ8yNMLDXQue', 1, 'Man', NULL, NULL, NULL),
-('adddddddddddddddddda', 'zdddddddd', 'zddddddd', '2002-02-19', 'khalil@zz.ff', '$2a$10$KHV9uufzy2q1b3bCMkBskOXSwRklbH6TMDxb2hU87ilVgvuehL5HG', 1, 'Man', NULL, NULL, NULL),
-('adzdzdazdazzaazd', 'zdzdzdzdzdzd', 'dzzdzdzdzd', '2001-05-23', 'khalil@zz.ff', '$2a$10$dHK0WasEgDHsnLAcDElaeu.N1XKR63BqB8U8PSsErK12QvLDPzA6.', 1, 'Man', NULL, NULL, NULL),
-('azzdazadazddd', 'zdzdzdzd', 'zdzzdzdzd', '1999-03-16', 'khalil@zz.ff', '$2a$10$NBEWI8t6PJBFpXOEZQzwYuL9uOKpgbgbfDn1KXksufJ3/KKHkh.gi', 1, 'Man', NULL, NULL, NULL),
-('daaaaaaaaaaaaadddddddddddaaaaaaaaa', 'dzzzzzzzzzzzzz', 'dzzzzzzzzzzzzzzzzz', '2002-02-21', 'khalil@zz.ff', '$2a$10$zD09.7x4WRKy3.T9RT7.SO09whpgW1i1ebN8f.DeSMLqH/32oX57C', 1, 'Man', NULL, NULL, NULL),
-('dzzdzdaazadazdazddzzda', 'zdzdzdzd', 'dzzdzdzd', '1999-01-19', 'khalil@zz.ff', '$2a$10$j/5YbuHMsJadMf/FGfq3euJhYVCinnprB760vKzorZjAqslQDCmz6', 1, 'Man', NULL, NULL, NULL),
-('dzzzdzddzzddzdzd', 'rfzeffzf', 'szzz\"', '1997-03-18', 'khalil@zz.ff', '$2a$10$Kqx3Cxz.6SVS728fEfUa2eE0oJs96rFh00eZZsSDzR8.XdbhHcCcq', 1, 'Man', NULL, NULL, NULL),
-('efefefzfzefe', 'efefeff', 'efefeffe', '2000-04-23', 'khalil@zz.ff', '$2a$10$kKMGsx4gv5glYRnKK/nQUe.P2QkeH0g/Dm/ygJVqK4LkjG0SOa1Z6', 1, 'Man', NULL, NULL, NULL),
-('feefefefeefefef', 'hhahahahahah', 'ahahahah', '1999-06-15', 'khalil@zz.ff', '$2a$10$agp.H3iHFFAxyujePU0h8..mCUtFdbrpZl6I/nwSKAWXCPxwTft3m', 1, 'Man', NULL, NULL, NULL),
-('fefefeef', 'effeefef', 'effefefe', '1999-12-23', 'khalil@zz.ff', '$2a$10$0tcTkgZcjDxzcvu//KDxIeS4NBqAzT6in8brcmR8peyDPZNPEBk9O', 1, 'Man', NULL, NULL, NULL),
-('feffefefe', 'feffefeef', 'feefef', '2001-05-21', 'khalil@zz.ff', '$2a$10$z9g4ikWt5hkVwECH7IacqOVVsdWi4XlBXHWkXzRsBxFAZn4Kd7fcC', 1, 'Man', NULL, NULL, NULL),
-('khalilou', 'Cheibi', 'Khalil', '1996-12-11', 'khalil@zz.ff', '$2a$10$7rUvgYb4YmFalqCT91KAEuzF72/zqDV/sSfCJOmVxLegZ0D4lOdq.', 1, 'Man', NULL, NULL, NULL),
-('test2020', 'test', 'test2000a', '1999-04-19', 'khalil@zz.ff', '$2a$10$zLuBmdu7QbOvoYMwrjJ.Du/qUOExTmmhGMkypEPdJVj94hTZ50Tl2', 1, 'Man', NULL, NULL, NULL),
-('vceveeee', 'grrrrgrge', 'rztr\'gtr', '1999-07-17', 'khalil@zz.ff', '$2a$10$qV7UtVuK48OXmMei9fo3neukXjJOhckILxG2B04QvcFhqHcgHkvCG', 1, 'Man', NULL, NULL, NULL),
-('zadzdzazdd', 'fzzzfeee', 'effeeffeef', '2001-02-20', 'khalil@zz.ff', '$2a$10$KEFW1AzFh9xqSxWjx2rPzepPPzgICS.PSBBdnxZe9mTnv1F.UIbYO', 1, 'Man', NULL, NULL, NULL),
-('zddddddddddddddddddddddd', 'zzzzz', 'zzzzzzzzzz', '2001-01-19', 'khalil@zz.ff', '$2a$10$ZFGApTZDLmMpVuRSxUcuEO3ah4nZgWsO0kemGx3Y1K3U.5IEyOOhO', 1, 'Man', NULL, NULL, NULL),
-('zdzdadzdz', 'zddzdz', 'zddzdz', '1999-02-18', 'khalil@zz.ff', '$2a$10$54Vvz5yTlF9dt9pfda2vNehQzwVSwc2hWBbYVs5XL9.TpT8XGSpI2', 1, 'Man', NULL, NULL, NULL),
-('zdzdz', 'iiiii', 'iiii', '1997-05-22', 'khalil@zz.ff', '$2a$10$0Hv7NAaT3WT9Y./14iBo2eafdJ1r.daOKzrnTCE/Eo5Ze/fGd6fSm', 1, 'Man', NULL, NULL, NULL);
+('fdffddfhdfh', 'yukyukyu', 'ukyukyuk', '2002-10-15', 'uykuykyuk@htrhrh.ml', '$2a$10$cF0LQmJHkuVVETpr3T4VWe9u/SbfkKBHCvANKVAQC6Pzvq0fk1tHW', 1, 'Man', NULL, NULL, NULL),
+('fontaine', 'fontaine', 'jean', '1999-03-12', 'fontaine@test.com', '$2a$10$QeG6cSZUj0raCYeZkZA0HOZcHANtLE7MmK3NPAwqGGfjPW5IvpUOy', 1, 'Man', NULL, NULL, NULL),
+('pdel', 'del', 'pierre', '1990-08-12', 'pd@test.com', '$2a$10$ts5Z/XV9ga.EbInjv7RhTukrdXUbfpWmZhqM8994m0l/qnxa5qAnK', 1, 'Man', NULL, NULL, NULL),
+('trhrthrthrthrthtrh', 'yukyuk', 'ukuyk', '1977-07-22', 'yukykuyuk@htrtrh.ghj', '$2a$10$mR.Nn6mufZKRNgl1T4vHtezNxM3.l9xW7FUVyWCePQlYHs5SfqbfK', 1, 'Man', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `userconversation`
+--
+
+DROP TABLE IF EXISTS `userconversation`;
+CREATE TABLE IF NOT EXISTS `userconversation` (
+  `iduserconversation` int(11) NOT NULL AUTO_INCREMENT,
+  `pseudo` varchar(250) NOT NULL,
+  `idconversation` int(11) NOT NULL,
+  PRIMARY KEY (`iduserconversation`),
+  KEY `pseudo` (`pseudo`),
+  KEY `idconversation` (`idconversation`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `userconversation`
+--
+
+INSERT INTO `userconversation` (`iduserconversation`, `pseudo`, `idconversation`) VALUES
+(1, 'fontaine', 1),
+(2, 'trhrthrthrthrthtrh', 1),
+(3, 'pdel', 1);
 
 -- --------------------------------------------------------
 
@@ -198,33 +245,26 @@ CREATE TABLE IF NOT EXISTS `usersubject` (
   PRIMARY KEY (`idusersubject`),
   KEY `NameSub` (`namesub`),
   KEY `pseudo` (`pseudo`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `usersubject`
 --
 
 INSERT INTO `usersubject` (`idusersubject`, `namesub`, `pseudo`) VALUES
-(13, '', 'test2020'),
-(14, '', 'test2020'),
-(15, '', 'test2020'),
-(16, '', 'test2020'),
-(17, '', 'adzdzdazdazzaazd'),
-(18, '', 'adzdzdazdazzaazd'),
-(19, '', 'adzdzdazdazzaazd'),
-(20, '', 'adzdzdazdazzaazd'),
-(21, '', 'azzdazadazddd'),
-(22, '', 'azzdazadazddd'),
-(23, '', 'azzdazadazddd'),
-(24, '', 'azzdazadazddd'),
-(25, '', 'zadzdzazdd'),
-(26, '', 'zadzdzazdd'),
-(27, '', 'zadzdzazdd'),
-(28, '', 'zadzdzazdd'),
-(29, 'Histoire', 'adddddddddddddddddda'),
-(30, 'Politique', 'adddddddddddddddddda'),
-(31, 'Religion', 'adddddddddddddddddda'),
-(32, 'Science', 'adddddddddddddddddda');
+(33, 'Science', 'fdffddfhdfh'),
+(34, 'Histoire', 'trhrthrthrthrthtrh'),
+(35, 'Politique', 'trhrthrthrthrthtrh'),
+(36, 'Religion', 'trhrthrthrthrthtrh'),
+(37, 'Science', 'trhrthrthrthrthtrh'),
+(38, 'Histoire', 'fontaine'),
+(39, 'Politique', 'fontaine'),
+(40, 'Religion', 'fontaine'),
+(41, 'Science', 'fontaine'),
+(42, 'Histoire', 'pdel'),
+(43, 'Politique', 'pdel'),
+(44, 'Religion', 'pdel'),
+(45, 'Science', 'pdel');
 
 -- --------------------------------------------------------
 
