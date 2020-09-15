@@ -24,6 +24,8 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PageMemberComponent } from './page-member/page-member.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { NavigationRightComponent } from './navigation-right/navigation-right.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     TestAjaxComponent,
     PageMemberComponent,
     NavigationComponent,
+    SidenavComponent,
+    NavigationRightComponent,
 
   ],
   imports: [

@@ -23,7 +23,6 @@ public class ListSubjectController {
 
     @GetMapping(value="/allSubject")
     public List<ListSubject> getAllSubject(){
-
        List<ListSubject>  u= ListSubjectRepository.findAll();
         return u;
     }

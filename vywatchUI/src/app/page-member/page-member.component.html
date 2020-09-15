@@ -1,14 +1,34 @@
-<p>page-member works!</p>
+<app-sidenav></app-sidenav>
+<app-navigation-right></app-navigation-right>
+<div class="all">
+<div *ngFor="let post of posts  let i = index;" class="post" (click)="getId(post.idpost, post.text, post.pseudo)">
+    <img [src]="usersimg[i]" class="profilPic">
+    <p class="pseudo">{{post.pseudo}}</p>
+    <p> {{post.text}}</p>
+    <img [src]="imageTodispplays[i]" class="reussiGrand">
+        
+        
 
-<div *ngFor="let post of posts  let i = index;">
-    <p>{{post.pseudo}}</p>
-        <h1> {{post.text}}</h1>
-        <button class="" (click)="getId(post.idpost, post.text, post.pseudo)" >Cliquez</button>
 </div>
+
+
 <div class="modal-bg">
     <div class="model">
-
-    </div>
+        <div class="text">
+        <h3>{{post.pseudo}}</h3>
+        <p>{{post.text}}</p>
+        <img [src]="retrievedImage" class="reussi">
+        <div class="text-fa">
+            <fa-icon [icon]="faHeart" class="fa-com-like"></fa-icon>
+            <fa-icon [icon]="faComments" class="fa-com" ></fa-icon>
+            <div  *ngFor="let comment of comments" class="">
+                <div class="infos">
+                    <p class="comment-pseudo">{{comment.pseudo}} : </p>
+                    <p class="comment-text">{{comment.textcomment}}  </p>
+                </div>
+            </div>
+         </div>
+        </div>
+     </div>
 </div>
-
-
+</div>

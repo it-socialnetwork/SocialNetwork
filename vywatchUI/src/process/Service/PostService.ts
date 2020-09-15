@@ -20,4 +20,16 @@ export class PostService{
         return this.http.get(`http://localhost:8080/vywatch/api/post/displayAllPost/${pseudo}` ,httpOptions)
       }
 
+
+    getOnePost(idpost) {
+        return this.http.get(`http://localhost:8080/vywatch/api/post/getOne/${idpost}` ,httpOptions)
+      }
+
+    displayComm(idpost) {
+        return this.http.get(`http://localhost:8080/vywatch/api/comment/getAll/${idpost}` ,httpOptions)
+      }
+
+      getUser(pseudo) {
+        return this.http.get(`http://localhost:8080/vywatch/api/user/getPicture/${pseudo}` ,httpOptions)
+      }
 }
