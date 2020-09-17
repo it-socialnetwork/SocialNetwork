@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
 
 DROP TABLE IF EXISTS `conversation`;
 CREATE TABLE IF NOT EXISTS `conversation` (
-  `idconversation` int(11) NOT NULL,
+  `idconversation` int(11) NOT NULL AUTO_INCREMENT,
   `datecreatconv` datetime DEFAULT NULL,
   `datelastmessage` datetime DEFAULT NULL,
   PRIMARY KEY (`idconversation`)
