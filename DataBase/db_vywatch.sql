@@ -49,18 +49,12 @@ CREATE TABLE IF NOT EXISTS `comment` (
 
 DROP TABLE IF EXISTS `conversation`;
 CREATE TABLE IF NOT EXISTS `conversation` (
-  `idconversation` int(11) NOT NULL AUTO_INCREMENT,
+  `idconversation` varchar(10) NOT NULL,
   `datecreatconv` datetime DEFAULT NULL,
   `datelastmessage` datetime DEFAULT NULL,
   PRIMARY KEY (`idconversation`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `conversation`
---
-
-INSERT INTO `conversation` (`idconversation`, `datecreatconv`, `datelastmessage`) VALUES
-(1, '2020-09-14 00:00:00', '2020-09-15 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -113,18 +107,13 @@ CREATE TABLE IF NOT EXISTS `messageconversation` (
   `idmessconv` int(11) NOT NULL,
   `message` varchar(200) NOT NULL,
   `pseudo` varchar(250) NOT NULL,
-  `idconversation` int(11) NOT NULL,
+  `idconversation` varchar(10) NOT NULL,
   PRIMARY KEY (`idmessconv`),
   KEY `pseudo` (`pseudo`),
   KEY `idconversation` (`idconversation`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `messageconversation`
---
 
-INSERT INTO `messageconversation` (`idmessconv`, `message`, `pseudo`, `idconversation`) VALUES
-(1, 'salut', 'pdel', 1);
 
 -- --------------------------------------------------------
 
@@ -216,7 +205,7 @@ DROP TABLE IF EXISTS `userconversation`;
 CREATE TABLE IF NOT EXISTS `userconversation` (
   `iduserconversation` int(11) NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(250) NOT NULL,
-  `idconversation` int(11) NOT NULL,
+  `idconversation` varchar(10) NOT NULL,
   PRIMARY KEY (`iduserconversation`),
   KEY `pseudo` (`pseudo`),
   KEY `idconversation` (`idconversation`)

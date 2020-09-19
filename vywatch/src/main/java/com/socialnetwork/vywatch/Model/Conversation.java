@@ -15,15 +15,15 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class Conversation {
     @Id
-    private int idconversation;
+    private String idconversation;
     private Date datecreatconv;
     private Date datelastmessage;
 
-    public int getIdconversation() {
+    public String getIdconversation() {
         return idconversation;
     }
 
-    public void setIdconversation(int idconversation) {
+    public void setIdconversation(String idconversation) {
         this.idconversation = idconversation;
     }
 
@@ -43,5 +43,6 @@ public class Conversation {
         this.datelastmessage = datelastmessage;
     }
 
+    
     
 }
