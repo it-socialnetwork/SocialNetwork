@@ -1,4 +1,4 @@
-.chat-messages-show-container{
+/*.chat-messages-show-container{
     background: #c3c3c3;
     height: 400px;
     display: flex;
@@ -25,4 +25,9 @@
     height: 50px;
     margin: auto 40px;
     width: 100px;
- }
+ }*/
+
+   
+h1 {
+    color: red;
+}

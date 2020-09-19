@@ -8,7 +8,7 @@
 
 
 
-<div class="chat-messages">
+<!--<div class="chat-messages">
     <div class="chat-messages-show-container" >
       <ul class="chat-messages-show-list" *ngFor="let message of messages">
         {{message}}
@@ -18,4 +18,46 @@
       <input class="chat-messages-create-input" type="text" [(ngModel)]="message" (keyup)="$event.keyCode == 13 && sendMessage()">
       <button  class="chat-messages-create-button" (click)="sendMessage()"> Send </button>
     </div>
- </div>
+ </div>-->
+
+ <div class="container-fluid">
+    
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="form-group">
+                <label for="username">Nom</label>
+                <input type="text" [(ngModel)]="user" class="form-control" id="username" placeholder="Enter username">
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <label for="roomInput">Choisir conversation</label>
+            <select name="roomInput" id="roomInput" class="form-control" [(ngModel)]="room">
+                <option value="conv1">conv1</option>
+                <option value="conv2">conv2</option>
+                <option value="conv3">conv3</option>
+            </select>
+        </div>
+        <div class="col sm-2">
+            <div style="margin-top:19px;" class="pull-right"> 
+                <button type="button" class="btn btn-primary" (click)="join()">Join</button>
+                <button type="button" class="btn btn-default" (click)="leave()">Leave</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="well" style="height:200px; padding:15px;">
+            <div *ngFor="let item of messageArray">
+            <span><strong>{{item.user}} : </strong> {{item.message}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="messageText" (keyup)="$event.keyCode == 13 && sendMessage()">            
+        </div>
+        <div class="col-sm-2">
+                <button type="button" class="btn btn-success pull-right" (click)="sendMessage()">Send</button>
+        </div>
+    </div>
+</div>
