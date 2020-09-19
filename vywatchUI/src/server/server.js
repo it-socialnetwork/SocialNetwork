@@ -1,41 +1,16 @@
-/*let express = require('express')
-let app = express();
 
-let http = require('http');
-let server = http.Server(app);
-
-let socketIO = require('socket.io');
-let io = socketIO(server);
-
-const port = process.env.PORT || 3000;
-
-io.on('connection', (socket) => {
-    console.log('user connected');
-    socket.on('new-message',(message)=>{
-        console.log(message);
-        io.emit('new-message',message);
-    });
-});
-
-server.listen(port, () => {
-    console.log(`started on port: ${port}`);
-});*/
 
 let express = require('express')
 let app = express();
 var debug = require('debug')('angular2-nodejs:server');
 var http = require('http');
 
-/**
- * Get port from environment and store in Express.
- */
+
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
+
 
 var server = http.createServer(app);
 
@@ -47,10 +22,10 @@ io.on('connection',(socket)=>{
 
 
     socket.on('join', function(data){
-      //joining
+      
       socket.join(data.room);
 
-      console.log(data.user + 'a rejoint la salle : ' + data.room);
+      console.log(data.user + ' a rejoint la salle : ' + data.room);
 
       socket.broadcast.to(data.room).emit('new user joined', {user:data.user, message:'has joined this room.'});
     });
@@ -71,37 +46,30 @@ io.on('connection',(socket)=>{
     })
 });
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+
 
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-/**
- * Normalize a port into a number, string, or false.
- */
 
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
   if (isNaN(port)) {
-    // named pipe
+    
     return val;
   }
 
   if (port >= 0) {
-    // port number
+    
     return port;
   }
 
   return false;
 }
 
-/**
- * Event listener for HTTP server "error" event.
- */
+
 
 function onError(error) {
   if (error.syscall !== 'listen') {
@@ -112,7 +80,7 @@ function onError(error) {
     ? 'Pipe ' + port
     : 'Port ' + port;
 
-  // handle specific listen errors with friendly messages
+  
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
@@ -127,9 +95,7 @@ function onError(error) {
   }
 }
 
-/**
- * Event listener for HTTP server "listening" event.
- */
+
 
 function onListening() {
   var addr = server.address();
