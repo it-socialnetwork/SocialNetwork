@@ -1,5 +1,6 @@
 package com.socialnetwork.vywatch.Model;
 
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -15,6 +16,7 @@ public class MessageConversation {
     @Id
     private int idmessconv;
     private String message;
+    private Date datemessage;
     private int idconversation;
 
     public int getIdmessconv() {
@@ -39,6 +41,14 @@ public class MessageConversation {
 
     public void setIdconversation(int idconversation) {
         this.idconversation = idconversation;
+    }
+
+    public Date getDatemessage() {
+        return datemessage;
+    }
+
+    public void setDatemessage(Date datemessage) {
+        this.datemessage = datemessage;
     }
 
     

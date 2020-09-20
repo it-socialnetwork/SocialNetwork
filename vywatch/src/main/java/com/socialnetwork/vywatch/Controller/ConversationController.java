@@ -10,6 +10,8 @@ import com.socialnetwork.vywatch.Repository.MessageConversationRepository;
 import com.socialnetwork.vywatch.Repository.UserConversationRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,18 +28,32 @@ public class ConversationController {
     @Autowired
     private ConversationRepository ConversationRepository;
     @PostMapping(value="/addconv")
-    public String CreateConversation(){
-        Random rand = new Random();
+    public ResponseEntity<Conversation> CreateConversation(@RequestBody Conversation conversation){
+        
+        ConversationRepository.save(conversation);
+        return new ResponseEntity<Conversation>(HttpStatus.OK);
+    }
+
+    @GetMapping(value="/getidconv")
+    public Conversation GetIdConversation(){
+        boolean notfind=false;
+        String idconv="";
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
         int longueur = alphabet.length();
-        String idconv="";
-        for(int i = 0; i < 10; i++) {
-            int k = rand.nextInt(longueur);
-            idconv=idconv+Character.toString(alphabet.charAt(k));
+        while(notfind==false)
+        {
+            Random rand = new Random();
+            for(int i = 0; i < 10; i++) {
+                int k = rand.nextInt(longueur);
+                idconv=idconv+Character.toString(alphabet.charAt(k));
+            }  
+            if(ConversationRepository.SearchExistIdconv(idconv)==null)
+            {
+                notfind=true;
+            }  
         }
-        Conversation conversation = new Conversation();
+        Conversation conversation=new Conversation();
         conversation.setIdconversation(idconv);
-        ConversationRepository.save(conversation);
-        return idconv;
+        return conversation;
     }
 }

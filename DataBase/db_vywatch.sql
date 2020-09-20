@@ -106,6 +106,7 @@ DROP TABLE IF EXISTS `messageconversation`;
 CREATE TABLE IF NOT EXISTS `messageconversation` (
   `idmessconv` int(11) NOT NULL,
   `message` varchar(200) NOT NULL,
+  `datemessage` datetime DEFAULT NULL,
   `pseudo` varchar(250) NOT NULL,
   `idconversation` varchar(10) NOT NULL,
   PRIMARY KEY (`idmessconv`),
