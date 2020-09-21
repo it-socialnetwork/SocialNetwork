@@ -5,9 +5,10 @@ import java.util.Random;
 
 import com.socialnetwork.vywatch.Model.Conversation;
 import com.socialnetwork.vywatch.Model.MessageConversation;
+import com.socialnetwork.vywatch.Model.User;
 import com.socialnetwork.vywatch.Repository.ConversationRepository;
 import com.socialnetwork.vywatch.Repository.MessageConversationRepository;
-import com.socialnetwork.vywatch.Repository.UserConversationRepository;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,6 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ConversationController {
     @Autowired
     private ConversationRepository ConversationRepository;
+    
     @PostMapping(value="/addconv")
     public ResponseEntity<Conversation> CreateConversation(@RequestBody Conversation conversation){
         
@@ -56,4 +58,12 @@ public class ConversationController {
         conversation.setIdconversation(idconv);
         return conversation;
     }
+
+    @GetMapping(value="/getconvbypseudo")
+    public List<Conversation> GetConversationByPseudo(@RequestBody User user){
+        List<Conversation> ListConv=ConversationRepository.GetConvByPseudo(user.getPseudo());
+        return  ListConv;
+    }
+
+
 }

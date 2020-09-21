@@ -6,7 +6,7 @@ import com.socialnetwork.vywatch.Model.Conversation;
 import com.socialnetwork.vywatch.Model.MessageConversation;
 import com.socialnetwork.vywatch.Repository.ConversationRepository;
 import com.socialnetwork.vywatch.Repository.MessageConversationRepository;
-import com.socialnetwork.vywatch.Repository.UserConversationRepository;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
