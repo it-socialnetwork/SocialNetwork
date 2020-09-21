@@ -19,4 +19,15 @@ export class MessageChatService{
     GetIdConv() : Observable<Conversation> {
       return this.http.get<Conversation>("http://localhost:8080/vywatch/api/conversation/getidconv",httpOptions);
     }
+
+    CreatConversation(conv : Conversation) {
+      console.log(conv)
+      return this.http.post("http://localhost:8080/vywatch/api/conversation/addconv",conv, httpOptions).subscribe(() => {
+        console.log('Enregistrement terminé !');
+      },
+      (error) => {
+        console.log('Erreur ! : ' + error);
+      }
+      );
+    }
 }
