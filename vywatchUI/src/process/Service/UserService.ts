@@ -14,7 +14,7 @@ export class UserService{
   user:User
     constructor(private readonly http : HttpClient, private _router: Router){}
 
-    displaySubject() {
+    getAll() {
       return this.http.get("http://localhost:8080/vywatch/api/user/getalluser",httpOptions)
     }
 
@@ -52,8 +52,8 @@ export class UserService{
         }
         );
     }
-
-    private delay(ms: number)
+   
+      private delay(ms: number)
     {
       return new Promise(resolve => setTimeout(resolve, ms));
     }

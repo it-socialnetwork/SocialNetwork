@@ -45,4 +45,10 @@ public class UserController {
        return UserRepository.getUser(pseudo);
     }
 
+    @GetMapping(value="/getalluser")
+    public List<User> getUser(){
+       return UserRepository.getAllUser();
+    }
+
+
 }

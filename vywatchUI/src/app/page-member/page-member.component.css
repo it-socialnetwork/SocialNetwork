@@ -96,7 +96,9 @@
 .debut{
 	text-align: left;
 }
+.none{
 
+}
 .pointille{
 	border-style: dotted;
 	align-items: center;
@@ -106,6 +108,10 @@
 	color: blue;
 }
 
+
+a{
+	background-color: green;
+}
 .pseudo{
 	display: inline-block;
 }
@@ -124,6 +130,9 @@ a{
 	text-decoration: none;
 }
 
+.search{
+	margin-left: 450px;
+}
 .all{
 	margin-left: 400px;
 	margin-right: 400px;

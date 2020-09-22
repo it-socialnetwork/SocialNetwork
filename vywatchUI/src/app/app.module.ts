@@ -26,6 +26,8 @@ import { PageMemberComponent } from './page-member/page-member.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { NavigationRightComponent } from './navigation-right/navigation-right.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +58,7 @@ import { NavigationRightComponent } from './navigation-right/navigation-right.co
     AngularFirestoreModule.enablePersistence(),
     MDBBootstrapModule.forRoot(),
     FontAwesomeModule,
+    Ng2SearchPipeModule
   ],
   providers: [AngularFirestore, {
       provide : HTTP_INTERCEPTORS,

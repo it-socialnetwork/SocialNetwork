@@ -6,9 +6,10 @@ import { Comment } from 'src/process/Model/Comment';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'src/process/Service/UserService';
 import { Router } from '@angular/router';
-import {faHeart} from '@fortawesome/free-solid-svg-icons'
+import {faHeart, faSearch} from '@fortawesome/free-solid-svg-icons'
 import {faComments} from '@fortawesome/free-solid-svg-icons'
-
+import * as $ from "jquery";
+import * as Hammer from 'hammerjs';
 @Component({
   selector: 'app-page-member',
   templateUrl: './page-member.component.html',
@@ -28,6 +29,7 @@ export class PageMemberComponent implements OnInit {
   post
   idcom
   ite
+  iteUs
   iteimg
   Comment
   UserService : UserService
@@ -36,22 +38,41 @@ export class PageMemberComponent implements OnInit {
   posts 
   users
   usersimg: String[];
+  pseudoSearch: String[];
+  allUsers
+  search :string;
+  word : string;
+  pseudo1
   constructor(
-    readonly http:HttpClient,private _router: Router
+    private http: HttpClient
+    ,private _router: Router
   ) { }
 
   ngOnInit(): void {
+    
     this.iteimg = 0
     this.usersimg = []
+    this.pseudoSearch = []
     this.users = {}
+    this.allUsers = {}
     this.imageTodispplays=[]
     this.ite = 0
+    this.iteUs = 0
     this.postService = new PostService(this.http)
-   // this.UserService = new UserService(this.http, this._router)
+   this.UserService = new UserService(this.http, this._router)
     this.post = {}
     this.comments = {}
 
    this.pseudo =   localStorage.getItem('pseudo');
+    this.UserService.getAll().subscribe(
+      Response => {
+          this.allUsers =  Response
+          while(this.allUsers[this.iteUs] != null){
+            this.pseudoSearch.push(this.allUsers[this.iteUs].pseudo)
+            this.iteUs ++
+            console.log(this.pseudoSearch)
+          }
+      })
     this.postService.displayPost(this.pseudo).subscribe(
       Response => {
           this.posts = Response
@@ -83,9 +104,19 @@ export class PageMemberComponent implements OnInit {
 
         modalBg.classList.remove('bg-active');
       });
-     
-     
+
+
+      var texte = document.querySelector('.modal-bg');
       
+   
+ 
+
+  }
+
+  onSubmitArray(form: NgForm){}
+  onkeypress(event: any){
+
+    console.log(event.key)
   }
   onSubmit(form: NgForm) {
     
@@ -123,8 +154,15 @@ export class PageMemberComponent implements OnInit {
     })
 
 }
+onSubmitArray1(form: NgForm){
+  console.log('nickel')
+  this.pseudo1 = form.value["pseudo"]
+  console.log(this.pseudo1)
+}
 private delay(ms: number)
   {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 }
+
+

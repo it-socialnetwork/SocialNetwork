@@ -1,5 +1,19 @@
 <app-sidenav></app-sidenav>
 <app-navigation-right></app-navigation-right>
+
+
+<form  class="search"(ngSubmit)="onSubmitArray1(t)"  #t="ngForm">
+    <input type="text" [(ngModel)]="search" list="airports" ngModel name="pseudo">  
+    <datalist id="airports"  ngValue={allUser.pseudo}} >
+        <option *ngFor="let pseudoSearche of pseudoSearch | filter:search" >
+            <h4> {{pseudoSearche}}</h4>
+        </option>
+        </datalist>
+ 
+    <button class="btn-list">search</button>
+  </form>
+
+
 <div class="all">
 <div *ngFor="let post of posts  let i = index;" class="post" (click)="getId(post.idpost, post.text, post.pseudo)">
     <img [src]="usersimg[i]" class="profilPic">
@@ -32,3 +46,4 @@
      </div>
 </div>
 </div>
+
