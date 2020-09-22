@@ -1,8 +1,13 @@
 <div id="header" class="container-fluid">
     <div id="headerflex">
         <div id="title"class="row">
-            <img src="..\assets\logo.png" alt="" width="75" height="75" class="center-block"/>  
-            <h1>VYWATCH</h1>
+            <img src="..\assets\logo.png" alt="" width="75" height="75" />  
+            <h1 id="titlename">VYWATCH</h1>
+        </div>
+        <div class="row">
+            <h5 class="col-lg"><a href="#actuality">Actualité</a></h5>
+            <h5 class="col-lg"><a href="">Fonctionnalité</a></h5>
+           <h5 class="col-lg"> <a href="">Tendance</a></h5>
         </div>
         <div class="row">
             <button routerLink="/signup" class="btn">INSCRIPTION</button>
@@ -11,13 +16,69 @@
         
     </div>
     
+    
+</div>
+<div id="background-animation" [ngStyle]="{background: 'url(../assets/dessin.png)'}">
+
 </div>
 
 
 
-<input
+<div id="background-wrap">
+    <div class="animation">
+        <div class="bubble x1"><fa-icon class="icon" [icon]="faHandshake"></fa-icon></div>
+        <div class="bubble x2"><fa-icon class="icon" [icon]="faPrayingHands"></fa-icon></div>
+        <div class="bubble x3"><fa-icon class="icon" [icon]="faAtom"></fa-icon></div>
+        <div class="bubble x4"><fa-icon class="icon" [icon]="faMonument"></fa-icon></div>
+        <div class="bubble x5"><fa-icon class="icon" [icon]="faHandshake"></fa-icon></div>
+        <div class="bubble x6"><fa-icon class="icon" [icon]="faPrayingHands"></fa-icon></div>
+        <div class="bubble x7"><fa-icon class="icon" [icon]="faAtom"></fa-icon></div>
+        <div class="bubble x8"><fa-icon class="icon" [icon]="faMonument"></fa-icon></div>
+        <div class="bubble x9"><fa-icon class="icon" [icon]="faHandshake"></fa-icon></div>
+        <div class="bubble x10"><fa-icon class="icon" [icon]="faPrayingHands"></fa-icon></div>
+    </div>
+</div>
+
+
+
+<div id="body"> 
+    <div id="actuality">
+        <h3>Actualité</h3>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+        <p>regegergergergegegregergergerg</p>
+    </div>
+</div>
+
+
+<!--<input
   style="display: none"
   type="file" (change)="onFileChanged($event)"
   #fileInput>
 <button (click)="fileInput.click()">Select File</button>
-<button (click)="onUpload()">Upload!</button>
+<button (click)="onUpload()">Upload!</button>-->

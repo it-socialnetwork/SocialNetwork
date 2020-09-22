@@ -1,5 +1,11 @@
 package com.socialnetwork.vywatch.Controller;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.List;
+import java.util.zip.DataFormatException;
+import java.util.zip.Inflater;
+
 import com.socialnetwork.vywatch.Model.Post;
 import com.socialnetwork.vywatch.Repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +29,12 @@ public class PostController {
         return s;
     }
 
+
+    @GetMapping(value="/getOne/{idpost}")
+    public Post getOne( @PathVariable int idpost){
+        return pr.getOne(idpost);
+    }
+   
+ 
 
 }

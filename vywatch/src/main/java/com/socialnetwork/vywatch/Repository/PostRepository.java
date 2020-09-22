@@ -12,8 +12,11 @@ import com.socialnetwork.vywatch.Model.Post;
 public interface PostRepository extends JpaRepository<Post, Long>{
     
 
-    @Query(value="select distinct post.* from post, usersubject, listsubject, team where ?1 = userSubject.pseudo and usersubject.Namesub = listsubject.Namesub and listsubject.Namesub = team.Namesub and team.idteam = post.idteam",nativeQuery = true)
+    @Query(value="select distinct post.* from post, usersubject, listsubject, team where ?1 = userSubject.pseudo and usersubject.Namesub = listsubject.Namesub and listsubject.Namesub = team.Namesub and team.idteam = post.idteam ",nativeQuery = true)
     List<Post> findPosts(String pseudo);
+
+    @Query(value="select  post.* from post where ?1 = post.idpost",nativeQuery = true)
+    Post getOne(int idPost);
 
 
 }

@@ -1,5 +1,7 @@
 package com.socialnetwork.vywatch.Repository;
 
+import java.util.List;
+
 import com.socialnetwork.vywatch.Model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,4 +16,8 @@ public interface UserRepository extends JpaRepository<User, Long>{
     User signIn(String idIdentifiant, String motDePasse);
     @Autowired
     User findByPseudo(String pseudo);
+    @Query(value="select user.* from user  WHERE user.pseudo = ?1", nativeQuery = true)
+    User getUser(String pseudo);
+    @Query(value="select user.* from user", nativeQuery = true)
+    List<User> getAllUser();
 }
