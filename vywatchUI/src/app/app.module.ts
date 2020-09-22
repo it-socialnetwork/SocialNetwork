@@ -24,15 +24,12 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PageMemberComponent } from './page-member/page-member.component';
 import { NavigationComponent } from './navigation/navigation.component';
-<<<<<<< HEAD
 import { ChatComponent } from './chat/chat.component';
 import { ChatService } from './chat.service';
-=======
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { NavigationRightComponent } from './navigation-right/navigation-right.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
->>>>>>> 1fba43852a5f88e00dc88d757e702404b2170d55
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,12 +44,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     TestAjaxComponent,
     PageMemberComponent,
     NavigationComponent,
-<<<<<<< HEAD
     ChatComponent,
-=======
     SidenavComponent,
     NavigationRightComponent,
->>>>>>> 1fba43852a5f88e00dc88d757e702404b2170d55
 
   ],
   imports: [
