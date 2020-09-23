@@ -23,11 +23,9 @@ import { MDBBootstrapModule} from 'angular-bootstrap-md'
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PageMemberComponent } from './page-member/page-member.component';
-import { NavigationComponent } from './navigation/navigation.component';
 import { ChatComponent } from './chat/chat.component';
 import { ChatService } from './chat.service';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { NavigationRightComponent } from './navigation-right/navigation-right.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
@@ -43,10 +41,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     SigninComponent,
     TestAjaxComponent,
     PageMemberComponent,
-    NavigationComponent,
     ChatComponent,
     SidenavComponent,
-    NavigationRightComponent,
 
   ],
   imports: [
