@@ -153,16 +153,21 @@ export class PageMemberComponent implements OnInit {
           })
     })
 
-}
-onSubmitArray1(form: NgForm){
-  console.log('nickel')
-  this.pseudo1 = form.value["pseudo"]
-  console.log(this.pseudo1)
-}
-private delay(ms: number)
-  {
-    return new Promise(resolve => setTimeout(resolve, ms));
   }
+  onSubmitArray1(form: NgForm){
+    console.log('nickel')
+    this.pseudo1 = form.value["pseudo"]
+    console.log(this.pseudo1)
+  }
+  private delay(ms: number)
+    {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    test()
+    {
+      console.log("bhtrht")
+    }
 }
 
 

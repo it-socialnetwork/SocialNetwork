@@ -1,3 +1,7 @@
+input::-webkit-calendar-picker-indicator {
+	display: none;
+  }
+
 .modal-bg{
 	position: fixed;
 	top:0;

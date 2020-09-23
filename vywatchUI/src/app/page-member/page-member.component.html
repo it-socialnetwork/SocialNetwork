@@ -3,8 +3,8 @@
 
 
 <form  class="search"(ngSubmit)="onSubmitArray1(t)"  #t="ngForm">
-    <input type="text" [(ngModel)]="search" list="airports" ngModel name="pseudo">  
-    <datalist id="airports"  ngValue="{allUser.pseudo}" >
+    <input type="text" [(ngModel)]="search" list="user" ngModel name="pseudo">  
+    <datalist id="user"  ngValue="{allUser.pseudo}" >
         <option *ngFor="let pseudoSearche of pseudoSearch | filter:search" >
             <h4> {{pseudoSearche}}</h4>
         </option>
