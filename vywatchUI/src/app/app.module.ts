@@ -4,7 +4,7 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PageloginComponent } from './pagelogin/pagelogin.component';
+
 import { HeaderComponent } from './header/header.component';
 import { CountSubscribeComponent } from './count-subscribe/count-subscribe.component';
 import { ActualityComponent } from './actuality/actuality.component';
@@ -31,7 +31,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @NgModule({
   declarations: [
     AppComponent,
-    PageloginComponent,
     HeaderComponent,
     ActualityComponent,
     TendanceComponent,
