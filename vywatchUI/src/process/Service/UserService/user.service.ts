@@ -1,27 +1,22 @@
-import{User} from '../Model/User/user'
+import{User} from '../../Model/User/user'
 import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
-const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      
-    })
-};
+
 export class UserService{
 
-  user:User
+    user:User
     constructor(private readonly http : HttpClient, private _router: Router){}
 
     getAll() {
-      return this.http.get("http://localhost:8080/vywatch/api/user/getalluser",httpOptions)
+      return this.http.get("http://localhost:8080/vywatch/api/user/getalluser")
     }
 
 
     addUser (user : User) {
         console.log(user)
-        return this.http.post("http://localhost:8080/vywatch/api/user/creatuser", user, httpOptions).subscribe(() => {
+        return this.http.post("http://localhost:8080/vywatch/api/user/creatuser", user).subscribe(() => {
           console.log('Enregistrement terminé !');
         },
         (error) => {

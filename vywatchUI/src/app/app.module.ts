@@ -17,8 +17,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 import { config } from 'process';
-import { TestAjaxComponent } from './test-ajax/test-ajax.component';
-import { TokenInterceptorService } from './token-interceptor.service';
+
+import { InterceptorService } from '../process/Service/InterceptorService/interceptor.service';
 import { MDBBootstrapModule} from 'angular-bootstrap-md'
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -38,7 +38,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     SubjectUserChoiceComponent,
     MainComponent,
     SigninComponent,
-    TestAjaxComponent,
     PageMemberComponent,
     ChatComponent,
     SidenavComponent,
@@ -60,7 +59,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   ],
   providers: [ChatService, AngularFirestore, {
       provide : HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
+      useClass: InterceptorService,
       multi : true}],
   
   bootstrap: [AppComponent]

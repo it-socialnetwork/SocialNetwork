@@ -1,4 +1,4 @@
-import{User} from '../Model/User'
+import{User} from '../Model/User/user'
 import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserSubject } from '../Model/UserSubject';

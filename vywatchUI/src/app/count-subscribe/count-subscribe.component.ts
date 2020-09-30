@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../process/Model/User';
-import { UserService } from '../../process/Service/UserService';
+import { User } from '../../process/Model/User/user';
+import { UserService } from '../../process/Service/UserService/user.service';
 import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError, delay } from "rxjs/operators";

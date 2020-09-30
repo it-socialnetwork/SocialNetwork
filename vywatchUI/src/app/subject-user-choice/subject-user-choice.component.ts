@@ -3,8 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {ListSubject} from '../../process/Model/Subject'
 import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
-import { UserService } from '../../process/Service/UserService';
-import { User } from 'src/process/Model/User';
+import { UserService } from '../../process/Service/UserService/user.service';
+import { User } from 'src/process/Model/User/user';
 import { ListSubjectService } from 'src/process/Service/ListSubjectService';
 import {UserSubjectService} from '../../process/Service/UserSubjectService';
 import{faPlus} from '@fortawesome/free-solid-svg-icons'

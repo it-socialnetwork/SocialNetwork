@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from '../../process/Model/User';
-import { UserService } from '../../process/Service/UserService';
+import { User } from '../../process/Model/User/user';
+import { UserService } from '../../process/Service/UserService/user.service';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
