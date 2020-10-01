@@ -1,4 +1,4 @@
-export class PostUser{
+export class Post{
 
     text: String
     datepost:Date

@@ -24,7 +24,7 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PageMemberComponent } from './page-member/page-member.component';
 import { ChatComponent } from './chat/chat.component';
-import { ChatService } from './chat.service';
+import { ChatService } from '../process/Service/ChatService/chat.service';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PostService } from '../../process/Service/PostService';
+import { PostService } from '../../process/Service/PostService/post.service';
 import { HttpClient } from '@angular/common/http';
-import { PostUser } from 'src/process/Model/PostUser';
-import { Comment } from 'src/process/Model/Comment';
+import { Post } from '../../process/Model/Post/post';
+import { Comment } from '../../process/Model/Comment/comment';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'src/process/Service/UserService/user.service';
 import { Router } from '@angular/router';

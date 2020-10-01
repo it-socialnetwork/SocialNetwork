@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {ListSubject} from '../../process/Model/Subject'
+import {Subject} from '../../process/Model/Subject/subject'
 import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
 import { UserService } from '../../process/Service/UserService/user.service';
 import { User } from 'src/process/Model/User/user';
-import { ListSubjectService } from 'src/process/Service/ListSubjectService';
-import {UserSubjectService} from '../../process/Service/UserSubjectService';
+import { SubjectService } from 'src/process/Service/SubjectService/subject.service';
+import {UserSubjectService} from '../../process/Service/UserSubject/usersubject.service';
 import{faPlus} from '@fortawesome/free-solid-svg-icons'
 import{faHandshake} from '@fortawesome/free-solid-svg-icons'
 import{faPrayingHands} from '@fortawesome/free-solid-svg-icons'
 import{faAtom} from '@fortawesome/free-solid-svg-icons'
 import{faMonument} from '@fortawesome/free-solid-svg-icons'
 import{faMinus} from '@fortawesome/free-solid-svg-icons'
-import { UserSubject } from 'src/process/Model/UserSubject';
+import { UserSubject } from 'src/process/Model/UserSubject/user-subject';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -29,18 +29,16 @@ const httpOptions = {
 })
 export class SubjectUserChoiceComponent implements OnInit {
 
-  Subjects ;
+  Subjects 
   subjects
   sub: any;
   userService:UserService
-  listSubjectService:ListSubjectService
+  listSubjectService:SubjectService
   ListChoiceSubjects: String[];
   UserSubject:UserSubject;
   UserSubjectService : UserSubjectService;
-  //public ListChoiceSubjects: string[][] = []
-  constructor(
-    
-    readonly http:HttpClient, private formBuilder: FormBuilder, private _router: Router) { }
+  
+  constructor(readonly http:HttpClient, private formBuilder: FormBuilder, private _router: Router) { }
 
 
   faPlus=faPlus;
@@ -54,7 +52,7 @@ export class SubjectUserChoiceComponent implements OnInit {
     // Show loading animation.
     this.ListChoiceSubjects=[]
      this.userService = new UserService(this.http, this._router) 
-     this.listSubjectService = new ListSubjectService(this.http)
+     this.listSubjectService = new SubjectService(this.http)
     this.UserSubjectService = new UserSubjectService(this.http)
     this.listSubjectService.displaySubject().subscribe(
       Response => {
@@ -67,8 +65,7 @@ export class SubjectUserChoiceComponent implements OnInit {
   {
     if(this.ListChoiceSubjects.indexOf(nameSubject)==-1)
     {
-      console.log(this.ListChoiceSubjects)
-    this.ListChoiceSubjects.push(nameSubject)
+       this.ListChoiceSubjects.push(nameSubject)
     }
   }
 
@@ -95,7 +92,6 @@ export class SubjectUserChoiceComponent implements OnInit {
       this.UserSubject = new UserSubject()
       this.UserSubject.pseudo=localStorage.getItem("pseudo");
       this.UserSubject.namesub=this.ListChoiceSubjects[namesub];
-      console.log(this.UserSubject)
       this.UserSubjectService.addUserSubject(this.UserSubject)
     }
     this._router.navigate(['pageMembre/',  localStorage.getItem('pseudo')], {queryParams: {}});

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatService } from '../chat.service';
-import {MessageChatService} from '../../process/Service/MessageChatService';
+import { ChatService } from '../../process/Service/ChatService/chat.service';
+import {InstantMessagingService} from '../../process/Service/InstantMessaging/instant-messaging.service';
 import { HttpClient } from '@angular/common/http';
-import {Conversation} from '../../process/Model/Conversation';
+import {Conversation} from '../../process/Model/Conversation/conversation';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -10,10 +10,10 @@ import {Conversation} from '../../process/Model/Conversation';
 })
 export class ChatComponent implements OnInit {
   
-   MessageChatService : MessageChatService
+   MessageChatService : InstantMessagingService
    Conversation : Conversation;
   ngOnInit() {
-    this.MessageChatService = new MessageChatService(this.http);
+    this.MessageChatService = new InstantMessagingService(this.http);
     this.Conversation = new Conversation();
   }
 

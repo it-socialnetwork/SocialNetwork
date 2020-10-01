@@ -1,5 +1,4 @@
-export class Conversation
-{
+export class UserConversation {
     pseudo : String;
     idconversation : String;
 }

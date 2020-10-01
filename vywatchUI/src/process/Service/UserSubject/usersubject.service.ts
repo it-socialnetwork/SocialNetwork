@@ -1,7 +1,7 @@
-import{User} from '../Model/User/user'
+import{User} from '../../Model/User/user'
 import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserSubject } from '../Model/UserSubject';
+import { UserSubject } from '../../Model/UserSubject/user-subject';
 const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',

@@ -1,5 +1,4 @@
-export class Conversation
-{
+export class MessageConversation {
     idmessconv : number;
     message : String;
     datemessage : Date;
