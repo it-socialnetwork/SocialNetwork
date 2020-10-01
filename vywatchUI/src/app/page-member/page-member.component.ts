@@ -73,6 +73,7 @@ export class PageMemberComponent implements OnInit {
             console.log(this.pseudoSearch)
           }
       })
+      this.posts = new Post()
     this.postService.displayPost(this.pseudo).subscribe(
       Response => {
           this.posts = Response

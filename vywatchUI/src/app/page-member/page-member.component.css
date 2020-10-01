@@ -120,9 +120,9 @@ a{
 	display: inline-block;
 }
 .profilPic{
-	width: 10%;
-	height: 10%;
-	border-radius: 50%;
+	width: 70px;
+	height: 70px;
+	border-radius: 60px;
 	display: inline-block;
 }
 .documents{
