@@ -7,15 +7,10 @@ import { map, catchError, delay } from "rxjs/operators";
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    
-  })
-};
+
 
 @Component({
-  selector: 'app-creation-compte',
+  selector: 'app-CountSubscribe',
   templateUrl: './count-subscribe.component.html',
   styleUrls: ['./count-subscribe.component.css']
 })

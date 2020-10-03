@@ -9,17 +9,23 @@
             <h5 class="col-lg"><a href="">Fonctionnalité</a></h5>
            <h5 class="col-lg"> <a href="">Tendance</a></h5>
         </div>
-        <div class="row">
-            <button routerLink="/signup" class="btn">INSCRIPTION</button>
-            <button routerLink="/signin" class="btn">CONNEXION</button>
-        </div>
-        
     </div>
     
     
 </div>
-<div id="background-animation" [ngStyle]="{background: 'url(../assets/dessin.png)'}">
 
+
+<div id="background-animation" [ngStyle]="{background: 'url(../assets/dessin.png)'}"></div>
+
+<div id="signorsignup">
+    <div >
+        <app-signin *ngIf="Selectsignin==true && Selectsignup==false" class="sign"></app-signin>
+        <app-CountSubscribe *ngIf="Selectsignup==true" class="sign"></app-CountSubscribe>
+    </div>
+    <div id="information">
+        <p *ngIf="Selectsignin==true && Selectsignup==false">Tu n'as pas encore de compte ? <button class="btn" (click)="SelectSignup()">S'incrire</button> </p>
+        <p *ngIf="Selectsignup==true">Déjà un compte ? <button class="btn" (click)="SelectSignin()">Se connecter</button></p>
+    </div>
 </div>
 
 
@@ -38,7 +44,6 @@
         <div class="bubble x10"><fa-icon class="icon" [icon]="faPrayingHands"></fa-icon></div>
     </div>
 </div>
-
 
 
 <div id="body"> 

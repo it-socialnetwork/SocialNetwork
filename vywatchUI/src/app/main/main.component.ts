@@ -18,8 +18,13 @@ export class MainComponent implements OnInit {
   faAtom=faAtom
   faMonument=faMonument
 
+  
+  Selectsignup: boolean;
+  Selectsignin: boolean
   selectedFile: File
   constructor() { }
+  
+
 
   ngOnInit(): void {
 
@@ -35,17 +40,33 @@ export class MainComponent implements OnInit {
         header.classList.add('scrolled')
         title.classList.add('scrolled')
       }
-}
+    }
 
-window.addEventListener('scroll', onWindowScroll)
+    
+    window.addEventListener('scroll', onWindowScroll)
+    
+    this.Selectsignin=true
+    this.Selectsignup=false
   }
 
-  onFileChanged(event) {
+ /* onFileChanged(event) {
     this.selectedFile = event.target.files[0]
   }
 
   onUpload() {
     // upload code goes here
+  }*/
+
+  SelectSignin() 
+  {
+    
+    this.Selectsignup=false
+  }
+
+  SelectSignup()
+  {
+    this.Selectsignup=true
+    
   }
 
 }

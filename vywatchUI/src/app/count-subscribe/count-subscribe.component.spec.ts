@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CountSubscribeComponent } from './count-subscribe.component';
 
-describe('CreationCompteComponent', () => {
+describe('CountSubscribeComponent', () => {
   let component: CountSubscribeComponent;
   let fixture: ComponentFixture<CountSubscribeComponent>;
 
