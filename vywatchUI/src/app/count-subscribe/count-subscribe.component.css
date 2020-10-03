@@ -60,7 +60,12 @@ input[type="radio"]
     margin-bottom: 50px;
 }
 
-
+#subscribe
+{
+    
+    padding-left: 250px;
+    padding-right: 250px;
+}
 
 #birthdayform
 {

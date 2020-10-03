@@ -19,8 +19,7 @@ export class MainComponent implements OnInit {
   faMonument=faMonument
 
   
-  Selectsignup: boolean;
-  Selectsignin: boolean
+  
   selectedFile: File
   constructor() { }
   
@@ -45,8 +44,8 @@ export class MainComponent implements OnInit {
     
     window.addEventListener('scroll', onWindowScroll)
     
-    this.Selectsignin=true
-    this.Selectsignup=false
+   
+  
   }
 
  /* onFileChanged(event) {
@@ -57,16 +56,5 @@ export class MainComponent implements OnInit {
     // upload code goes here
   }*/
 
-  SelectSignin() 
-  {
-    
-    this.Selectsignup=false
-  }
-
-  SelectSignup()
-  {
-    this.Selectsignup=true
-    
-  }
-
+  
 }

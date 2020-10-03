@@ -10,6 +10,7 @@ import { PageMemberComponent } from './page-member/page-member.component';
 import{ChatComponent} from './chat/chat.component'
 const routes: Routes = [
   { path:'', component: MainComponent },
+  {path:'register', component: CountSubscribeComponent},
   { path:'preference/:pseudo', component: SubjectUserChoiceComponent},
   {path:'pageMembre/:pseudo', component: PageMemberComponent},
   {path:'chat', component: ChatComponent},

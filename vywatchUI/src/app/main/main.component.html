@@ -19,12 +19,10 @@
 
 <div id="signorsignup">
     <div >
-        <app-signin *ngIf="Selectsignin==true && Selectsignup==false" class="sign"></app-signin>
-        <app-CountSubscribe *ngIf="Selectsignup==true" class="sign"></app-CountSubscribe>
+        <app-signin  class="sign"></app-signin>
     </div>
     <div id="information">
-        <p *ngIf="Selectsignin==true && Selectsignup==false">Tu n'as pas encore de compte ? <button class="btn" (click)="SelectSignup()">S'incrire</button> </p>
-        <p *ngIf="Selectsignup==true">Déjà un compte ? <button class="btn" (click)="SelectSignin()">Se connecter</button></p>
+        <p >Tu n'as pas encore de compte ? <a routerLink="/register">S'incrire</a> </p>
     </div>
 </div>
 
