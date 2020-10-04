@@ -4,10 +4,9 @@
 }
 h5{
     
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 25px;
-   
+   font-size: 18px;
+    margin-top: 30px;
+   margin-right: 80px;
 }
 
 a
@@ -57,11 +56,7 @@ a
     display: flex;
 }
 
-#title img
-{
-    margin-top: 10px;
-    
-}
+
 
 #titlename
 {
