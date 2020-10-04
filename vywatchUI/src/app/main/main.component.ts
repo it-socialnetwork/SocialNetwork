@@ -29,15 +29,28 @@ export class MainComponent implements OnInit {
 
     const header = document.getElementById('header')
     const title = document.getElementById('titlename')
+    var elts = document.getElementsByTagName('a');
     // J'en fait une fonction pour pouvoir l'appeler au chargement de la page car
     // le scoll n'est pas forcément en haut au chargement.
     function onWindowScroll(event) {
       if (window.pageYOffset < 46) {
         header.classList.remove('scrolled')
         title.classList.remove('scrolled')
+
+        elts[0].style.color = 'white';
+        elts[1].style.color = 'white';
+        elts[2].style.color = 'white';
+        elts[3].style.color = 'white';
+        elts[4].style.color = 'white';
+        
       } else {
         header.classList.add('scrolled')
         title.classList.add('scrolled')
+        elts[0].style.color = '#6A38FF';
+        elts[1].style.color = '#6A38FF';
+        elts[2].style.color = '#6A38FF';
+        elts[3].style.color = '#6A38FF';
+        elts[4].style.color = '#6A38FF';
       }
     }
 

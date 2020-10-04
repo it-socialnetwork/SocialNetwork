@@ -1,12 +1,15 @@
 <div id="header" class="container-fluid">
     <div id="headerflex">
-        
-        <div class="row">
-            <h5 class="col-lg"><a routerLink="">Actualité</a></h5>
-            <h5 class="col-lg"><a routerLink="">Pourquoi VyWatch?</a></h5>
-            <h5 class="col-lg"><a routerLink="">Fonctionnalité</a></h5>
-            <h5 class="col-lg"><a routerLink="">VyWatch Deluxe</a></h5>
-            <h5 class="col-lg"><a routerLink="">Assistance</a></h5>
+        <div id="title"class="row">
+            <img src="..\assets\logo.png" alt="" width="50" height="50" />  
+            <h1 id="titlename">VYWATCH</h1>
+        </div>
+        <div class="row" id="menu">
+            <a class="col-lg " routerLink=""><h5 class="menu">Actualité</h5></a>
+            <a class="col-lg " routerLink=""><h5 class="menu">Pourquoi VyWatch?</h5></a>
+            <a class="col-lg " routerLink=""><h5 class="menu">Fonctionnalité</h5></a>
+            <a class="col-lg " routerLink=""><h5 class="menu">VyWatch Deluxe</h5></a>
+            <a class="col-lg " routerLink=""><h5 class="menu">Assistance</h5></a>
         </div>
     </div>
     
@@ -14,19 +17,18 @@
 </div>
 
 
-<div id="title"class="row">
-    <img src="..\assets\logo.png" alt="" width="150" height="150" />  
-    <h1 id="titlename">VYWATCH</h1>
+<div id="body">
+    <div id="signorsignup">
+        <div >
+            <app-signin  class="sign"></app-signin>
+        </div>
+        <div id="information">
+            <p >Tu n'as pas encore de compte ? <a class="lieninscription" routerLink="/register">S'incrire</a> </p>
+        </div>
+    </div>
 </div>
 
-<div id="signorsignup">
-    <div >
-        <app-signin  class="sign"></app-signin>
-    </div>
-    <div id="information">
-        <p >Tu n'as pas encore de compte ? <a routerLink="/register">S'incrire</a> </p>
-    </div>
-</div>
+
 
 
 
@@ -42,11 +44,13 @@
         <div class="bubble x8"><fa-icon class="icon" [icon]="faMonument"></fa-icon></div>
         <div class="bubble x9"><fa-icon class="icon" [icon]="faHandshake"></fa-icon></div>
         <div class="bubble x10"><fa-icon class="icon" [icon]="faPrayingHands"></fa-icon></div>
-        <div class="bubble x11"><fa-icon class="icon" [icon]="faPrayingHands"></fa-icon></div>
+        
     </div>
 </div>
 
+<div id="container">
 
+</div>
 
 <!--<input
   style="display: none"

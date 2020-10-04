@@ -7,18 +7,23 @@ h5{
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 25px;
-    
+   
 }
 
 a
 {
     text-decoration: none;
+    color: #fff;
+}
+
+.lieninscription
+{
     color: #6A38FF;
 }
 
 #header
 {
-    background-color: #1e1e20;
+    background-color: #ffffff00;
     position: fixed;
     top: 0px;
     left: 0px;
@@ -26,56 +31,52 @@ a
     padding-top: 10px;
     padding-bottom: 10px;
     z-index: 3;
+    
 }
 
 
 
+
 #header.scrolled {
-    position: fixed;
     
-    top: 0;
-    left: 0;
-    right: 0;
-    
-    background-color: #121212;
+    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.4); 
+    background-color: #ffffff;
+    color: #6A38FF;
   }
  
 
 #headerflex
 {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 #title
 {
-    margin-left: 400px;
-    margin-top: 325px;
-    
+    margin-top: 10px;
     display: flex;
-    flex-direction: column;
 }
 
 #title img
 {
     margin-top: 10px;
-    margin-left: 150px;
+    
 }
 
 #titlename
 {
-    color: #6A38FF;
-    font-size: 6em;
-    margin-top: 10px;
-    margin-left: 5px;
+    color: #ffffff;
+    font-size: 2.5em;
+    margin-top: 5px;
+    margin-left: 10px;
 }
 
 #titlename.scrolled
 {
-    color: rgb(255, 255, 255);
+    color: #6A38FF;
     font-size: 2.5em;
-    margin-top: 10px;
-    margin-left: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
 }
 
 
@@ -104,9 +105,9 @@ button:hover
 #background-wrap {
     
 	left: 0;
-	position: fixed;
+	position: absolute;
 	right: 0;
-	top: 0;
+	top: 160px;
     z-index: 1;
     
 }
@@ -119,11 +120,15 @@ button:hover
     color: #6A38FF;
 }
 
+
+
+
+
 /* KEYFRAMES */
 
 @-webkit-keyframes animateBubble {
     0% {
-        margin-top: 1000px;
+        margin-top: 700px;
     }
     100% {
         margin-top: -100%;
@@ -132,7 +137,7 @@ button:hover
 
 @-moz-keyframes animateBubble {
     0% {
-        margin-top: 1000px;
+        margin-top: 700px;
     }
     100% {
         margin-top: -100%;
@@ -141,12 +146,13 @@ button:hover
 
 @keyframes animateBubble {
     0% {
-        margin-top: 1000px;
+        margin-top: 700px;
     }
     
     100% {
-        margin-top: -100%;
+        margin-top: -150px;
     }
+    
 }
 
 @-webkit-keyframes sideWays { 
@@ -308,18 +314,7 @@ button:hover
 	transform: scale(0.3);
 }
 
-.x11 {
-    -webkit-animation: animateBubble 23s linear infinite, sideWays 3s ease-in-out infinite alternate;
-	-moz-animation: animateBubble 23s linear infinite, sideWays 3s ease-in-out infinite alternate;
-	animation: animateBubble 22s linear infinite, sideWays 2s ease-in-out infinite alternate;
-	
-	left: 75%;
-	top: 70%;
-	
-	-webkit-transform: scale(0.3);
-	-moz-transform: scale(0.3);
-	transform: scale(0.3);
-}
+
 
 /* OBJECTS */
 
@@ -365,14 +360,9 @@ button:hover
 #body
 {
     
-    background-color: #fff;
-    position: relative;
-    top: 50PX;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    min-height: 100%;
-    z-index: 2;
+    background: linear-gradient(60deg, blue, rgb(236, 163, 175));
+    height: 850px;
+    
 }
 
 
@@ -390,7 +380,7 @@ button:hover
 }
 
 .bubble{
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
 }
 
 #information
@@ -399,3 +389,11 @@ button:hover
     text-align: center;
 }
 
+#container
+{
+    position: relative;
+    top: 0px;
+    height: 600px;
+    background-color: #fff;
+    z-index: 2;
+}
