@@ -16,8 +16,8 @@ public interface UserRepository extends JpaRepository<User, Long>{
     User signIn(String idIdentifiant, String motDePasse);
     @Autowired
     User findByPseudo(String pseudo);
-    @Query(value="select user.* from user  WHERE user.pseudo = ?1", nativeQuery = true)
+    @Query(value="select * from user  WHERE user.pseudo = ?1", nativeQuery = true)
     User getUser(String pseudo);
-    @Query(value="select user.* from user", nativeQuery = true)
+    @Query(value="select * from user", nativeQuery = true)
     List<User> getAllUser();
 }

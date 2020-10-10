@@ -10,6 +10,7 @@ import {faHeart, faSearch} from '@fortawesome/free-solid-svg-icons'
 import {faComments} from '@fortawesome/free-solid-svg-icons'
 import * as $ from "jquery";
 import * as Hammer from 'hammerjs';
+import { User } from 'src/process/Model/User/user';
 @Component({
   selector: 'app-page-member',
   templateUrl: './page-member.component.html',
@@ -36,24 +37,27 @@ export class PageMemberComponent implements OnInit {
   postService : PostService
   pseudo : String
   posts 
-  users
+  
   usersimg: String[];
   pseudoSearch: String[];
   allUsers
   search :string;
   word : string;
   pseudo1
+
+  users 
+  ListUser : Array<User>;
+
   constructor(
     private http: HttpClient
     ,private _router: Router
-  ) { }
+  ) {this.ListUser=new Array<User>() }
 
   ngOnInit(): void {
     
     this.iteimg = 0
-    this.usersimg = []
+    this.usersimg;
     this.pseudoSearch = []
-    this.users = {}
     this.allUsers = {}
     this.imageTodispplays=[]
     this.ite = 0
@@ -64,40 +68,40 @@ export class PageMemberComponent implements OnInit {
     this.comments = {}
 
    this.pseudo =   localStorage.getItem('pseudo');
-    this.UserService.getAll().subscribe(
+    this.UserService.getAllUser().subscribe(
       Response => {
           this.allUsers =  Response
           while(this.allUsers[this.iteUs] != null){
             this.pseudoSearch.push(this.allUsers[this.iteUs].pseudo)
             this.iteUs ++
-            console.log(this.pseudoSearch)
           }
       })
       this.posts = new Post()
-    this.postService.displayPost(this.pseudo).subscribe(
+    
+      this.postService.displayPost(this.pseudo).subscribe(
       Response => {
           this.posts = Response
           while(this.posts[this.ite] != null){
-            this.base64Data = this.posts[this.ite].picturepost
+            this.users=new User();
+           /* this.base64Data = this.posts[this.ite].picturepost
             this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-            this.imageTodispplays.push(this.retrievedImage)
-            this.postService.getUser(this.posts[this.ite].pseudo).subscribe((res) => {
-              this.users = res
+            this.imageTodispplays.push(this.retrievedImage)*/
+            this.UserService.getUser(this.posts[this.ite].pseudo).subscribe((res) => {
+                this.users = res
                 this.base64Data2 = this.users.pictureprofil
                 this.retrievedImage2 = 'data:image/jpeg;base64,' + this.base64Data2;
-                console.log(this.usersimg)
-                console.log("eeeeeeeeeeeeeeee")
-                this.usersimg.push(this.retrievedImage2)
-       
+                this.users.pictureprofil=this.retrievedImage2;
+                this.ListUser.push(this.users)
+                //console.log("test"+this.usersimg)
             },
             ) ;
            this.ite ++
           }
          
       })
-      console.log("eeeeeeeeeeeeeeee")
-      this.delay(3000)
+     
       
+        
       var modalBg = document.querySelector('.modal-bg');
       modalBg.addEventListener('click', function(){
 

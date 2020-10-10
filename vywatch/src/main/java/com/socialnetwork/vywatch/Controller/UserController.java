@@ -40,7 +40,7 @@ public class UserController {
         return new ResponseEntity<User>(HttpStatus.OK ); 
     }
 
-    @GetMapping(value="/getPicture/{pseudo}")
+    @GetMapping(value="/getuser/{pseudo}")
     public User getUser(@PathVariable String pseudo){
        return UserRepository.getUser(pseudo);
     }

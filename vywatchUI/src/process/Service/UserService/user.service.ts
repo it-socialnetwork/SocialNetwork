@@ -9,7 +9,7 @@ export class UserService{
     user:User
     constructor(private readonly http : HttpClient, private _router: Router){}
 
-    getAll() {
+    getAllUser() {
       return this.http.get("http://localhost:8080/vywatch/api/user/getalluser")
     }
 
@@ -46,6 +46,10 @@ export class UserService{
           console.log('Erreur ! : ' + error);
         }
         );
+    }
+
+    getUser(pseudo) {
+      return this.http.get(`http://localhost:8080/vywatch/api/user/getuser/${pseudo}` )
     }
    
       private delay(ms: number)

@@ -24,7 +24,5 @@ export class PostService{
         return this.http.get(`http://localhost:8080/vywatch/api/comment/getAll/${idpost}` )
       }
 
-      getUser(pseudo) {
-        return this.http.get(`http://localhost:8080/vywatch/api/user/getPicture/${pseudo}` )
-      }
+    
 }
