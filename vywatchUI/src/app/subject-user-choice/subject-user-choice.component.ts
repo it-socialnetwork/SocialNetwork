@@ -34,7 +34,7 @@ export class SubjectUserChoiceComponent implements OnInit {
   sub: any;
   userService:UserService
   listSubjectService:SubjectService
-  ListChoiceSubjects: String[];
+  ListChoiceSubjects: any[];
   UserSubject:UserSubject;
   UserSubjectService : UserSubjectService;
   
