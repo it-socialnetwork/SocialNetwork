@@ -34,7 +34,7 @@ export class UserService{
           localStorage.setItem('token', String(res));
           if(inscription==false)
           {
-            this._router.navigate(['pageMembre/',  localStorage.getItem('pseudo')], {queryParams: {}});
+            this._router.navigate(['membre/',  localStorage.getItem('pseudo')], {queryParams: {}});
           }
           else
           {

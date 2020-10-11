@@ -94,7 +94,7 @@ export class SubjectUserChoiceComponent implements OnInit {
       this.UserSubject.namesub=this.ListChoiceSubjects[namesub];
       this.UserSubjectService.addUserSubject(this.UserSubject)
     }
-    this._router.navigate(['pageMembre/',  localStorage.getItem('pseudo')], {queryParams: {}});
+    this._router.navigate(['membre/',  localStorage.getItem('pseudo')], {queryParams: {}});
   }
 
 }

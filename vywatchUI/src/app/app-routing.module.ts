@@ -12,7 +12,7 @@ const routes: Routes = [
   { path:'', component: MainComponent },
   {path:'register', component: CountSubscribeComponent},
   { path:'preference/:pseudo', component: SubjectUserChoiceComponent},
-  {path:'pageMembre/:pseudo', component: PageMemberComponent},
+  {path:'membre/:pseudo', component: PageMemberComponent},
   {path:'chat', component: ChatComponent},
 ];
 

@@ -92,7 +92,7 @@ export class PageMemberComponent implements OnInit {
                 this.retrievedImage2 = 'data:image/jpeg;base64,' + this.base64Data2;
                 this.users.pictureprofil=this.retrievedImage2;
                 this.ListUser.push(this.users)
-                //console.log("test"+this.usersimg)
+                
             },
             ) ;
            this.ite ++
