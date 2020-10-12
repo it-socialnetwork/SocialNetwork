@@ -1,4 +1,4 @@
-<app-sidenav></app-sidenav>
+<!--<app-sidenav></app-sidenav>
 
 
 
@@ -15,19 +15,14 @@
 
   
 
-    <div class="all">
+    <div class="all">-->
    
       
 
-            <div *ngFor="let post of posts; let i=index" class="post" (click)="getId(post.idpost, post.text, post.pseudo)">
-                <div *ngFor="let user of ListUser;"><img *ngIf="post.pseudo==user.pseudo" [src]="user.pictureprofil" class="profilPic"><p *ngIf="post.pseudo==user.pseudo" class="pseudo">{{user.pseudo}}</p></div>
-                
-                <p> {{post.text}}</p>
-                <!--<img [src]="imageTodispplays[i]" class="reussiGrand">-->
-            </div>
+            
 
 
-            <div class="modal-bg">
+            <!--<div class="modal-bg">
                 <div class="model">
                     <div class="text">
                     <h3>{{post.pseudo}}</h3>
@@ -46,4 +41,16 @@
                     </div>
                 </div>
             </div>
+    </div>-->
+
+
+<app-header></app-header>
+<div id="post">
+    <div *ngFor="let post of posts; let i=index" class="post" (click)="getId(post.idpost, post.text, post.pseudo)">
+        <div *ngFor="let user of ListUser;"><img *ngIf="post.pseudo==user.pseudo" [src]="user.pictureprofil" class="profilPic"><p *ngIf="post.pseudo==user.pseudo" class="pseudo">{{user.pseudo}}</p></div>
+        
+        <p> {{post.text}}</p>
+        <!--<img [src]="imageTodispplays[i]" class="reussiGrand">-->
     </div>
+</div>
+    
