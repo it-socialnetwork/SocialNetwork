@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'register', component: CountSubscribeComponent},
   { path:'preference/:pseudo', component: SubjectUserChoiceComponent},
   {path:'membre/:pseudo', component: PageMemberComponent},
-  {path:'chat', component: ChatComponent},
+  {path:'vyexchange', component: ChatComponent},
 ];
 
 @NgModule({
