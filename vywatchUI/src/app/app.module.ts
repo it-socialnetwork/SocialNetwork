@@ -27,6 +27,7 @@ import { ChatComponent } from './chat/chat.component';
 import { ChatService } from '../process/Service/ChatService/chat.service';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     PageMemberComponent,
     ChatComponent,
     SidenavComponent,
+    SearchbarComponent,
 
   ],
   imports: [

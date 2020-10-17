@@ -174,7 +174,7 @@ export class PageMemberComponent implements OnInit {
       console.log("bhtrht")
     }*/
 
-    
+
 
     UserService : UserService
     postService : PostService

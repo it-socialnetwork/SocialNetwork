@@ -18,25 +18,27 @@
         </div>
         <div class="col sm-2">
             <div style="margin-top:19px;" class="pull-right"> 
-                <button type="button" class="btn btn-primary" (click)="join()">Join</button>
-                <button type="button" class="btn btn-default" (click)="leave()">Leave</button>
+                <button type="button" class="btn btn-primary" (click)="join()">Rejoindre</button>
+                <button type="button" class="btn btn-default" (click)="leave()">Quitter la conversation</button>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="well" style="height:200px; padding:15px;">
-            <div *ngFor="let item of messageArray">
-            <span><strong>{{item.user}} : </strong> {{item.message}}</span>
+    <div>
+        <div class="row">
+            <div class="well" style="height:200px; padding:15px;">
+                <div *ngFor="let item of messageArray">
+                <span><strong>{{item.user}} : </strong> {{item.message}}</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-10">
-            <input type="text" class="form-control" [(ngModel)]="messageText" (keyup)="$event.keyCode == 13 && sendMessage()">            
-        </div>
-        <div class="col-sm-2">
-                <button type="button" class="btn btn-success pull-right" (click)="sendMessage()">Send</button>
+        <div class="row">
+            <div class="col-sm-10">
+                <input type="text" class="form-control" [(ngModel)]="messageText" (keyup)="$event.keyCode == 13 && sendMessage()">            
+            </div>
+            <div class="col-sm-2">
+                    <button type="button" class="btn btn-success pull-right" (click)="sendMessage()">Envoyer</button>
+            </div>
         </div>
     </div>
 </div>
