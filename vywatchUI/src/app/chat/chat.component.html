@@ -1,13 +1,7 @@
-
- <div class="container-fluid">
+<div class="container-fluid" id="container">
     
     <div class="row">
-        <!--<div class="col-sm-5">
-            <div class="form-group">
-                <label for="username">Nom</label>
-                <input type="text" [(ngModel)]="user" class="form-control" id="username" placeholder="Enter username">
-            </div>
-        </div>-->
+        
         <div class="col-sm-5">
             <label for="roomInput">Choisir conversation</label>
             <select name="roomInput" id="roomInput" class="form-control" [(ngModel)]="room">
@@ -24,13 +18,23 @@
         </div>
     </div>
 
-    <div>
-        <div class="row">
-            <div class="messagerie">
-                <div class="message" *ngFor="let item of messageArray">
-                <span><strong>{{item.user}} : </strong> {{item.message}}</span>
-                </div>
+    <div id="containersecond">
+        <div #scrollMe  id="messagerie">
+            <div  *ngFor="let item of messageArray" >
+              
+                  <div *ngIf="UserStorage==item.user; else left">
+                    <div  id="messagerigth">
+                      <span  class="col sm-2"><strong>{{item.user}} : </strong> {{item.message}}</span>
+                    </div>
+                  </div>
+                  <ng-template #left >
+                    <div id="messageleft">
+                      <span class="col sm-2"><strong>{{item.user}} : </strong> {{item.message}}</span>
+                    </div>
+                  </ng-template>
+              
             </div>
+              
         </div>
         <div class="row messagesend"> 
             <div class="col-sm-10">
@@ -42,3 +46,4 @@
         </div>
     </div>
 </div>
+

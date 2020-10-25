@@ -1,12 +1,64 @@
+#container
+{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
 .messagesend
 {
     position: fixed;
     bottom: 20px;
-    width: 1500px;
+    width: 1470px;
+    left: 50px;
 }
 
-.messagerie
+#messagerie
 {
-    
+      position: absolute;
+      top:150px;
+      border: 1px solid blue;
+      overflow-y: auto;
+      height: 600px;
+      width: 1300px;
+      left: 50px;
 }
+
+
+
+#messageleft
+{
+    background-color: rgba(99, 49, 235, 0.445);
+    color: #fff;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    height: 50px;
+    width: 1250px;
+    padding: 5px;
+}
+
+#messagerigth
+{
+    background-color: rgba(45, 145, 211, 0.582);
+    color: #fff;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    height: 50px;
+    width: 1250px;
+    padding: 5px;
+    text-align: right;
+}
+
+span
+{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
 

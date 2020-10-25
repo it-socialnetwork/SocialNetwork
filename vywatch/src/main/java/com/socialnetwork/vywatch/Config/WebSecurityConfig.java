@@ -49,12 +49,12 @@ return super.authenticationManagerBean();
     protected void configure(HttpSecurity httpSecurity) throws Exception {
     
      
-    // We don't need CSRF for this example
+    
     httpSecurity.csrf().disable().authorizeRequests().antMatchers("/vywatch/api/authenticate").permitAll().antMatchers("/vywatch/api/user/creatuser")
     .permitAll().anyRequest().authenticated().and().
     exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
     .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-    // Add a filter to validate the tokens with every request
+    
     httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class).cors();
     }
 
