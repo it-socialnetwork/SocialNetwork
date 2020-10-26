@@ -24,12 +24,16 @@
               
                   <div *ngIf="UserStorage==item.user; else left">
                     <div  id="messagerigth">
-                      <span  class="col sm-2"><strong>{{item.user}} : </strong> {{item.message}}</span>
+                        <div id="messrigth">
+                            <span  class="col sm-2"><strong>{{item.user}} : </strong> {{item.message}}</span>
+                        </div>
                     </div>
                   </div>
                   <ng-template #left >
                     <div id="messageleft">
-                      <span class="col sm-2"><strong>{{item.user}} : </strong> {{item.message}}</span>
+                        <div id="messleft">
+                            <span class="col sm-2"><strong>{{item.user}} : </strong> {{item.message}}</span>
+                        </div>
                     </div>
                   </ng-template>
               

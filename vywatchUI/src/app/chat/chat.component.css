@@ -28,7 +28,7 @@
 
 #messageleft
 {
-    background-color: rgba(99, 49, 235, 0.445);
+    
     color: #fff;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -41,7 +41,7 @@
 
 #messagerigth
 {
-    background-color: rgba(45, 145, 211, 0.582);
+   
     color: #fff;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -50,6 +50,24 @@
     width: 1250px;
     padding: 5px;
     text-align: right;
+}
+
+#messleft
+{
+    position: absolute;
+    left: 15px;
+    background-color: rgba(99, 49, 235, 0.445);
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+#messrigth
+{
+    position: absolute;
+    right: 15px;
+    background-color: rgba(45, 145, 211, 0.582);
+    max-width: 800px;
+    border-radius: 10px;
 }
 
 span
