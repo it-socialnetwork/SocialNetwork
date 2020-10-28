@@ -16,10 +16,10 @@
 #messagerie
 {
       position: absolute;
-      top:150px;
+      top:15px;
       border: 1px solid blue;
       overflow-y: auto;
-      height: 600px;
+      height: 850px;
       width: 1300px;
       left: 50px;
 }
@@ -80,3 +80,13 @@ span
 
 
 
+#listconv
+{
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+   
+    color: blueviolet;
+
+}
