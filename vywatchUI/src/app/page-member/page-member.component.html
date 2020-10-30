@@ -1,5 +1,4 @@
-<!--<app-sidenav></app-sidenav>
-
+<app-header></app-header>
 
 
 <form  class="search"(ngSubmit)="onSubmitArray1(t)"  #t="ngForm">
@@ -15,42 +14,31 @@
 
   
 
-    <div class="all">-->
+    <div class="all">
    
       
 
             
 
 
-            <!--<div class="modal-bg">
+            <div class="modal-bg">
                 <div class="model">
                     <div class="text">
-                    <h3>{{post.pseudo}}</h3>
-                    <p>{{post.text}}</p>
-                    <img [src]="retrievedImage" class="reussi">
-                    <div class="text-fa">
-                        <fa-icon [icon]="faHeart" class="fa-com-like"></fa-icon>
-                        <fa-icon [icon]="faComments" class="fa-com" ></fa-icon>
-                        <div  *ngFor="let comment of comments" class="">
-                            <div class="infos">
-                                <p class="comment-pseudo">{{comment.pseudo}} : </p>
-                                <p class="comment-text">{{comment.textcomment}}  </p>
+                        <h3>{{post.pseudo}}</h3>
+                        <p>{{post.text}}</p>
+                        <img [src]="retrievedImage" class="reussi">
+                        <div class="text-fa">
+                            <fa-icon [icon]="faHeart" class="fa-com-like"></fa-icon>
+                            <fa-icon [icon]="faComments" class="fa-com" ></fa-icon>
+                            <div  *ngFor="let comment of comments" class="">
+                                <div class="infos">
+                                    <p class="comment-pseudo">{{comment.pseudo}} : </p>
+                                    <p class="comment-text">{{comment.textcomment}}  </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    </div>
                 </div>
             </div>
-    </div>-->
-
-
-<app-header></app-header>
-<div id="post">
-    <div *ngFor="let post of posts; let i=index" class="post" (click)="getId(post.idpost, post.text, post.pseudo)">
-        <div *ngFor="let user of ListUser;"><img *ngIf="post.pseudo==user.pseudo" [src]="user.pictureprofil" class="profilPic"><p *ngIf="post.pseudo==user.pseudo" class="pseudo">{{user.pseudo}}</p></div>
-        
-        <p> {{post.text}}</p>
-        <!--<img [src]="imageTodispplays[i]" class="reussiGrand">-->
     </div>
-</div>
-    
+

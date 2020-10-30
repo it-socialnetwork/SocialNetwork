@@ -17,7 +17,7 @@ import { User } from 'src/process/Model/User/user';
   styleUrls: ['./page-member.component.css']
 })
 export class PageMemberComponent implements OnInit {
-  /*faHeart = faHeart
+  faHeart = faHeart
   retrieveResonse: any;
   retrieveResonse2: any;
   faComments = faComments
@@ -172,81 +172,7 @@ export class PageMemberComponent implements OnInit {
     test()
     {
       console.log("bhtrht")
-    }*/
-
-
-
-    UserService : UserService
-    postService : PostService
-
-    users : any
-    posts : any
-    ListUser : Array<User>
-    pseudo : String
-
-    //pour les itérations
-    ite
-
-    //Pour les gestion des images
-    retrievedImagePPUser
-    base64DataPPUser
-
-    constructor(
-      private http: HttpClient
-      ,private _router: Router
-    ) {this.ListUser=new Array<User>() }
-
-    ngOnInit()
-    {
-     
-      this.ite = 0
-      this.postService = new PostService(this.http)
-      this.UserService = new UserService(this.http, this._router)
-      this.pseudo =   localStorage.getItem('pseudo');
-
-      this.postService.displayPost(this.pseudo).subscribe(
-        Response => {
-            this.posts = Response
-            while(this.posts[this.ite] != null){
-              this.users=new User();
-             /* this.base64Data = this.posts[this.ite].picturepost
-              this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-              this.imageTodispplays.push(this.retrievedImage)*/
-              this.UserService.getUser(this.posts[this.ite].pseudo).subscribe((res) => {
-                  this.users = res
-                  this.base64DataPPUser = this.users.pictureprofil
-                  this.retrievedImagePPUser = 'data:image/jpeg;base64,' + this.base64DataPPUser;
-                  this.users.pictureprofil=this.retrievedImagePPUser;
-                  this.ListUser.push(this.users)
-                  
-              },
-              ) ;
-             this.ite ++
-            }
-           
-        })
     }
-
-    getId(id, text, iduser){
-  
-        /*console.log(id)
-        console.log(text)
-        console.log(iduser)
-        var modalBg = document.querySelector('.modal-bg');
-        modalBg.classList.add('bg-active');
-        this.postService.getOnePost(id).subscribe(
-          Response => {
-              this.post = Response
-              this.base64Data = this.post.picturepost
-              console.log( this.post.picturepost)
-              this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-              this.postService.displayComm(id).subscribe(
-                Response => {
-                  this.comments =  Response
-          
-                })
-          })*/
-      }
 }
 
 
